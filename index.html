@@ -536,23 +536,13 @@ p{
 <script>
 let heartTimer;
 let slideshowStarted = false;
-let typedStarted = false;
-
-const letterText = `On your birthday, I just want to remind you that you are truly special.
-
-You deserve happiness that feels peaceful, love that feels safe, and moments that make you smile without any reason.
-
-May this new year of your life bring you closer to everything your heart silently wishes for.
-
-Happy Birthday, Priya ❤`;
+let slideIndex = 0;
 
 const slides = [
   { img:"photo1.jpg", text:"Some memories stay forever." },
   { img:"photo2.jpg", text:"Some smiles become part of the heart." },
   { img:"photo3.jpg", text:"Some people make life feel warmer." }
 ];
-
-let slideIndex = 0;
 
 function openSurprise(){
   const lock = document.getElementById("lock");
@@ -575,7 +565,6 @@ function openSurprise(){
   }
 
   startHearts();
-  setTimeout(typeLetter, 1200);
   startSlideshow();
   setTimeout(()=>clearInterval(heartTimer), 12000);
 }
@@ -599,23 +588,30 @@ function startSlideshow(){
 
   const img = document.getElementById("slideImage");
   const text = document.getElementById("slideText");
-  if(!img || !text) return;
+
+  if(!img || !text){
+    console.log("Slideshow image/text not found");
+    return;
+  }
 
   setInterval(()=>{
     slideIndex = (slideIndex + 1) % slides.length;
-    img.style.opacity = 0;
+
+    img.style.opacity = "0";
 
     setTimeout(()=>{
       img.src = slides[slideIndex].img;
       text.innerText = slides[slideIndex].text;
-      img.style.opacity = 1;
+      img.style.opacity = "1";
     },400);
+
   },2800);
 }
 
 function showSecret(){
   const box = document.getElementById("secretBox");
   if(!box) return;
+
   box.style.display = "block";
   box.scrollIntoView({behavior:"smooth", block:"center"});
 }
