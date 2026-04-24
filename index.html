@@ -58,20 +58,6 @@ body{
   position:relative;
 }
 
-.music-btn{
-  position:fixed;
-  top:18px;
-  right:18px;
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  border:1px solid rgba(255,255,255,.18);
-  background:rgba(255,255,255,.08);
-  color:#fff;
-  z-index:20;
-  backdrop-filter:blur(10px);
-}
-
 .glass{
   background:rgba(255,255,255,.075);
   border:1px solid rgba(255,255,255,.14);
@@ -415,8 +401,6 @@ transition:0.4s;
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<button class="music-btn" onclick="toggleMusic()">♪</button>
-
 <div class="page">
   <div class="wrap">
 
@@ -581,18 +565,6 @@ function openSurprise(){
   setTimeout(()=>clearInterval(heartTimer), 12000);
 }
 
-function toggleMusic(){
-  const music = document.getElementById("music");
-  if(!music) return;
-
-  if(musicPlaying){
-    music.pause();
-    musicPlaying = false;
-  }else{
-    music.volume = 0.35;
-    music.play().then(()=>musicPlaying = true).catch(()=>{});
-  }
-}
 
 function startHearts(){
   heartTimer = setInterval(()=>{
