@@ -21,13 +21,19 @@ body{
   color:#fff;
   overflow-x:hidden;
 }
-
+.page::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:url('bg.jpg') center/cover no-repeat;
+  filter:blur(18px) brightness(0.6);
+  z-index:-2;
+}
 .page{
   min-height:100vh;
-  background:
-    linear-gradient(rgba(8,4,12,0.82), rgba(5,3,8,0.95)),
-    url('bg.jpg') center/cover no-repeat;
+  background:rgba(10,5,15,0.6);
   position:relative;
+  z-index:1;
 }
 
 .page::after{
@@ -79,6 +85,9 @@ body{
   text-align:center;
   overflow:hidden;
   position:relative;
+  box-shadow:
+  0 25px 80px rgba(0,0,0,0.6),
+  0 0 40px rgba(255,100,170,0.2);
 }
 
 .hero-card:before{
@@ -242,6 +251,11 @@ p{
   backdrop-filter:blur(18px);
   box-shadow:0 25px 60px rgba(0,0,0,0.45);
   transition:0.3s;
+  transform:translateY(0);
+transition:0.4s;
+}
+  .memory-card:active{
+  transform:scale(0.98);
 }
 
 .memory-card:hover{
