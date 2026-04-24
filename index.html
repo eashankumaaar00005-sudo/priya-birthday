@@ -370,18 +370,18 @@ p{
   .letter-image-card{
   margin-top:24px;
   border-radius:26px;
-  padding:10px;
+  padding:0;
   overflow:hidden;
-  background:rgba(255,255,255,0.07);
+  background:transparent;
   box-shadow:
-    0 25px 70px rgba(0,0,0,.55),
-    0 0 35px rgba(255,150,90,.18);
+    0 25px 80px rgba(0,0,0,.7),
+    0 0 38px rgba(255,150,90,.20);
 }
 
 .letter-image-card img{
   width:100%;
   display:block;
-  border-radius:20px;
+  border-radius:22px;
   }
 </style>
 </head>
@@ -588,27 +588,6 @@ function startHearts(){
     document.body.appendChild(h);
     setTimeout(()=>h.remove(),5000);
   },900);
-}
-
-function typeLetter(){
-  if(typedStarted) return;
-  typedStarted = true;
-
-  const box = document.getElementById("typedLetter");
-  if(!box) return;
-
-  let i = 0;
-  const speed = 32;
-
-  function typing(){
-    if(i < letterText.length){
-      box.innerHTML += letterText[i] === "\n" ? "<br>" : letterText[i];
-      i++;
-      setTimeout(typing, speed);
-    }
-  }
-
-  typing();
 }
 
 function startSlideshow(){
