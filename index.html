@@ -26,7 +26,7 @@ body{
   position:fixed;
   inset:0;
   background:url('bg.jpg') center/cover no-repeat;
-  filter:blur(18px) brightness(0.6);
+  filter:blur(18px) brightness(0.5);
   z-index:-2;
 }
 .page{
@@ -77,6 +77,9 @@ body{
   border:1px solid rgba(255,255,255,.14);
   box-shadow:0 20px 60px rgba(0,0,0,.35);
   backdrop-filter:blur(12px);
+  box-shadow:
+  0 20px 60px rgba(0,0,0,.45),
+  inset 0 1px 0 rgba(255,255,255,0.25);
 }
 
 .hero-card{
@@ -88,6 +91,8 @@ body{
   box-shadow:
   0 25px 80px rgba(0,0,0,0.6),
   0 0 40px rgba(255,100,170,0.2);
+  transform:scale(1.02);
+border:1px solid rgba(255,255,255,0.18);
 }
 
 .hero-card:before{
@@ -185,7 +190,8 @@ p{
   font-size:31px;
   font-weight:500;
   margin-bottom:12px;
-}
+  text-shadow:0 0 15px rgba(255,120,180,0.3);
+  }
 
 .center{
   text-align:center;
