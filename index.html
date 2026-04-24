@@ -367,6 +367,22 @@ p{
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;scroll-behavior:auto!important}
 }
+  .letter-image-card{
+  margin-top:24px;
+  border-radius:26px;
+  padding:10px;
+  overflow:hidden;
+  background:rgba(255,255,255,0.07);
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.55),
+    0 0 35px rgba(255,150,90,.18);
+}
+
+.letter-image-card img{
+  width:100%;
+  display:block;
+  border-radius:20px;
+  }
 </style>
 </head>
 
@@ -487,22 +503,21 @@ p{
       </section>
 
       <section class="section fade">
-        <h2 class="section-title">A Letter For You</h2>
+  <h2 class="section-title">A Letter For You</h2>
 
-        <div class="letter">
-          <h2>Dear Priya,</h2>
-          <p id="typedLetter"></p>
-        </div>
+  <div class="letter-image-card glass">
+    <img src="letter.jpg" alt="A handwritten birthday letter for Priya">
+  </div>
 
-        <button class="surprise-btn" onclick="showSecret()">One Last Surprise ❤</button>
+  <button class="surprise-btn" onclick="showSecret()">One Last Surprise ❤</button>
 
-        <div id="secretBox" class="secret glass">
-          <h2 class="section-title">Just One More Thing</h2>
-          <p>
-            You are not just wished today.  
-            You are celebrated, remembered, and held close in every little memory.
-          </p>
-        </div>
+  <div id="secretBox" class="secret glass">
+    <h2 class="section-title">Just One More Thing</h2>
+    <p>
+      You are not just wished today.  
+      You are celebrated, remembered, and held close in every little memory.
+    </p>
+  </div>
       </section>
 
       <section class="final fade">
