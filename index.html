@@ -93,6 +93,10 @@ body{
   0 0 40px rgba(255,100,170,0.2);
   transform:scale(1.02);
 border:1px solid rgba(255,255,255,0.18);
+  min-height:85vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
 }
 
 .hero-card:before{
@@ -154,8 +158,10 @@ p{
   font-size:16px;
   font-weight:700;
   background:linear-gradient(135deg,#ff5a9d,#c8844c);
-  box-shadow:0 14px 35px rgba(255,82,153,.34);
-}
+  box-shadow:
+    0 14px 35px rgba(255,82,153,.4),
+    0 0 25px rgba(255,82,153,.4);
+    }
 
 .down{
   margin-top:22px;
@@ -552,20 +558,24 @@ transition:0.4s;
 </div>
 
 <script>
-let musicPlaying = false;
-let heartTimer;
-
 function openSurprise(){
-  document.getElementById("lock").classList.add("hidden");
-  document.getElementById("content").classList.remove("hidden");
+  const lock = document.getElementById("lock");
+  const content = document.getElementById("content");
+
+  lock.style.opacity = "0";
+  lock.style.transform = "scale(1.05)";
+
+  setTimeout(()=>{
+    lock.style.display = "none";
+    content.classList.remove("hidden");
+  },500);
 
   const music = document.getElementById("music");
   if(music){
     music.volume = 0.35;
-    music.play().then(()=>{
-      musicPlaying = true;
-    }).catch(()=>{});
+    music.play().catch(()=>{});
   }
+
 
   startHearts();
   setTimeout(()=>clearInterval(heartTimer), 12000);
