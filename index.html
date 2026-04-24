@@ -520,7 +520,7 @@ p{
       Not just today… 
       Aap Har Din Khush Raho, Sirf Aaj Hi Nahi, Aapki Muskurhat Hamesha Aapke Face Par Rahe, Aapke Life Me koi Problem na, Ha Mai Hu Sabse Bada Problem To But Ye Bhi Kuch Time Me Khtm Ho jayega
       Aap Yu Hi Hasti Khelti Muskurati Raho, Aap Jo Kar Rahe Ho Jiske Liye Khudko Sacrifice Kar Rahe Ho Wo Bano Aap. Aapke Naam Me 'DOCTOR' Add Ho
-      Yahi Duaa Hai Meri Ki Aapko Har Wo Chiz Or Khushiya Mile Jiske Aap Hakdar Ho.
+      Yahi Duaa Hai Meri Ki Aapko Har Wo Chiz Or Khushiya Mile Jiske Aap Hakdaar Ho.
     </p>
   </div>
       </section>
@@ -568,20 +568,20 @@ function openSurprise(){
 
   startHearts();
   startSlideshow();
-  setTimeout(()=>clearInterval(heartTimer), 12000);
+  h.style.fontSize = (12 + Math.random() * 18) + "px";
 }
 
 function startHearts(){
   heartTimer = setInterval(()=>{
     const h = document.createElement("div");
     h.className = "heart";
-    h.innerHTML = "❤";
+    h.innerHTML = "❤️";
     h.style.left = Math.random() * 92 + "vw";
     h.style.fontSize = (14 + Math.random() * 10) + "px";
-    h.style.color = Math.random() > .5 ? "#ff7ab7" : "#ffd0df";
+    const colors = ["#ff7ab7","#ffd0df","#ff4f9a","#ffc0cb"]; h.style.color = colors[Math.floor(Math.random()*colors.length)];
     document.body.appendChild(h);
     setTimeout(()=>h.remove(),5000);
-  },900);
+  },450);
 }
 
 function startSlideshow(){
