@@ -1,1 +1,560 @@
-hello
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Evening of Memories | Priya</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:#09050b;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+.page{
+  min-height:100vh;
+  background:
+    radial-gradient(circle at top left, rgba(255,95,170,.20), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(255,175,90,.13), transparent 35%),
+    linear-gradient(180deg,#120816 0%,#09050b 55%,#050306 100%);
+}
+
+.wrap{
+  width:100%;
+  max-width:430px;
+  margin:0 auto;
+  padding:22px;
+}
+
+.screen{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  position:relative;
+}
+
+.music-btn{
+  position:fixed;
+  top:18px;
+  right:18px;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  z-index:20;
+  backdrop-filter:blur(10px);
+}
+
+.glass{
+  background:rgba(255,255,255,.075);
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
+  backdrop-filter:blur(12px);
+}
+
+.hero-card{
+  border-radius:34px;
+  padding:28px 22px;
+  text-align:center;
+  overflow:hidden;
+  position:relative;
+}
+
+.hero-card:before{
+  content:"";
+  position:absolute;
+  inset:-80px;
+  background:
+    radial-gradient(circle, rgba(255,114,172,.18), transparent 45%);
+  animation:softPulse 5s ease-in-out infinite;
+  z-index:-1;
+}
+
+@keyframes softPulse{
+  0%,100%{transform:scale(1);opacity:.8}
+  50%{transform:scale(1.08);opacity:1}
+}
+
+.tag{
+  display:inline-block;
+  padding:8px 14px;
+  border-radius:999px;
+  font-size:12px;
+  letter-spacing:.6px;
+  color:#ffd6e8;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.12);
+  margin-bottom:22px;
+}
+
+h1{
+  font-family: Georgia, serif;
+  font-size:42px;
+  line-height:1.08;
+  font-weight:500;
+  margin-bottom:14px;
+}
+
+.script{
+  font-size:54px;
+  color:#ff79b6;
+  text-shadow:0 0 22px rgba(255,92,160,.45);
+}
+
+p{
+  font-size:15.5px;
+  line-height:1.65;
+  color:#f1dfe9;
+}
+
+.btn{
+  width:100%;
+  margin-top:28px;
+  padding:16px 18px;
+  border:0;
+  border-radius:999px;
+  color:#fff;
+  font-size:16px;
+  font-weight:700;
+  background:linear-gradient(135deg,#ff5a9d,#c8844c);
+  box-shadow:0 14px 35px rgba(255,82,153,.34);
+}
+
+.down{
+  margin-top:22px;
+  font-size:26px;
+  color:#ffd6e8;
+  animation:bounce 1.8s infinite;
+}
+
+@keyframes bounce{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(8px)}
+}
+
+.hidden{
+  display:none;
+}
+
+.fade{
+  animation:fadeUp .75s ease both;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(22px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.section{
+  padding:44px 0;
+}
+
+.section-title{
+  font-family:Georgia,serif;
+  font-size:31px;
+  font-weight:500;
+  margin-bottom:12px;
+}
+
+.center{
+  text-align:center;
+}
+
+.photo-line{
+  display:flex;
+  gap:12px;
+  margin-top:26px;
+}
+
+.polaroid{
+  flex:1;
+  background:#f6e8da;
+  padding:7px 7px 18px;
+  border-radius:8px;
+  transform:rotate(-2deg);
+  box-shadow:0 18px 35px rgba(0,0,0,.35);
+}
+
+.polaroid:nth-child(2){
+  transform:rotate(2deg) translateY(14px);
+}
+
+.polaroid:nth-child(3){
+  transform:rotate(-1deg);
+}
+
+.polaroid img{
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  border-radius:5px;
+  display:block;
+}
+
+.quote-card{
+  margin-top:34px;
+  border-radius:30px;
+  padding:26px 22px;
+  text-align:center;
+}
+
+.quote{
+  font-family:Georgia,serif;
+  font-size:28px;
+  line-height:1.35;
+  color:#ffe2ef;
+}
+
+.memory-card{
+  margin-top:18px;
+  border-radius:26px;
+  padding:14px;
+}
+
+.memory-card img{
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  border-radius:20px;
+  display:block;
+}
+
+.memory-card p{
+  padding:15px 6px 4px;
+  color:#ffe5ef;
+}
+
+.list{
+  margin-top:22px;
+  display:grid;
+  gap:14px;
+}
+
+.reason{
+  display:flex;
+  gap:13px;
+  align-items:flex-start;
+  border-radius:20px;
+  padding:16px;
+}
+
+.icon{
+  width:38px;
+  height:38px;
+  min-width:38px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(255,106,166,.20);
+  border:1px solid rgba(255,255,255,.12);
+}
+
+.reason h3{
+  font-size:16px;
+  margin-bottom:4px;
+}
+
+.timeline{
+  margin-top:26px;
+  padding-left:18px;
+  border-left:1px solid rgba(255,255,255,.18);
+}
+
+.t-item{
+  position:relative;
+  margin-bottom:24px;
+}
+
+.t-item:before{
+  content:"";
+  position:absolute;
+  left:-24px;
+  top:4px;
+  width:11px;
+  height:11px;
+  border-radius:50%;
+  background:#ff74af;
+  box-shadow:0 0 18px #ff74af;
+}
+
+.t-item h3{
+  color:#ffd2e5;
+  margin-bottom:5px;
+}
+
+.letter{
+  margin-top:24px;
+  background:#f3dfc8;
+  color:#2b1a13;
+  border-radius:18px;
+  padding:26px 22px;
+  box-shadow:0 20px 55px rgba(0,0,0,.45);
+  font-family:Georgia,serif;
+  position:relative;
+}
+
+.letter:before{
+  content:"";
+  position:absolute;
+  top:-12px;
+  left:42%;
+  width:70px;
+  height:24px;
+  background:rgba(198,137,84,.35);
+  transform:rotate(-4deg);
+  border-radius:3px;
+}
+
+.letter h2{
+  font-size:29px;
+  margin-bottom:14px;
+}
+
+.letter p{
+  color:#382218;
+  font-size:16px;
+}
+
+.final{
+  text-align:center;
+  padding:54px 0 80px;
+}
+
+.heart{
+  position:fixed;
+  bottom:-30px;
+  pointer-events:none;
+  opacity:.65;
+  animation:rise 5s linear forwards;
+  z-index:10;
+}
+
+@keyframes rise{
+  to{
+    transform:translateY(-110vh);
+    opacity:0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{
+    animation:none!important;
+    scroll-behavior:auto!important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()">♪</button>
+
+<div class="page">
+  <div class="wrap">
+
+    <section id="lock" class="screen">
+      <div class="hero-card glass fade">
+        <div class="tag">PRIVATE MEMORY</div>
+
+        <h1>Only<br><span class="script">Priya</span><br>can open this</h1>
+
+        <p>
+          A little evening, a few memories, and one birthday wish made only for you.
+        </p>
+
+        <button class="btn" onclick="openSurprise()">Open Your Surprise ❤</button>
+        <div class="down">⌄</div>
+      </div>
+    </section>
+
+    <main id="content" class="hidden">
+
+      <section class="section center fade">
+        <div class="tag">EVENING OF MEMORIES</div>
+        <h1>Happy Birthday<br><span class="script">Priya</span></h1>
+        <p>
+          You are the best part of so many little memories.
+        </p>
+
+        <div class="photo-line">
+          <div class="polaroid"><img src="photo1.jpg" alt="Memory"></div>
+          <div class="polaroid"><img src="photo2.jpg" alt="Memory"></div>
+          <div class="polaroid"><img src="photo3.jpg" alt="Memory"></div>
+        </div>
+      </section>
+
+      <section class="section fade">
+        <div class="quote-card glass">
+          <div class="quote">
+            Some people make ordinary days feel beautiful.
+          </div>
+          <p style="margin-top:14px;">You are one of them.</p>
+        </div>
+      </section>
+
+      <section class="section fade">
+        <h2 class="section-title">Our Little Memories</h2>
+        <p>Small moments. Big feelings. Things that stay quietly in the heart.</p>
+
+        <div class="memory-card glass">
+          <img src="photo1.jpg" alt="Priya memory">
+          <p>The kind of moment that does not need many words.</p>
+        </div>
+
+        <div class="memory-card glass">
+          <img src="photo2.jpg" alt="Priya memory">
+          <p>Some smiles become memories without even trying.</p>
+        </div>
+
+        <div class="memory-card glass">
+          <img src="photo3.jpg" alt="Priya memory">
+          <p>And some people become special without asking for it.</p>
+        </div>
+      </section>
+
+      <section class="section fade">
+        <h2 class="section-title">Why You Are Special</h2>
+
+        <div class="list">
+          <div class="reason glass">
+            <div class="icon">❤</div>
+            <div>
+              <h3>Your Smile</h3>
+              <p>It can make a normal moment feel lighter.</p>
+            </div>
+          </div>
+
+          <div class="reason glass">
+            <div class="icon">✦</div>
+            <div>
+              <h3>Your Nature</h3>
+              <p>You carry softness without even trying.</p>
+            </div>
+          </div>
+
+          <div class="reason glass">
+            <div class="icon">☾</div>
+            <div>
+              <h3>Your Presence</h3>
+              <p>Some people just make life feel warmer. You do.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section fade">
+        <h2 class="section-title">Our Journey</h2>
+        <div class="timeline">
+          <div class="t-item">
+            <h3>First Talk</h3>
+            <p>The beginning of something simple, but memorable.</p>
+          </div>
+
+          <div class="t-item">
+            <h3>Little Moments</h3>
+            <p>Small conversations, random laughs, quiet memories.</p>
+          </div>
+
+          <div class="t-item">
+            <h3>Today</h3>
+            <p>A day to remind you how special you are.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section fade">
+        <h2 class="section-title">A Letter For You</h2>
+
+        <div class="letter">
+          <h2>Dear Priya,</h2>
+          <p>
+            On your birthday, I just want to remind you that you are truly special.
+            <br><br>
+            You deserve happiness that feels peaceful, love that feels safe, and moments that make you smile without any reason.
+            <br><br>
+            May this new year of your life bring you closer to everything your heart silently wishes for.
+            <br><br>
+            Happy Birthday, Priya ❤
+          </p>
+        </div>
+      </section>
+
+      <section class="final fade">
+        <h1><span class="script">Priya</span></h1>
+        <p>Made with all my heart, just for you.</p>
+      </section>
+
+    </main>
+
+  </div>
+</div>
+
+<script>
+let musicPlaying = false;
+let heartTimer;
+
+function openSurprise(){
+  document.getElementById("lock").classList.add("hidden");
+  document.getElementById("content").classList.remove("hidden");
+
+  const music = document.getElementById("music");
+  if(music){
+    music.volume = 0.35;
+    music.play().then(()=>{
+      musicPlaying = true;
+    }).catch(()=>{});
+  }
+
+  startHearts();
+  setTimeout(()=>clearInterval(heartTimer), 12000);
+}
+
+function toggleMusic(){
+  const music = document.getElementById("music");
+  if(!music) return;
+
+  if(musicPlaying){
+    music.pause();
+    musicPlaying = false;
+  }else{
+    music.volume = 0.35;
+    music.play().then(()=>musicPlaying = true).catch(()=>{});
+  }
+}
+
+function startHearts(){
+  heartTimer = setInterval(()=>{
+    const h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = "❤";
+    h.style.left = Math.random() * 92 + "vw";
+    h.style.fontSize = (14 + Math.random() * 10) + "px";
+    h.style.color = Math.random() > .5 ? "#ff7ab7" : "#ffd0df";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),5000);
+  },900);
+}
+</script>
+
+</body>
+  </html>
