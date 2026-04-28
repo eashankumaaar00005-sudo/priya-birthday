@@ -405,6 +405,60 @@ p{
   display:block;
   border-radius:22px;
   }
+  .photo-line{
+  display:flex;
+  gap:10px;
+  margin-top:30px;
+  perspective:900px;
+}
+
+.polaroid{
+  flex:1;
+  background:linear-gradient(180deg,#fff7ef,#ead7c4);
+  padding:7px 7px 20px;
+  border-radius:10px;
+  box-shadow:
+    0 18px 45px rgba(0,0,0,.55),
+    0 0 30px rgba(255,120,180,.16);
+  position:relative;
+  overflow:hidden;
+}
+
+.polaroid::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    120deg,
+    rgba(255,255,255,.35),
+    transparent 35%,
+    transparent 70%,
+    rgba(255,255,255,.16)
+  );
+  pointer-events:none;
+}
+
+.polaroid img{
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  border-radius:6px;
+  display:block;
+  filter:contrast(1.05) saturate(1.08);
+}
+
+.polaroid:nth-child(1){
+  transform:rotate(-5deg) translateY(6px);
+}
+
+.polaroid:nth-child(2){
+  transform:rotate(2deg) translateY(18px) scale(1.04);
+  z-index:2;
+}
+
+.polaroid:nth-child(3){
+  transform:rotate(5deg) translateY(4px);
+}
 </style>
 </head>
 
