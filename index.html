@@ -62,21 +62,20 @@ body{
     inset 0 1px 0 rgba(255,255,255,.25);
 }
 
-.hero-card{
-  border-radius:34px;
-  padding:28px 22px;
-  text-align:center;
-  overflow:hidden;
-  position:relative;
-  min-height:85vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  transform:scale(1.02);
-  border:1px solid rgba(255,255,255,.18);
+.hero-card {
+  backdrop-filter: blur(18px);
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.08),
+    rgba(255,255,255,0.03)
+  );
+
+  border: 1px solid rgba(255,255,255,0.25);
+
   box-shadow:
-    0 25px 80px rgba(0,0,0,.6),
-    0 0 40px rgba(255,100,170,.2);
+    0 30px 100px rgba(0,0,0,0.8),
+    0 0 60px rgba(255,120,180,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.3);
 }
 .hero-card:before{
   content:"";
@@ -85,6 +84,16 @@ body{
   background:radial-gradient(circle,rgba(255,114,172,.18),transparent 45%);
   animation:softPulse 5s ease-in-out infinite;
   z-index:-1;
+}
+  .hero-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(
+    circle at 50% 30%,
+    rgba(255,120,180,0.25),
+    transparent 60%);
+  pointer-events:none;
 }
 @keyframes softPulse{
   0%,100%{transform:scale(1);opacity:.8}
@@ -104,10 +113,14 @@ body{
 }
 h1{
   font-family:'Gaegu', cursive;
-  font-size:42px;
-  line-height:1.08;
-  font-weight:500;
+  font-size:44px;
+  line-height:1.05;
+  font-weight:600;
   margin-bottom:14px;
+
+  text-shadow:
+    0 0 25px rgba(255,120,180,.5),
+    0 0 50px rgba(255,120,180,.25);
 }
 .script{
   font-size:58px;
@@ -127,15 +140,19 @@ p{
   width:100%;
   margin-top:28px;
   padding:16px 18px;
-  border:0;
   border-radius:999px;
-  color:#fff;
-  font-size:16px;
-  font-weight:700;
-  background:linear-gradient(135deg,#ff5a9d,#c8844c);
+
+  background: linear-gradient(135deg,#ff4d6d,#ff9a8b);
+
   box-shadow:
-    0 14px 35px rgba(255,82,153,.4),
-    0 0 25px rgba(255,82,153,.4);
+    0 15px 40px rgba(255,80,120,.5),
+    0 0 30px rgba(255,80,120,.4);
+
+  transition:0.3s ease;
+}
+
+.btn:active{
+  transform:scale(0.96);
 }
 .down{
   margin-top:22px;
@@ -571,7 +588,6 @@ function openSurprise(){
 
   startHearts();
   startSlideshow();
-  h.style.fontSize = (12 + Math.random() * 18) + "px";
 }
 
 function startHearts(){
