@@ -73,16 +73,13 @@ body{
   flex-direction:column;
   justify-content:center;
   transform:scale(1.02);
-
   backdrop-filter: blur(18px);
   background: linear-gradient(
     180deg,
     rgba(255,255,255,0.08),
     rgba(255,255,255,0.03)
   );
-
   border:1px solid rgba(255,255,255,0.25);
-
   box-shadow:
     0 30px 100px rgba(0,0,0,0.8),
     0 0 60px rgba(255,120,180,0.25),
@@ -96,7 +93,7 @@ body{
   animation:softPulse 5s ease-in-out infinite;
   z-index:-1;
 }
-  .hero-card::after{
+.hero-card::after{
   content:"";
   position:absolute;
   inset:0;
@@ -128,7 +125,6 @@ h1{
   line-height:1.05;
   font-weight:600;
   margin-bottom:14px;
-
   text-shadow:
     0 0 25px rgba(255,120,180,.5),
     0 0 50px rgba(255,120,180,.25);
@@ -152,29 +148,29 @@ p{
   margin-top:28px;
   padding:16px 18px;
   border-radius:999px;
-
+  border:0;
+  color:#fff;
+  font-family:'Gaegu', cursive;
+  font-size:18px;
+  font-weight:700;
   background: linear-gradient(135deg,#ff4d6d,#ff9a8b);
-
   box-shadow:
     0 15px 40px rgba(255,80,120,.5),
     0 0 30px rgba(255,80,120,.4);
-
   transition:0.3s ease;
+  cursor:pointer;
 }
-
-.btn:active{
-  transform:scale(0.96);
+.btn:active{transform:scale(0.96)}
+.btn:hover{
+  box-shadow:
+    0 20px 50px rgba(255,80,120,.7),
+    0 0 40px rgba(255,80,120,.6);
 }
 .down{
   margin-top:22px;
   font-size:26px;
   color:#ffd6e8;
   animation:bounce 1.8s infinite;
-}
-  .btn:hover{
-  box-shadow:
-    0 20px 50px rgba(255,80,120,.7),
-    0 0 40px rgba(255,80,120,.6);
 }
 @keyframes bounce{
   0%,100%{transform:translateY(0)}
@@ -187,7 +183,6 @@ p{
   transform:translateY(30px);
   transition:all 0.8s ease;
 }
-
 .fade.show{
   opacity:1;
   transform:translateY(0);
@@ -207,30 +202,211 @@ p{
 }
 .center{text-align:center}
 
+/* Birthday cake animation */
+.cake-section{
+  padding-top:70px;
+}
+.cake-scene{
+  border-radius:30px;
+  padding:34px 20px 45px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.cake-scene::before{
+  content:"";
+  position:absolute;
+  inset:-40px;
+  background:
+    radial-gradient(circle at 20% 25%,rgba(255,255,255,.35) 0 2px,transparent 3px),
+    radial-gradient(circle at 75% 35%,rgba(255,210,230,.45) 0 2px,transparent 3px),
+    radial-gradient(circle at 50% 75%,rgba(255,255,255,.25) 0 2px,transparent 3px),
+    radial-gradient(circle at 85% 80%,rgba(255,130,180,.35) 0 2px,transparent 3px);
+  animation:sparkleMove 7s linear infinite;
+  pointer-events:none;
+}
+.cake-title{
+  font-family:'Gaegu', cursive;
+  font-size:26px;
+  color:#ffd6e8;
+  margin-bottom:35px;
+  text-shadow:0 0 18px rgba(255,120,180,.5);
+  position:relative;
+  z-index:3;
+}
+.cake{
+  width:240px;
+  height:260px;
+  margin:0 auto;
+  position:relative;
+  z-index:2;
+}
+.cake-layer,
+.cake-top,
+.plate{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  opacity:0;
+}
+.cake-top{
+  width:170px;
+  height:38px;
+  bottom:140px;
+  border-radius:50%;
+  background:linear-gradient(180deg,#fff3f7,#ffadc9);
+  animation:cakeDrop .7s ease forwards;
+  animation-delay:.3s;
+  z-index:4;
+}
+.cake-top::after{
+  content:"";
+  position:absolute;
+  left:16px;
+  right:16px;
+  bottom:-15px;
+  height:22px;
+  background:
+    radial-gradient(circle at 12px 0,#fff3f7 0 12px,transparent 13px),
+    radial-gradient(circle at 50px 0,#fff3f7 0 13px,transparent 14px),
+    radial-gradient(circle at 90px 0,#fff3f7 0 11px,transparent 12px),
+    radial-gradient(circle at 125px 0,#fff3f7 0 13px,transparent 14px);
+}
+.cake-layer{
+  height:48px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#ff6fae,#ff9cc8);
+  box-shadow:
+    inset 0 6px 0 rgba(255,255,255,.25),
+    0 10px 25px rgba(255,80,150,.25);
+}
+.layer-1{
+  width:170px;
+  bottom:100px;
+  animation:cakeDrop .7s ease forwards;
+  animation-delay:.55s;
+  z-index:3;
+}
+.layer-2{
+  width:205px;
+  bottom:58px;
+  background:linear-gradient(135deg,#ff4f9a,#ff85bc);
+  animation:cakeDrop .7s ease forwards;
+  animation-delay:.8s;
+  z-index:2;
+}
+.layer-3{
+  width:235px;
+  bottom:18px;
+  background:linear-gradient(135deg,#d94b8f,#ff7ab7);
+  animation:cakeDrop .7s ease forwards;
+  animation-delay:1.05s;
+  z-index:1;
+}
+.plate{
+  width:250px;
+  height:18px;
+  bottom:5px;
+  border-radius:50%;
+  background:rgba(255,255,255,.35);
+  animation:plateIn .6s ease forwards;
+}
+.candle{
+  position:absolute;
+  left:50%;
+  bottom:168px;
+  width:16px;
+  height:52px;
+  border-radius:8px;
+  background:repeating-linear-gradient(
+    45deg,
+    #fff,
+    #fff 7px,
+    #ff6fae 7px,
+    #ff6fae 14px
+  );
+  transform:translateX(-50%) translateY(-80px);
+  opacity:0;
+  animation:candleIn .7s ease forwards;
+  animation-delay:1.45s;
+  z-index:6;
+}
+.flame{
+  position:absolute;
+  top:-25px;
+  left:50%;
+  width:18px;
+  height:26px;
+  transform:translateX(-50%);
+  border-radius:50% 50% 45% 45%;
+  background:linear-gradient(180deg,#fff6a5,#ff9d00,#ff4d6d);
+  box-shadow:
+    0 0 20px rgba(255,180,40,.9),
+    0 0 40px rgba(255,90,120,.5);
+  animation:flameFlicker .18s infinite alternate;
+}
+@keyframes sparkleMove{
+  from{transform:translateY(0)}
+  to{transform:translateY(20px)}
+}
+@keyframes cakeDrop{
+  0%{opacity:0;transform:translateX(-50%) translateY(-80px) scale(.85)}
+  70%{opacity:1;transform:translateX(-50%) translateY(8px) scale(1.03)}
+  100%{opacity:1;transform:translateX(-50%) translateY(0) scale(1)}
+}
+@keyframes plateIn{
+  from{opacity:0;transform:translateX(-50%) scaleX(.4)}
+  to{opacity:1;transform:translateX(-50%) scaleX(1)}
+}
+@keyframes candleIn{
+  to{opacity:1;transform:translateX(-50%) translateY(0)}
+}
+@keyframes flameFlicker{
+  from{transform:translateX(-50%) scale(1) rotate(-2deg)}
+  to{transform:translateX(-50%) scale(1.12) rotate(2deg)}
+}
+
 .photo-line{
   display:flex;
-  gap:12px;
-  margin-top:26px;
+  gap:10px;
+  margin-top:30px;
+  perspective:900px;
 }
 .polaroid{
   flex:1;
-  background:#f6e8da;
-  padding:7px 7px 18px;
-  border-radius:8px;
-  transform:rotate(-2deg);
+  background:linear-gradient(180deg,#fff7ef,#ead7c4);
+  padding:7px 7px 20px;
+  border-radius:10px;
   box-shadow:
-    0 15px 35px rgba(0,0,0,.4),
-    0 0 20px rgba(255,120,180,.2);
+    0 18px 45px rgba(0,0,0,.55),
+    0 0 30px rgba(255,120,180,.16);
+  position:relative;
+  overflow:hidden;
 }
-.polaroid:nth-child(2){transform:rotate(2deg) translateY(14px)}
-.polaroid:nth-child(3){transform:rotate(-1deg)}
+.polaroid::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    120deg,
+    rgba(255,255,255,.35),
+    transparent 35%,
+    transparent 70%,
+    rgba(255,255,255,.16)
+  );
+  pointer-events:none;
+}
 .polaroid img{
   width:100%;
   aspect-ratio:4/5;
   object-fit:cover;
-  border-radius:5px;
+  border-radius:6px;
   display:block;
+  filter:contrast(1.05) saturate(1.08);
 }
+.polaroid:nth-child(1){transform:rotate(-5deg) translateY(6px)}
+.polaroid:nth-child(2){transform:rotate(2deg) translateY(18px) scale(1.04);z-index:2}
+.polaroid:nth-child(3){transform:rotate(5deg) translateY(4px)}
 
 .quote-card{
   margin-top:34px;
@@ -256,10 +432,7 @@ p{
   transform:translateY(0);
   transition:transform .3s ease, box-shadow .3s ease;
 }
-
-.memory-card:active{
-  transform:scale(.98);
-}
+.memory-card:active{transform:scale(.98)}
 .memory-card:hover{
   transform:translateY(-6px);
   box-shadow:0 30px 80px rgba(0,0,0,.6);
@@ -381,6 +554,22 @@ p{
   min-height:260px;
 }
 
+.letter-image-card{
+  margin-top:24px;
+  border-radius:26px;
+  padding:0;
+  overflow:hidden;
+  background:transparent;
+  box-shadow:
+    0 25px 80px rgba(0,0,0,.7),
+    0 0 38px rgba(255,150,90,.20);
+}
+.letter-image-card img{
+  width:100%;
+  display:block;
+  border-radius:22px;
+}
+
 .surprise-btn{
   font-family:'Gaegu', cursive;
   margin-top:24px;
@@ -392,8 +581,8 @@ p{
   font-weight:700;
   background:linear-gradient(135deg,#c8844c,#ff5a9d);
   box-shadow:0 14px 35px rgba(255,82,153,.35);
+  cursor:pointer;
 }
-
 .secret{
   display:none;
   margin-top:18px;
@@ -405,6 +594,11 @@ p{
 .final{
   text-align:center;
   padding:80px 0 120px;
+}
+.final h1{
+  text-shadow:
+    0 0 30px rgba(255,120,180,.7),
+    0 0 60px rgba(255,120,180,.4);
 }
 .heart{
   position:fixed;
@@ -421,81 +615,6 @@ p{
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;scroll-behavior:auto!important}
 }
-  .letter-image-card{
-  margin-top:24px;
-  border-radius:26px;
-  padding:0;
-  overflow:hidden;
-  background:transparent;
-  box-shadow:
-    0 25px 80px rgba(0,0,0,.7),
-    0 0 38px rgba(255,150,90,.20);
-}
-
-.letter-image-card img{
-  width:100%;
-  display:block;
-  border-radius:22px;
-  }
-  .photo-line{
-  display:flex;
-  gap:10px;
-  margin-top:30px;
-  perspective:900px;
-}
-
-.polaroid{
-  flex:1;
-  background:linear-gradient(180deg,#fff7ef,#ead7c4);
-  padding:7px 7px 20px;
-  border-radius:10px;
-  box-shadow:
-    0 18px 45px rgba(0,0,0,.55),
-    0 0 30px rgba(255,120,180,.16);
-  position:relative;
-  overflow:hidden;
-}
-
-.polaroid::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    120deg,
-    rgba(255,255,255,.35),
-    transparent 35%,
-    transparent 70%,
-    rgba(255,255,255,.16)
-  );
-  pointer-events:none;
-}
-
-.polaroid img{
-  width:100%;
-  aspect-ratio:4/5;
-  object-fit:cover;
-  border-radius:6px;
-  display:block;
-  filter:contrast(1.05) saturate(1.08);
-}
-
-.polaroid:nth-child(1){
-  transform:rotate(-5deg) translateY(6px);
-}
-
-.polaroid:nth-child(2){
-  transform:rotate(2deg) translateY(18px) scale(1.04);
-  z-index:2;
-}
-
-.polaroid:nth-child(3){
-  transform:rotate(5deg) translateY(4px);
-}
-  .final h1{
-  text-shadow:
-    0 0 30px rgba(255,120,180,.7),
-    0 0 60px rgba(255,120,180,.4);
-}
 </style>
 </head>
 
@@ -511,15 +630,15 @@ p{
     <section id="lock" class="screen">
       <div class="hero-card glass fade">
         <div class="tag">SOMEONE SPECIAL</div>
-    <h1>
-  For Someone I Can’t Ignore…<br>
-  <span class="script">Priya</span>
-</h1>
+        <h1>
+          For Someone I Can’t Ignore…<br>
+          <span class="script">Priya</span>
+        </h1>
 
-<p>
-  I didn’t plan this. Still… I made it.<br>
-  Not to impress you. Just… because it’s you.
-</p>
+        <p>
+          I didn’t plan this. Still… I made it.<br>
+          Not to impress you. Just… because it’s you.
+        </p>
         <button class="btn" onclick="openSurprise()">See What I Made For You ❤</button>
         <div class="down">⌄</div>
       </div>
@@ -527,10 +646,27 @@ p{
 
     <main id="content" class="hidden">
 
+      <section class="section cake-section fade">
+        <div class="cake-scene glass">
+          <div class="cake-title">A tiny birthday magic for you ✨</div>
+
+          <div class="cake">
+            <div class="candle">
+              <div class="flame"></div>
+            </div>
+            <div class="cake-top"></div>
+            <div class="cake-layer layer-1"></div>
+            <div class="cake-layer layer-2"></div>
+            <div class="cake-layer layer-3"></div>
+            <div class="plate"></div>
+          </div>
+        </div>
+      </section>
+
       <section class="section center fade">
         <div class="tag">A FEW MOMENTS I KEPT</div>
         <h1>A Little Memory Wall<br><span class="script">Priya</span></h1>
-       <p>Some memories don’t need a perfect photo. They just need a person worth remembering.</p>
+        <p>Some memories don’t need a perfect photo. They just need a person worth remembering.</p>
 
         <div class="photo-line">
           <div class="polaroid"><img src="photo1.jpg" alt="Memory"></div>
@@ -541,8 +677,8 @@ p{
 
       <section class="section fade">
         <div class="quote-card glass">
-         <div class="quote">Some people don’t ask for attention. They become unforgettable quietly.</div>
-<p style="margin-top:14px;">You are one of them.</p>
+          <div class="quote">Some people don’t ask for attention. They become unforgettable quietly.</div>
+          <p style="margin-top:14px;">You are one of them.</p>
         </div>
       </section>
 
@@ -574,8 +710,7 @@ p{
             <div class="icon">❤</div>
             <div>
               <h3>Your Smile</h3>
-              <p>You never tried to be different. Still, you are. It’s not loud, Not perfect,  
-Still… it changes the mood around you.</p>
+              <p>You never tried to be different. Still, you are. It’s not loud, Not perfect, Still… it changes the mood around you.</p>
             </div>
           </div>
 
@@ -583,8 +718,7 @@ Still… it changes the mood around you.</p>
             <div class="icon">✦</div>
             <div>
               <h3>Your Nature</h3>
-              <p>You carry softness without even trying. You don’t try to be kind.  
-That’s just how you are… without effort.</p>
+              <p>You carry softness without even trying. You don’t try to be kind. That’s just how you are… without effort.</p>
             </div>
           </div>
 
@@ -592,8 +726,7 @@ That’s just how you are… without effort.</p>
             <div class="icon">☾</div>
             <div>
               <h3>Your Presence</h3>
-              <p>Some people make things lighter just by being there.  
-You do that, without even knowing it.</p>
+              <p>Some people make things lighter just by being there. You do that, without even knowing it.</p>
             </div>
           </div>
         </div>
@@ -626,38 +759,38 @@ You do that, without even knowing it.</p>
       </section>
 
       <section class="section fade">
-  <h2 class="section-title">A Letter For You</h2>
+        <h2 class="section-title">A Letter For You</h2>
 
-  <div class="letter-image-card glass">
-    <img src="letter.jpg" alt="A handwritten birthday letter for Priya">
-  </div>
+        <div class="letter-image-card glass">
+          <img src="letter.jpg" alt="A handwritten birthday letter for Priya">
+        </div>
 
-  <button class="surprise-btn" onclick="showSecret()">One Last Surprise ❤</button>
+        <button class="surprise-btn" onclick="showSecret()">One Last Surprise ❤</button>
 
-  <div id="secretBox" class="secret glass">
-    <h2 class="section-title">Just One More Thing</h2>
-    <p>
-      Not just today… 
-      Aap Har Din Khush Raho, Sirf Aaj Hi Nahi, Aapki Muskurhat Hamesha Aapke Face Par Rahe, Aapke Life Me koi Problem na, Ha Mai Hu Sabse Bada Problem To But Ye Bhi Kuch Time Me Khtm Ho jayega
-      Aap Yu Hi Hasti Khelti Muskurati Raho, Aap Jo Kar Rahe Ho Jiske Liye Khudko Sacrifice Kar Rahe Ho Wo Bano Aap. Aapke Naam Me 'DOCTOR' Add Ho
-      Yahi Duaa Hai Meri Ki Aapko Har Wo Chiz Or Khushiya Mile Jiske Aap Hakdaar Ho.
-    </p>
-  </div>
+        <div id="secretBox" class="secret glass">
+          <h2 class="section-title">Just One More Thing</h2>
+          <p>
+            Not just today… 
+            Aap Har Din Khush Raho, Sirf Aaj Hi Nahi, Aapki Muskurhat Hamesha Aapke Face Par Rahe, Aapke Life Me koi Problem na, Ha Mai Hu Sabse Bada Problem To But Ye Bhi Kuch Time Me Khtm Ho jayega
+            Aap Yu Hi Hasti Khelti Muskurati Raho, Aap Jo Kar Rahe Ho Jiske Liye Khudko Sacrifice Kar Rahe Ho Wo Bano Aap. Aapke Naam Me 'DOCTOR' Add Ho
+            Yahi Duaa Hai Meri Ki Aapko Har Wo Chiz Or Khushiya Mile Jiske Aap Hakdaar Ho.
+          </p>
+        </div>
       </section>
 
       <section class="final fade">
         <h1><span class="script">Priya...</span></h1>
         
-<p>
-I don’t know how much this means to you.  
-But I know one thing…  
-I wanted to make this.
-</p>
+        <p>
+          I don’t know how much this means to you.  
+          But I know one thing…  
+          I wanted to make this.
+        </p>
 
-<p style="margin-top:18px;">
-Not because I had to.  
-Just because… it’s you.
-</p>
+        <p style="margin-top:18px;">
+          Not because I had to.  
+          Just because… it’s you.
+        </p>
       </section>
 
     </main>
@@ -707,7 +840,8 @@ function startHearts(){
     h.innerHTML = "❤️";
     h.style.left = Math.random() * 92 + "vw";
     h.style.fontSize = (14 + Math.random() * 10) + "px";
-    const colors = ["#ff7ab7","#ffd0df","#ff4f9a","#ffc0cb"]; h.style.color = colors[Math.floor(Math.random()*colors.length)];
+    const colors = ["#ff7ab7","#ffd0df","#ff4f9a","#ffc0cb"];
+    h.style.color = colors[Math.floor(Math.random()*colors.length)];
     document.body.appendChild(h);
     setTimeout(()=>h.remove(),5000);
   },300);
@@ -746,7 +880,8 @@ function showSecret(){
   box.style.display = "block";
   box.scrollIntoView({behavior:"smooth", block:"center"});
 }
-  const faders = document.querySelectorAll(".fade");
+
+const faders = document.querySelectorAll(".fade");
 
 const observer = new IntersectionObserver((entries)=>{
   entries.forEach(entry=>{
