@@ -12,11 +12,12 @@
 
 body{
   min-height:100vh;
-  background: linear-gradient(#feecea,#feecea);
+  background:linear-gradient(#feecea,#feecea);
   display:flex;
   justify-content:center;
   align-items:center;
   font-family:'Nunito',sans-serif;
+  overflow:hidden;
 }
 
 /* ===== HERO ===== */
@@ -25,22 +26,22 @@ body{
   max-width:420px;
   text-align:center;
   padding:40px 20px;
+  transition:.6s;
 }
 
 .top-text{
   font-size:12px;
   letter-spacing:1.5px;
   color:#FF7882;
-  margin-bottom:6px;
 }
 
 .name{
   font-family:'Dancing Script',cursive;
-  font-size:48px;
+  font-size:52px;
   background: linear-gradient(180deg,#ff9aa2,#ff4d6d,#c9184a);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
-  margin-bottom:8px;
+  margin:6px 0;
 }
 
 .sub{
@@ -51,7 +52,7 @@ body{
 
 /* ===== BUTTON ===== */
 .btn{
-  padding:10px 22px;
+  padding:10px 24px;
   border-radius:50px;
   border:none;
   background:linear-gradient(135deg,#FF7882,#c9184a);
@@ -60,16 +61,16 @@ body{
   font-weight:600;
   box-shadow:0 10px 25px rgba(255,120,130,.3);
   cursor:pointer;
-  transition:.2s;
-  margin-bottom:22px;
+  transition:.25s;
 }
 
 .btn:active{
-  transform:scale(.95);
+  transform:scale(.92);
 }
 
-/* ===== CAKE FLOAT ===== */
+/* ===== CAKE ===== */
 .cake-wrap{
+  margin-top:25px;
   animation:float 4s ease-in-out infinite;
 }
 
@@ -78,7 +79,41 @@ body{
   50%{transform:translateY(-10px)}
 }
 
-/* ===== CANDLE ===== */
+.cake{
+  width:200px;
+  height:120px;
+  background:linear-gradient(#fff4f9,#f8d8ea);
+  border-radius:20px;
+  position:relative;
+  margin:auto;
+}
+
+.cake::before{
+  content:'';
+  position:absolute;
+  top:-12px;
+  width:100%;
+  height:24px;
+  border-radius:50%;
+  background:#fff0f6;
+}
+
+/* drip */
+.drip{
+  position:absolute;
+  top:0;
+  width:100%;
+  height:40px;
+  background:#ff6fa5;
+  border-radius:20px;
+  clip-path:polygon(
+    0 0,100% 0,100% 60%,
+    90% 80%,80% 60%,70% 80%,60% 60%,
+    50% 80%,40% 60%,30% 80%,20% 60%,10% 80%,0 60%
+  );
+}
+
+/* candle */
 .candle{
   position:absolute;
   top:-35px;
@@ -104,47 +139,57 @@ body{
 
 @keyframes flicker{
   from{transform:translateX(-50%) scale(1)}
-  to{transform:translateX(-50%) scale(1.2)}
+  to{transform:translateX(-50%) scale(1.25)}
 }
 
-/* ===== CAKE ===== */
-.cake{
-  width:200px;
-  height:120px;
-  background:linear-gradient(#fff4f9,#f8d8ea);
-  border-radius:20px;
-  position:relative;
-  margin:auto;
+/* ===== OVERLAY LETTER ===== */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  pointer-events:none;
+  transition:.5s;
 }
 
-.cake::before{
-  content:'';
-  position:absolute;
-  top:-12px;
-  left:0;
-  width:100%;
-  height:24px;
-  border-radius:50%;
-  background:#fff0f6;
+.overlay.active{
+  opacity:1;
+  pointer-events:auto;
 }
 
-/* drip */
-.drip{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:40px;
-  background:#ff6fa5;
-  border-radius:20px;
-  clip-path:polygon(
-    0 0,100% 0,100% 60%,
-    95% 80%,90% 60%,85% 80%,80% 60%,
-    75% 80%,70% 60%,65% 80%,60% 60%,
-    55% 80%,50% 60%,45% 80%,40% 60%,
-    35% 80%,30% 60%,25% 80%,20% 60%,
-    15% 80%,10% 60%,5% 80%,0 60%
-  );
+.card{
+  width:85%;
+  max-width:300px;
+  background:#fff8e4;
+  border-radius:18px;
+  padding:20px;
+  text-align:center;
+  transform:scale(.7);
+  transition:.4s;
+}
+
+.overlay.active .card{
+  transform:scale(1);
+}
+
+.card h2{
+  font-family:'Dancing Script',cursive;
+  color:#c9184a;
+  margin-bottom:10px;
+}
+
+.card p{
+  font-size:14px;
+  color:#333;
+}
+
+/* ===== BLUR BACKGROUND ===== */
+.blur{
+  filter:blur(6px);
+  transform:scale(.96);
 }
 
 </style>
@@ -152,29 +197,45 @@ body{
 
 <body>
 
-<div class="wrapper">
+<div class="wrapper" id="main">
 
   <div class="top-text">For Someone Very Special 💖</div>
-
   <div class="name">Priya</div>
-
   <div class="sub">A little surprise made just for you ✨</div>
 
-  <button class="btn">Tap to Open 💌</button>
+  <button class="btn" onclick="openCard()">Tap to Open 💌</button>
 
   <div class="cake-wrap">
-
     <div class="cake">
       <div class="drip"></div>
-
       <div class="candle">
-        <div class="flame"></div>
+        <div class="flame" id="flame"></div>
       </div>
     </div>
-
   </div>
 
 </div>
+
+<!-- MESSAGE -->
+<div class="overlay" id="overlay">
+  <div class="card">
+    <h2>For You 💖</h2>
+    <p>
+      You are something truly special.  
+      I hope today brings you happiness, smiles, and everything you deserve ✨
+    </p>
+  </div>
+</div>
+
+<script>
+function openCard(){
+  document.getElementById('overlay').classList.add('active');
+  document.getElementById('main').classList.add('blur');
+
+  // candle off effect
+  document.getElementById('flame').style.opacity = "0";
+}
+</script>
 
 </body>
 </html>
