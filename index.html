@@ -166,13 +166,20 @@ p{
 }
 
 .flame{
-  transform-origin:center bottom;
-  animation:flameFlicker .45s ease-in-out infinite alternate;
+  transform-box:fill-box;
+  transform-origin:center center;
+  animation:flameGlow .75s ease-in-out infinite alternate;
 }
 
-@keyframes flameFlicker{
-  0%{transform:scale(1) skewX(0deg);opacity:.95}
-  100%{transform:scale(1.16) skewX(4deg);opacity:1}
+@keyframes flameGlow{
+  0%{
+    opacity:.82;
+    filter:drop-shadow(0 0 4px rgba(255,180,0,.75));
+  }
+  100%{
+    opacity:1;
+    filter:drop-shadow(0 0 10px rgba(255,110,0,.95));
+  }
 }
 
 .blow-btn{
@@ -320,7 +327,7 @@ a{
               <rect x="202" y="128" width="12" height="50" rx="4" fill="#ff4d6d"/>
               <rect x="202" y="140" width="12" height="5" rx="2" fill="#fff" opacity=".75"/>
               <rect x="202" y="154" width="12" height="5" rx="2" fill="#fff" opacity=".75"/>
-              <ellipse class="flame" cx="208" cy="116" rx="8" ry="14" fill="#ffc400" filter="url(#glow)"/>
+              <ellipse class="flame" cx="208" cy="116" rx="8" ry="14" fill="#ffc400"/>
               <ellipse class="flame" cx="208" cy="120" rx="4" ry="8" fill="#ff6a00"/>
             </g>
 
