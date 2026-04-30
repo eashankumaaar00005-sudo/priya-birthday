@@ -138,6 +138,93 @@ p{
   from{transform:translateX(-50%) scale(1)}
   to{transform:translateX(-50%) scale(1.2)}
 }
+  /* === NEW CAKE === */
+.cake-wrap{
+  margin-top:40px;
+  display:flex;
+  justify-content:center;
+}
+
+.cake{
+  position:relative;
+  width:200px;
+  height:220px;
+}
+
+.layer{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%) scale(0.8);
+  height:50px;
+  border-radius:25px;
+  opacity:0;
+  animation:pop 0.6s ease forwards;
+}
+
+.l1{
+  width:140px;
+  bottom:120px;
+  background:linear-gradient(#ff8fc7,#ffb3d9);
+  animation-delay:0.2s;
+}
+.l2{
+  width:170px;
+  bottom:70px;
+  background:linear-gradient(#ff7ab8,#ff9cc8);
+  animation-delay:0.4s;
+}
+.l3{
+  width:200px;
+  bottom:20px;
+  background:linear-gradient(#ff5fa5,#ff85bc);
+  animation-delay:0.6s;
+}
+
+.candle{
+  position:absolute;
+  left:50%;
+  bottom:170px;
+  width:12px;
+  height:45px;
+  background:#fff;
+  border-radius:6px;
+  transform:translateX(-50%);
+  opacity:0;
+  animation:fade 0.5s ease forwards 0.9s;
+}
+
+.flame{
+  position:absolute;
+  top:-18px;
+  left:50%;
+  width:14px;
+  height:20px;
+  transform:translateX(-50%);
+  border-radius:50%;
+  background:radial-gradient(circle,#fff,#ff9d00,#ff4d6d);
+  box-shadow:0 0 12px #ff9d00,0 0 25px #ff4d6d;
+  animation:flicker 0.2s infinite alternate;
+}
+
+@keyframes pop{
+  from{
+    transform:translateX(-50%) scale(0.5) translateY(-30px);
+    opacity:0;
+  }
+  to{
+    transform:translateX(-50%) scale(1) translateY(0);
+    opacity:1;
+  }
+}
+
+@keyframes fade{
+  to{opacity:1;}
+}
+
+@keyframes flicker{
+  from{transform:translateX(-50%) scale(1);}
+  to{transform:translateX(-50%) scale(1.2);}
+}
 </style>
 </head>
 
@@ -154,25 +241,25 @@ p{
 
     <button class="btn" onclick="showCake()">Open</button>
 
-    <!-- cake -->
-    <div id="cakeBox" style="display:none">
+  <div id="cakeBox" style="display:none">
 
-      <div class="cake">
-        <div class="layer layer1"></div>
-        <div class="layer layer2"></div>
-        <div class="layer layer3"></div>
+  <div class="cake-wrap">
+    <div class="cake">
+      <div class="layer l1"></div>
+      <div class="layer l2"></div>
+      <div class="layer l3"></div>
 
-        <div class="candle">
-          <div class="flame"></div>
-        </div>
+      <div class="candle">
+        <div class="flame"></div>
       </div>
-
-      <!-- final button -->
-      <a href="surprise.html">
-        <button class="btn">See Surprise ❤️</button>
-      </a>
-
     </div>
+  </div>
+
+  <a href="surprise.html">
+    <button class="btn">See Surprise ❤️</button>
+  </a>
+
+</div>
 
   </div>
 
