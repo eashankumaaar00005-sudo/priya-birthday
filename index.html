@@ -3,397 +3,178 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>For Priya ❤️</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Gaegu:wght@400;700&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+<title>For Priya 💖</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nunito:wght@300;600&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
-  font-family:'Caveat',cursive;
-  background:#09050b;
-  color:#fff;
-  overflow-x:hidden;
-}
-
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:url('assets/images/bg.jpg') center/cover no-repeat;
-  filter:blur(16px) brightness(.48);
-  transform:scale(1.04);
-  z-index:-2;
-}
-
-body::after{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:
-    radial-gradient(circle at 50% 35%,rgba(255,110,170,.22),transparent 34%),
-    linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.42));
-  z-index:-1;
-  pointer-events:none;
-}
-
-.container{
-  max-width:430px;
-  margin:auto;
-  padding:20px;
   min-height:100vh;
+  background: linear-gradient(#feecea,#feecea);
   display:flex;
-  align-items:center;
   justify-content:center;
-  text-align:center;
+  align-items:center;
+  font-family:'Nunito',sans-serif;
 }
 
-.card{
+/* ===== HERO ===== */
+.wrapper{
   width:100%;
-  min-height:620px;
-  background:linear-gradient(180deg,rgba(255,255,255,.11),rgba(255,255,255,.045));
-  border:1px solid rgba(255,255,255,.18);
-  backdrop-filter:blur(18px);
-  border-radius:34px;
-  padding:34px 22px;
-  box-shadow:
-    0 28px 90px rgba(0,0,0,.65),
-    0 0 70px rgba(255,90,155,.18),
-    inset 0 1px 0 rgba(255,255,255,.22);
+  max-width:420px;
+  text-align:center;
+  padding:40px 20px;
 }
 
-h1{
-  font-family:'Gaegu',cursive;
-  font-size:40px;
-  line-height:1.05;
-  margin-bottom:10px;
-  letter-spacing:1px;
+.top-text{
+  font-size:12px;
+  letter-spacing:1.5px;
+  color:#FF7882;
+  margin-bottom:6px;
 }
 
 .name{
-  font-family:'Pacifico',cursive;
-  font-size:54px;
-  line-height:1.1;
-  color:#ff79b6;
-  text-shadow:0 0 28px rgba(255,100,175,.45);
+  font-family:'Dancing Script',cursive;
+  font-size:48px;
+  background: linear-gradient(180deg,#ff9aa2,#ff4d6d,#c9184a);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:8px;
 }
 
-p{
-  font-size:17px;
-  opacity:.9;
-  margin-top:8px;
+.sub{
+  font-size:13px;
+  color:#555;
+  margin-bottom:18px;
 }
 
+/* ===== BUTTON ===== */
 .btn{
-  margin-top:24px;
-  padding:14px 24px;
+  padding:10px 22px;
+  border-radius:50px;
   border:none;
-  border-radius:999px;
-  font-size:19px;
-  font-weight:700;
-  cursor:pointer;
-  font-family:Arial,sans-serif;
-  background:linear-gradient(135deg,#ff4d6d,#ff9a8b);
+  background:linear-gradient(135deg,#FF7882,#c9184a);
   color:#fff;
-  box-shadow:0 13px 35px rgba(255,80,120,.48);
-  transition:.25s ease;
+  font-size:14px;
+  font-weight:600;
+  box-shadow:0 10px 25px rgba(255,120,130,.3);
+  cursor:pointer;
+  transition:.2s;
+  margin-bottom:22px;
 }
 
 .btn:active{
-  transform:scale(.96);
+  transform:scale(.95);
 }
 
-#cakeBox{
-  margin-top:28px;
+/* ===== CAKE FLOAT ===== */
+.cake-wrap{
+  animation:float 4s ease-in-out infinite;
 }
 
-.cake-shell{
-  position:relative;
-  width:min(335px,94vw);
-  margin:18px auto 0;
-  animation:cakeFloat 4s ease-in-out infinite;
-  filter:drop-shadow(0 24px 32px rgba(0,0,0,.33));
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
 }
 
-.cake-svg{
-  width:100%;
-  display:block;
-  overflow:visible;
-}
-
-@keyframes cakeFloat{
-  0%,100%{transform:translateY(0) rotate(-.3deg)}
-  50%{transform:translateY(-10px) rotate(.3deg)}
-}
-
-.cake-pearls circle{
-  fill:#df5aa4;
-  stroke:#ff9fd0;
-  stroke-width:5;
-  filter:drop-shadow(0 2px 2px rgba(0,0,0,.2));
-}
-
-.sprinkles rect{
-  fill:#ff77bd;
-  stroke:#ffb1da;
-  stroke-width:2;
-}
-
-.ref-candle{
-  transform-origin:center bottom;
-  animation:candlePop .7s cubic-bezier(.34,1.56,.64,1) both;
-}
-
-@keyframes candlePop{
-  from{transform:translateY(18px) scaleY(.55);opacity:0}
-  to{transform:translateY(0) scaleY(1);opacity:1}
-}
-
-.ref-flame{
-  transform-origin:center bottom;
-  animation:flameDance .42s ease-in-out infinite alternate;
-}
-
-@keyframes flameDance{
-  from{transform:scale(1) skewX(-2deg);opacity:.92}
-  to{transform:scale(1.16) skewX(4deg);opacity:1}
-}
-
-.smoke{
-  animation:smokeUp 1.4s ease-out forwards;
-}
-
-@keyframes smokeUp{
-  0%{opacity:0;transform:translateY(0) scale(.6)}
-  20%{opacity:.7}
-  100%{opacity:0;transform:translateY(-42px) scale(2.2)}
-}
-
-.blow-btn{
-  margin-top:10px;
-  padding:11px 19px;
-  border:none;
-  border-radius:999px;
-  background:linear-gradient(135deg,#ff5fa5,#ff8b6f);
-  color:#fff;
-  font-size:15px;
-  font-weight:800;
-  cursor:pointer;
-  box-shadow:0 10px 28px rgba(255,80,150,.35);
-}
-
-.action-row{
-  display:flex;
-  gap:10px;
-  justify-content:center;
-  align-items:center;
-  flex-wrap:wrap;
-  margin-top:8px;
-}
-
-a{
-  text-decoration:none;
-}
-
-.sparkle{
+/* ===== CANDLE ===== */
+.candle{
   position:absolute;
-  pointer-events:none;
-  animation:sparkleFly .9s ease-out forwards;
-  font-size:18px;
+  top:-35px;
+  left:50%;
+  transform:translateX(-50%);
+  width:6px;
+  height:30px;
+  background:#fff;
+  border-radius:3px;
 }
 
-@keyframes sparkleFly{
-  from{opacity:1;transform:translate(0,0) scale(.6) rotate(0deg)}
-  to{opacity:0;transform:translate(var(--x),var(--y)) scale(1.3) rotate(180deg)}
+.flame{
+  position:absolute;
+  top:-12px;
+  left:50%;
+  transform:translateX(-50%);
+  width:8px;
+  height:14px;
+  background:radial-gradient(circle,#ffd166,#ff6b6b);
+  border-radius:50%;
+  animation:flicker .7s infinite alternate;
 }
-@media(max-width:390px){
-  .card{min-height:590px;padding:28px 18px}
-  h1{font-size:36px}
-  .name{font-size:48px}
+
+@keyframes flicker{
+  from{transform:translateX(-50%) scale(1)}
+  to{transform:translateX(-50%) scale(1.2)}
 }
+
+/* ===== CAKE ===== */
+.cake{
+  width:200px;
+  height:120px;
+  background:linear-gradient(#fff4f9,#f8d8ea);
+  border-radius:20px;
+  position:relative;
+  margin:auto;
+}
+
+.cake::before{
+  content:'';
+  position:absolute;
+  top:-12px;
+  left:0;
+  width:100%;
+  height:24px;
+  border-radius:50%;
+  background:#fff0f6;
+}
+
+/* drip */
+.drip{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:40px;
+  background:#ff6fa5;
+  border-radius:20px;
+  clip-path:polygon(
+    0 0,100% 0,100% 60%,
+    95% 80%,90% 60%,85% 80%,80% 60%,
+    75% 80%,70% 60%,65% 80%,60% 60%,
+    55% 80%,50% 60%,45% 80%,40% 60%,
+    35% 80%,30% 60%,25% 80%,20% 60%,
+    15% 80%,10% 60%,5% 80%,0 60%
+  );
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="container">
-  <div class="card">
+<div class="wrapper">
 
-    <h1>For Someone Special</h1>
-    <div class="name">Priya ❤️</div>
-    <p>I made something for you… just open it.</p>
+  <div class="top-text">For Someone Very Special 💖</div>
 
-    <button class="btn" onclick="showCake()">Open</button>
+  <div class="name">Priya</div>
 
-    <div id="cakeBox" style="display:none;">
+  <div class="sub">A little surprise made just for you ✨</div>
 
-      <div class="cake-shell" id="cakeShell">
+  <button class="btn">Tap to Open 💌</button>
 
-  <svg class="cake-svg ref-cake" viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Birthday cake with candles">
+  <div class="cake-wrap">
 
-    <defs>
-      <linearGradient id="blueIce" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#62d7ff"/>
-        <stop offset="100%" stop-color="#229ee8"/>
-      </linearGradient>
+    <div class="cake">
+      <div class="drip"></div>
 
-      <linearGradient id="cakeBrown" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#b96a3e"/>
-        <stop offset="100%" stop-color="#7b3b24"/>
-      </linearGradient>
-
-      <linearGradient id="pinkCream" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#ff8bc7"/>
-        <stop offset="100%" stop-color="#d84f98"/>
-      </linearGradient>
-
-      <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
-        <feGaussianBlur stdDeviation="4" result="blur"/>
-        <feMerge>
-          <feMergeNode in="blur"/>
-          <feMergeNode in="SourceGraphic"/>
-        </feMerge>
-      </filter>
-    </defs>
-
-    <ellipse cx="260" cy="462" rx="205" ry="34" fill="#180020" opacity=".45"/>
-
-    <!-- plate -->
-    <path d="M95 420 Q260 478 425 420 Q430 456 260 484 Q90 456 95 420Z" fill="#d9bd75"/>
-    <path d="M110 416 Q260 458 410 416 Q260 442 110 416Z" fill="#ffe29a" opacity=".75"/>
-
-    <!-- bottom cake -->
-    <path d="M100 322 H420 V405 Q260 456 100 405Z" fill="url(#cakeBrown)"/>
-    <path d="M100 315 Q260 355 420 315 V345 Q397 345 386 365 Q373 387 352 365 Q332 342 312 365 Q291 388 272 365 Q252 342 232 365 Q211 388 192 365 Q171 342 152 365 Q132 386 100 350Z" fill="url(#blueIce)"/>
-    <path d="M115 394 Q260 428 405 394" stroke="#ff83bd" stroke-width="13" fill="none" stroke-linecap="round"/>
-
-    <!-- middle cake -->
-    <path d="M140 235 H380 V305 Q260 350 140 305Z" fill="url(#cakeBrown)"/>
-    <path d="M140 228 Q260 260 380 228 V258 Q360 258 348 276 Q334 296 316 276 Q298 255 278 276 Q260 296 241 276 Q222 255 204 276 Q185 296 170 276 Q156 260 140 260Z" fill="url(#blueIce)"/>
-    <path d="M155 300 Q260 324 365 300" stroke="#ff83bd" stroke-width="10" fill="none" stroke-linecap="round"/>
-
-    <!-- top cake -->
-    <path d="M185 160 H335 V213 Q260 242 185 213Z" fill="url(#cakeBrown)"/>
-    <path d="M185 154 Q260 178 335 154 V178 Q320 178 310 192 Q298 210 282 192 Q268 176 252 192 Q236 210 220 192 Q207 178 185 178Z" fill="url(#blueIce)"/>
-    <path d="M198 210 Q260 225 322 210" stroke="#ff83bd" stroke-width="8" fill="none" stroke-linecap="round"/>
-
-    <!-- pearls bottom -->
-    <g class="cake-pearls">
-      <circle cx="135" cy="419" r="12"/><circle cx="160" cy="428" r="12"/>
-      <circle cx="185" cy="435" r="12"/><circle cx="210" cy="440" r="12"/>
-      <circle cx="235" cy="443" r="12"/><circle cx="260" cy="444" r="12"/>
-      <circle cx="285" cy="443" r="12"/><circle cx="310" cy="440" r="12"/>
-      <circle cx="335" cy="435" r="12"/><circle cx="360" cy="428" r="12"/>
-      <circle cx="385" cy="419" r="12"/>
-    </g>
-
-    <!-- sprinkles -->
-    <g class="sprinkles">
-      <rect x="130" y="330" width="7" height="17" rx="4" transform="rotate(-15 130 330)"/>
-      <rect x="180" y="342" width="7" height="17" rx="4" transform="rotate(35 180 342)"/>
-      <rect x="230" y="328" width="7" height="17" rx="4" transform="rotate(-35 230 328)"/>
-      <rect x="285" y="340" width="7" height="17" rx="4" transform="rotate(25 285 340)"/>
-      <rect x="345" y="328" width="7" height="17" rx="4" transform="rotate(-20 345 328)"/>
-      <rect x="170" y="245" width="6" height="15" rx="4" transform="rotate(-20 170 245)"/>
-      <rect x="225" y="240" width="6" height="15" rx="4" transform="rotate(35 225 240)"/>
-      <rect x="295" y="245" width="6" height="15" rx="4" transform="rotate(-35 295 245)"/>
-      <rect x="222" y="168" width="5" height="13" rx="4" transform="rotate(60 222 168)"/>
-      <rect x="285" y="168" width="5" height="13" rx="4" transform="rotate(-45 285 168)"/>
-    </g>
-
-    <!-- candles -->
-    <g id="flameGroup">
-      <g class="ref-candle" style="animation-delay:.1s">
-        <rect x="222" y="100" width="16" height="60" rx="7" fill="#d957a1"/>
-        <rect x="222" y="113" width="16" height="6" rx="3" fill="#ffa7d7" transform="rotate(-35 230 116)"/>
-        <rect x="222" y="134" width="16" height="6" rx="3" fill="#ffa7d7" transform="rotate(-35 230 137)"/>
-        <path class="ref-flame" d="M230 72 C246 92 238 111 230 116 C220 110 213 93 230 72Z" fill="#ffca32" filter="url(#softGlow)"/>
-        <path class="ref-flame" d="M230 88 C238 101 234 111 230 114 C224 109 221 100 230 88Z" fill="#ff5a24"/>
-      </g>
-
-      <g class="ref-candle" style="animation-delay:.2s">
-        <rect x="252" y="100" width="16" height="60" rx="7" fill="#d957a1"/>
-        <rect x="252" y="113" width="16" height="6" rx="3" fill="#ffa7d7" transform="rotate(-35 260 116)"/>
-        <rect x="252" y="134" width="16" height="6" rx="3" fill="#ffa7d7" transform="rotate(-35 260 137)"/>
-        <path class="ref-flame" d="M260 72 C276 92 268 111 260 116 C250 110 243 93 260 72Z" fill="#ffca32" filter="url(#softGlow)"/>
-        <path class="ref-flame" d="M260 88 C268 101 264 111 260 114 C254 109 251 100 260 88Z" fill="#ff5a24"/>
-      </g>
-
-      <g class="ref-candle" style="animation-delay:.3s">
-        <rect x="282" y="100" width="16" height="60" rx="7" fill="#d957a1"/>
-        <rect x="282" y="113" width="16" height="6" rx="3" fill="#ffa7d7" transform="rotate(-35 290 116)"/>
-        <rect x="282" y="134" width="16" height="6" rx="3" fill="#ffa7d7" transform="rotate(-35 290 137)"/>
-        <path class="ref-flame" d="M290 72 C306 92 298 111 290 116 C280 110 273 93 290 72Z" fill="#ffca32" filter="url(#softGlow)"/>
-        <path class="ref-flame" d="M290 88 C298 101 294 111 290 114 C284 109 281 100 290 88Z" fill="#ff5a24"/>
-      </g>
-    </g>
-
-    <g id="smokeGroup" style="display:none;">
-      <circle class="smoke" cx="230" cy="86" r="8" fill="#c9b4d9"/>
-      <circle class="smoke" cx="260" cy="86" r="8" fill="#c9b4d9"/>
-      <circle class="smoke" cx="290" cy="86" r="8" fill="#c9b4d9"/>
-    </g>
-
-  </svg>
-
-</div>
-
-      <div class="action-row">
-        <button class="blow-btn" onclick="blowCandles()">💨 Blow Candles</button>
-        <a href="surprise.html">
-          <button class="btn" style="margin-top:0;">See Surprise ❤️</button>
-        </a>
+      <div class="candle">
+        <div class="flame"></div>
       </div>
-
     </div>
 
   </div>
+
 </div>
-
-<script>
-let blown = false;
-
-function showCake(){
-  document.getElementById("cakeBox").style.display = "block";
-}
-
-function blowCandles(){
-  const flameGroup = document.getElementById("flameGroup");
-  const smokeGroup = document.getElementById("smokeGroup");
-  const shell = document.getElementById("cakeShell");
-
-  if(!blown){
-    flameGroup.style.display = "none";
-    smokeGroup.style.display = "block";
-    blown = true;
-    sparkle(shell);
-  }else{
-    flameGroup.style.display = "block";
-    smokeGroup.style.display = "none";
-    blown = false;
-  }
-}
-
-function sparkle(parent){
-  for(let i=0;i<14;i++){
-    const s = document.createElement("div");
-    s.className = "sparkle";
-    s.innerText = ["✨","⭐","💫","🌟"][Math.floor(Math.random()*4)];
-    s.style.left = (35 + Math.random()*30) + "%";
-    s.style.top = (30 + Math.random()*35) + "%";
-    s.style.setProperty("--x", ((Math.random()-.5)*180) + "px");
-    s.style.setProperty("--y", (-(60 + Math.random()*130)) + "px");
-    parent.appendChild(s);
-    setTimeout(()=>s.remove(),900);
-  }
-}
-</script>
 
 </body>
 </html>
