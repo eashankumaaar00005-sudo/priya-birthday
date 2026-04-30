@@ -225,6 +225,102 @@ p{
   from{transform:translateX(-50%) scale(1);}
   to{transform:translateX(-50%) scale(1.2);}
 }
+  /* === PREMIUM INTERACTIVE CAKE === */
+
+.scene{
+  text-align:center;
+  margin-top:30px;
+}
+
+.cake-wrapper{
+  position:relative;
+  width:200px;
+  height:220px;
+  margin:auto;
+  animation:floatCake 4s ease-in-out infinite;
+}
+
+@keyframes floatCake{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
+}
+
+/* tiers */
+.tier{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  height:50px;
+  border-radius:20px;
+  background:linear-gradient(#ff7ab8,#ff4d9d);
+}
+
+.top{width:110px; bottom:130px;}
+.mid{width:150px; bottom:80px;}
+.bottom{width:190px; bottom:30px;}
+
+/* drips */
+.drip{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  height:20px;
+  background:#ff9cc8;
+  border-radius:50%;
+}
+.drip-top{width:110px; bottom:150px;}
+.drip-mid{width:150px; bottom:100px;}
+.drip-bot{width:190px; bottom:50px;}
+
+/* candles */
+.candles{
+  position:absolute;
+  bottom:180px;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  gap:10px;
+}
+
+.candle{
+  width:10px;
+  height:35px;
+  background:repeating-linear-gradient(
+    45deg,#fff,#fff 5px,#ff4d9d 5px,#ff4d9d 10px
+  );
+  border-radius:5px;
+  position:relative;
+}
+
+/* flame */
+.flame{
+  position:absolute;
+  top:-15px;
+  left:50%;
+  transform:translateX(-50%);
+  width:12px;
+  height:16px;
+  border-radius:50%;
+  background:radial-gradient(circle,#fff,#ffb300,#ff4d6d);
+  box-shadow:0 0 10px #ffb300,0 0 20px #ff4d6d;
+  animation:flicker .2s infinite alternate;
+}
+
+@keyframes flicker{
+  from{transform:translateX(-50%) scale(1);}
+  to{transform:translateX(-50%) scale(1.2);}
+}
+
+/* blow button */
+.blow-btn{
+  margin-top:20px;
+  padding:10px 18px;
+  border:none;
+  border-radius:20px;
+  background:#ff4d9d;
+  color:#fff;
+  cursor:pointer;
+}
 </style>
 </head>
 
@@ -241,33 +337,65 @@ p{
 
     <button class="btn" onclick="showCake()">Open</button>
 
-  <div id="cakeBox" style="display:none">
+<div id="cakeBox" style="display:none">
 
-  <div class="cake-wrap">
-    <div class="cake">
-      <div class="layer l1"></div>
-      <div class="layer l2"></div>
-      <div class="layer l3"></div>
+  <div class="scene">
 
-      <div class="candle">
-        <div class="flame"></div>
+    <div id="cake" class="cake-wrapper">
+
+      <!-- TOP -->
+      <div class="tier top"></div>
+      <div class="drip drip-top"></div>
+
+      <!-- MID -->
+      <div class="tier mid"></div>
+      <div class="drip drip-mid"></div>
+
+      <!-- BOTTOM -->
+      <div class="tier bottom"></div>
+      <div class="drip drip-bot"></div>
+
+      <!-- CANDLES -->
+      <div class="candles">
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
       </div>
-    </div>
-  </div>
 
-  <a href="surprise.html">
-    <button class="btn">See Surprise ❤️</button>
-  </a>
+    </div> <!-- cake -->
 
-</div>
+    <!-- BUTTON -->
+    <button class="blow-btn" onclick="blowCandles()">💨 Blow Candles</button>
 
-  </div>
+    <!-- NEXT -->
+    <a href="surprise.html">
+      <button class="btn">See Surprise ❤️</button>
+    </a>
 
-</div>
+  </div> <!-- scene -->
+
+</div> <!-- cakeBox -->
 
 <script>
 function showCake(){
   document.getElementById("cakeBox").style.display="block";
+}
+  function blowCandles(){
+  const flames = document.querySelectorAll(".flame");
+
+  flames.forEach(f => {
+    f.style.display = "none";
+
+    const smoke = document.createElement("div");
+    smoke.innerText = "💨";
+    smoke.style.position = "absolute";
+    smoke.style.top = "-10px";
+    smoke.style.left = "50%";
+    smoke.style.transform = "translateX(-50%)";
+    f.parentElement.appendChild(smoke);
+
+    setTimeout(()=> smoke.remove(), 1000);
+  });
 }
 </script>
 
