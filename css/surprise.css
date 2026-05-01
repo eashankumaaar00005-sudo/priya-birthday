@@ -1,6 +1,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
+  animation:surpriseEntry .8s ease forwards;
   font-family:'Caveat', cursive;
   background:#09050b;
   color:#fff;
@@ -533,5 +534,17 @@ p{
   }
   .eom-cake-stage{
     transform:scale(.72);
+  }
+}
+@keyframes surpriseEntry{
+  from{
+    opacity:0;
+    transform:scale(1.025);
+    filter:blur(8px);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+    filter:blur(0);
   }
 }
