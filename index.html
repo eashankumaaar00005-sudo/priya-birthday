@@ -1,32 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Gaegu:wght@400;700&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
-<title>For My Princess♕ | Priya</title>
-<link rel="stylesheet" href="./css/intro.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Priya Birthday Surprise</title>
+
+  <link rel="stylesheet" href="./css/intro.css" />
 </head>
 <body>
-<div class="page">
-  <div class="wrap">
-    <section id="lock" class="screen">
-      <div class="hero-card glass fade">
-        <div class="tag">SOMEONE SPECIAL</div>
-        <h1>
-          For Someone I Can’t Ignore…<br>
-          <span class="script">Priya</span>
-        </h1>
-        <p>
-          I didn’t plan this. Still… I made it.<br>
-          Not to impress you. Just… because it’s you.
-        </p>
-        <button class="btn" onclick="openSurprise()">See What I Made For You ❤</button>
-        <div class="down">⌄</div>
+
+  <!-- LOCK SCREEN -->
+  <main id="lockScreen" class="lock-screen">
+    <div class="lock-card">
+      <p class="small-text">A little surprise is waiting...</p>
+      <h1>Only Priya Can Open This</h1>
+      <p class="lock-subtitle">
+        Tap the button when you are ready.
+      </p>
+
+      <button id="unlockBtn" class="unlock-btn">
+        Open Surprise
+      </button>
+    </div>
+  </main>
+
+  <!-- BIRTHDAY INTRO STAGE -->
+  <section id="birthdayStage" class="birthday-stage">
+
+    <!-- Floating balloons -->
+    <div class="balloon balloon-1"></div>
+    <div class="balloon balloon-2"></div>
+    <div class="balloon balloon-3"></div>
+    <div class="balloon balloon-4"></div>
+
+    <!-- Crackers / sparkles layer -->
+    <div class="sparkle-layer">
+      <span class="sparkle s1"></span>
+      <span class="sparkle s2"></span>
+      <span class="sparkle s3"></span>
+      <span class="sparkle s4"></span>
+      <span class="sparkle s5"></span>
+      <span class="sparkle s6"></span>
+    </div>
+
+    <div class="birthday-content">
+      <p class="intro-line">Tonight is a little different...</p>
+
+      <h2 class="birthday-title">
+        Happy Birthday Priya
+      </h2>
+
+      <p class="birthday-subtitle">
+        Some wishes are not spoken loudly, they are felt quietly.
+      </p>
+
+      <!-- Cake placeholder: CSS/JS animation step me improve karenge -->
+      <div id="cakeBox" class="cake-box">
+        <div class="cake">
+          <div class="candle">
+            <span class="flame"></span>
+          </div>
+          <div class="cake-top"></div>
+          <div class="cake-middle"></div>
+          <div class="cake-bottom"></div>
+        </div>
       </div>
-    </section>
-  </div>
-</div>
-<script src="./js/intro.js"></script>
+
+      <button id="finalBtn" class="final-btn">
+        Open Main Surprise
+      </button>
+    </div>
+
+  </section>
+
+  <script src="./js/intro.js"></script>
 </body>
 </html>
