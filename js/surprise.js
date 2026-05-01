@@ -101,3 +101,15 @@ if (musicBtn && music) {
     }
   });
 }
+const bgMusic = document.getElementById("music");
+
+let musicStarted = false;
+
+function startMusicOnce() {
+  if (!musicStarted && bgMusic) {
+    bgMusic.play().catch(() => {});
+    musicStarted = true;
+  }
+}
+
+document.addEventListener("click", startMusicOnce);
