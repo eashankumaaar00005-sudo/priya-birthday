@@ -660,3 +660,27 @@ section{
   opacity:1;
   transform:translateY(0);
 }
+.music-btn{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.22);
+  background:rgba(20,18,30,.42);
+  color:#fff;
+  font-size:20px;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  z-index:9999;
+  backdrop-filter:blur(14px);
+  box-shadow:0 14px 40px rgba(0,0,0,.28);
+  transition:transform .25s ease, background .25s ease;
+}
+
+.music-btn:hover{
+  transform:scale(1.08);
+  background:rgba(255,255,255,.14);
+}
