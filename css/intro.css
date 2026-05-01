@@ -190,6 +190,14 @@ body{
   margin:0 auto;
   animation:cakeFloat 3.5s ease-in-out infinite;
 }
+.premium-cake::after{
+  content:"";
+  position:absolute;
+  inset:-20px;
+  background:radial-gradient(circle, rgba(255,107,125,.25), transparent 60%);
+  z-index:-1;
+  filter:blur(20px);
+}
 
 @keyframes cakeFloat{
   0%,100%{
@@ -512,5 +520,43 @@ body{
     animation-duration:.01ms !important;
     animation-iteration-count:1 !important;
     transition-duration:.01ms !important;
+  }
+}
+/* ================= BACKGROUND GLOW ================= */
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,77,125,.15), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255,159,189,.12), transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(0,200,150,.08), transparent 60%);
+  z-index:0;
+  pointer-events:none;
+}
+
+/* subtle floating particles */
+
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, #fff, transparent),
+    radial-gradient(2px 2px at 70% 60%, #fff, transparent),
+    radial-gradient(2px 2px at 40% 80%, #fff, transparent),
+    radial-gradient(2px 2px at 90% 20%, #fff, transparent);
+  opacity:.15;
+  animation:floatParticles 12s linear infinite;
+  pointer-events:none;
+}
+
+@keyframes floatParticles{
+  from{
+    transform:translateY(0);
+  }
+  to{
+    transform:translateY(-40px);
   }
 }
