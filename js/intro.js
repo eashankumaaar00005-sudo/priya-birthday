@@ -1,43 +1,27 @@
-const unlockBtn = document.getElementById("unlockBtn");
+const openBtn = document.getElementById("openBtn");
 const lockScreen = document.getElementById("lockScreen");
-const birthdayStage = document.getElementById("birthdayStage");
-const finalBtn = document.getElementById("finalBtn");
+const birthdayScreen = document.getElementById("birthdayScreen");
+const mainBtn = document.getElementById("mainBtn");
 
-unlockBtn.addEventListener("click", () => {
-  unlockBtn.disabled = true;
+openBtn.addEventListener("click", () => {
+  openBtn.disabled = true;
 
-  lockScreen.classList.add("fade-out");
+  lockScreen.classList.add("hide-lock");
 
   setTimeout(() => {
     lockScreen.style.display = "none";
-    birthdayStage.classList.add("show");
-  }, 700);
+    birthdayScreen.classList.add("show");
+  }, 650);
 
   setTimeout(() => {
-    finalBtn.classList.add("show");
-  }, 7200);
+    mainBtn.classList.add("show");
+  }, 5200);
 });
 
-finalBtn.addEventListener("click", () => {
+mainBtn.addEventListener("click", () => {
   document.body.classList.add("page-exit");
 
   setTimeout(() => {
     window.location.href = "surprise.html";
   }, 650);
 });
-const typingEl = document.getElementById("typingText");
-
-const text = "Happy Birthday Priya";
-let index = 0;
-
-function typeText() {
-  if (index < text.length) {
-    typingEl.textContent += text.charAt(index);
-    index++;
-    setTimeout(typeText, 70);
-  }
-}
-
-setTimeout(() => {
-  typeText();
-}, 900);
