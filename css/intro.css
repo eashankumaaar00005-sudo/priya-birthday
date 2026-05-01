@@ -257,3 +257,26 @@ body{
 .birthday-note{
   margin-top:10px;
 }
+/* ================= TRANSITIONS ================= */
+
+.lock-screen{
+  transition:opacity .65s ease, transform .65s ease, filter .65s ease;
+}
+
+.lock-screen.hide-lock{
+  opacity:0;
+  transform:scale(1.05);
+  filter:blur(10px);
+}
+
+body.page-exit{
+  animation:pageExit .65s ease forwards;
+}
+
+@keyframes pageExit{
+  to{
+    opacity:0;
+    transform:scale(1.04);
+    filter:blur(8px);
+  }
+}
