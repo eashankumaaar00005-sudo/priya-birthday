@@ -705,3 +705,14 @@ section{
   line-height:1.45;
   color:#fff;
 }
+*{
+  -webkit-tap-highlight-color: transparent;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  transition:background .6s ease;
+}
