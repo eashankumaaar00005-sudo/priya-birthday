@@ -684,3 +684,24 @@ section{
   transform:scale(1.08);
   background:rgba(255,255,255,.14);
 }
+.final{
+  min-height:85vh;
+  display:grid;
+  place-items:center;
+  padding:70px 18px;
+}
+
+.final-card{
+  width:min(680px, 100%);
+  text-align:center;
+  padding:44px 24px;
+  border-radius:32px;
+}
+
+.final-line{
+  margin:24px auto;
+  max-width:520px;
+  font-size:clamp(1.25rem, 4vw, 1.75rem);
+  line-height:1.45;
+  color:#fff;
+}
