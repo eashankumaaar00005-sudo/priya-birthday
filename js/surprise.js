@@ -113,3 +113,22 @@ function startMusicOnce() {
 }
 
 document.addEventListener("click", startMusicOnce);
+const revealItems = document.querySelectorAll(
+  "section, .memory-card, .letter-box, .final-section, .cake-shell"
+);
+
+revealItems.forEach((item) => {
+  item.classList.add("reveal");
+});
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+}, {
+  threshold: 0.16
+});
+
+revealItems.forEach((item) => revealObserver.observe(item));
