@@ -6,10 +6,18 @@ const finalBtn = document.getElementById("finalBtn");
 unlockBtn.addEventListener("click", () => {
   unlockBtn.disabled = true;
 
-  lockScreen.style.display = "none";
-  birthdayStage.classList.add("show");
+  lockScreen.classList.add("fade-out");
+
+  setTimeout(() => {
+    lockScreen.style.display = "none";
+    birthdayStage.classList.add("show");
+  }, 700);
 
   setTimeout(() => {
     finalBtn.classList.add("show");
-  }, 6500);
+  }, 7200);
+});
+
+finalBtn.addEventListener("click", () => {
+  window.location.href = "surprise.html";
 });
