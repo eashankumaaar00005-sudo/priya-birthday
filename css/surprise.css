@@ -735,15 +735,22 @@ button:active,
 .letter-image-card img{
   transition:transform .5s ease;
 }
+.memory-card img,
+.slideshow img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:18px;
+}
 
 .polaroid:hover img,
 .memory-card:hover img{
   transform:scale(1.06);
 }
 .glass{
-  background:rgba(255,255,255,.08);
-  backdrop-filter:blur(16px);
-  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.06);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.12);
 }
 .section{
   max-width:920px;
@@ -798,8 +805,8 @@ button:active,
 
 @media (max-width:640px){
   .section{
-    padding-top:54px;
-    padding-bottom:54px;
+    padding-top:48px;
+    padding-bottom:48px;
   }
 
   .section-title{
@@ -817,4 +824,14 @@ button:active,
   .letter-image-card{
     margin-top:20px;
   }
+}
+h1{
+  font-weight:700;
+  letter-spacing:-0.02em;
+}
+
+.section-title{
+  font-size:clamp(1.4rem, 5vw, 2rem);
+  font-weight:600;
+}
 }
