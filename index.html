@@ -4,87 +4,80 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Priya Birthday Surprise</title>
+  <title>For Priya ❤</title>
 
   <link rel="stylesheet" href="./css/intro.css" />
 </head>
 <body>
 
-  <!-- LOCK SCREEN -->
-  <main id="lockScreen" class="lock-screen">
-    <div class="lock-card">
-      <p class="small-text">A little surprise is waiting...</p>
-      <h1>Only Priya Can Open This</h1>
-      <p class="lock-subtitle">
-        Tap the button when you are ready.
-      </p>
+  <!-- SCREEN 1: LOCK -->
+  <main id="lockScreen" class="screen lock-screen">
+    <div class="bg-stars"></div>
 
-      <button id="unlockBtn" class="unlock-btn">
-        Open Surprise
+    <div class="lock-content">
+      <div class="heart-lock">
+        <div class="heart-shape"></div>
+        <div class="lock-icon">🔒</div>
+      </div>
+
+      <h1>Only Priya<br>Can Open This</h1>
+
+      <div class="divider">
+        <span></span>
+        <b>❤</b>
+        <span></span>
+      </div>
+
+      <button id="openBtn" class="primary-btn">
+        Open Surprise ❤
       </button>
+
+      <p class="tiny-note">Something special is waiting for you ❤</p>
     </div>
   </main>
 
-  <!-- BIRTHDAY INTRO STAGE -->
-  <section id="birthdayStage" class="birthday-stage">
+  <!-- SCREEN 2: BIRTHDAY -->
+  <section id="birthdayScreen" class="screen birthday-screen">
+    <div class="bg-stars"></div>
 
-    <!-- Floating balloons -->
-    <div class="balloon balloon-1"></div>
-    <div class="balloon balloon-2"></div>
-    <div class="balloon balloon-3"></div>
-    <div class="balloon balloon-4"></div>
-
-    <!-- Crackers / sparkles layer -->
-    <div class="sparkle-layer">
-      <span class="sparkle s1"></span>
-      <span class="sparkle s2"></span>
-      <span class="sparkle s3"></span>
-      <span class="sparkle s4"></span>
-      <span class="sparkle s5"></span>
-      <span class="sparkle s6"></span>
-    </div>
+    <div class="balloon balloon-left"></div>
+    <div class="balloon balloon-right"></div>
+    <div class="balloon balloon-small-left"></div>
+    <div class="balloon balloon-small-right"></div>
 
     <div class="birthday-content">
-      <p class="intro-line">Tonight is a little different...</p>
+      <p class="top-label">WISHING YOU A VERY</p>
 
       <h2 class="birthday-title">
-  <span id="typingText"></span>
-</h2>
+        Happy Birthday<br><span>Priya♡</span>
+      </h2>
 
-      <p class="birthday-subtitle">
-        Some wishes are not spoken loudly, they are felt quietly.
+      <p class="birthday-line">
+        You make every moment<br>
+        beautiful just by being in it. 💖
       </p>
 
-      <!-- Cake placeholder: CSS/JS animation step me improve karenge -->
-   <div id="cakeBox" class="cake-box">
-  <div class="premium-cake">
-    <div class="candle">
-      <span class="flame"></span>
-    </div>
+      <div class="cake-wrap">
+        <div class="cake">
+          <div class="candle">
+            <span class="flame"></span>
+          </div>
 
-    <div class="cake-layer layer-top">
-      <span class="cream-drip d1"></span>
-      <span class="cream-drip d2"></span>
-      <span class="cream-drip d3"></span>
-    </div>
+          <div class="cake-top"></div>
+          <div class="cake-base"></div>
+          <div class="cake-cream cream-1"></div>
+          <div class="cake-cream cream-2"></div>
+          <div class="cake-cream cream-3"></div>
+          <div class="cake-plate"></div>
+        </div>
+      </div>
 
-    <div class="cake-layer layer-middle">
-      <span class="cake-dot dot1"></span>
-      <span class="cake-dot dot2"></span>
-      <span class="cake-dot dot3"></span>
-    </div>
-
-    <div class="cake-layer layer-bottom"></div>
-
-    <div class="cake-plate"></div>
-  </div>
-</div>
-
-      <button id="finalBtn" class="final-btn">
-        Open Main Surprise
+      <button id="mainBtn" class="main-btn">
+        Open Main Surprise 🎁
       </button>
-    </div>
 
+      <p class="tiny-note birthday-note">Something amazing is inside ❤</p>
+    </div>
   </section>
 
   <script src="./js/intro.js"></script>
