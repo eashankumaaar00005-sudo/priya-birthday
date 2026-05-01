@@ -624,3 +624,29 @@ section{
     0 30px 75px rgba(0,0,0,.34),
     inset 0 1px 0 rgba(255,255,255,.16);
 }
+@media (max-width: 640px){
+  section{
+    padding-left:16px;
+    padding-right:16px;
+  }
+
+  .memory-card,
+  .letter-box,
+  .final-section{
+    border-radius:24px;
+  }
+
+  .cake-shell{
+    width:min(310px, 92vw);
+  }
+
+  h1{
+    font-size:clamp(2.1rem, 12vw, 3.4rem);
+    line-height:.95;
+  }
+
+  p{
+    font-size:1rem;
+    line-height:1.65;
+  }
+}
