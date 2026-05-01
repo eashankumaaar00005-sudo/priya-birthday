@@ -433,3 +433,84 @@ body{
       inset 0 1px 0 rgba(255,255,255,.4);
   }
 }
+/* ================= PERFORMANCE CONTROL ================= */
+
+/* Smooth animation hints */
+.birthday-stage,
+.birthday-content,
+.premium-cake,
+.balloon,
+.sparkle,
+.final-btn{
+  will-change: transform, opacity;
+}
+
+/* Prevent accidental horizontal scroll */
+html,
+body{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+}
+
+/* Mobile optimization */
+@media (max-width:600px){
+
+  .birthday-title{
+    font-size:28px;
+  }
+
+  .birthday-subtitle{
+    font-size:13px;
+    max-width:290px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .premium-cake{
+    width:165px;
+    height:150px;
+  }
+
+  .layer-top{
+    width:112px;
+  }
+
+  .layer-middle{
+    width:138px;
+  }
+
+  .layer-bottom{
+    width:165px;
+  }
+
+  .cake-plate{
+    width:190px;
+  }
+
+  .balloon{
+    width:32px;
+    height:46px;
+  }
+
+  .sparkle-layer span{
+    width:5px;
+    height:5px;
+  }
+
+  .final-btn{
+    font-size:14px;
+    padding:13px 20px;
+  }
+}
+
+/* Respect low-motion devices */
+@media (prefers-reduced-motion: reduce){
+  *,
+  *::before,
+  *::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+  }
+}
