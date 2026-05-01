@@ -87,3 +87,17 @@ function showSecret(){
     el.classList.add("show");
   });
 });
+const musicBtn = document.getElementById("musicBtn");
+const music = document.getElementById("music");
+
+if (musicBtn && music) {
+  musicBtn.addEventListener("click", () => {
+    if (music.paused) {
+      music.play();
+      musicBtn.textContent = "Pause Music";
+    } else {
+      music.pause();
+      musicBtn.textContent = "Play Music";
+    }
+  });
+}
