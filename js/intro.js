@@ -25,3 +25,19 @@ finalBtn.addEventListener("click", () => {
     window.location.href = "surprise.html";
   }, 650);
 });
+const typingEl = document.getElementById("typingText");
+
+const text = "Happy Birthday Priya";
+let index = 0;
+
+function typeText() {
+  if (index < text.length) {
+    typingEl.textContent += text.charAt(index);
+    index++;
+    setTimeout(typeText, 70);
+  }
+}
+
+setTimeout(() => {
+  typeText();
+}, 900);
