@@ -548,3 +548,54 @@ p{
     filter:blur(0);
   }
 }
+.soft-glow{
+  position:fixed;
+  width:260px;
+  height:260px;
+  border-radius:50%;
+  background:rgba(255, 198, 221, .18);
+  filter:blur(55px);
+  pointer-events:none;
+  z-index:0;
+  animation:glowMove 9s ease-in-out infinite alternate;
+}
+
+.glow-1{
+  top:8%;
+  left:-80px;
+}
+
+.glow-2{
+  right:-90px;
+  top:38%;
+  background:rgba(255, 235, 180, .15);
+  animation-delay:1.5s;
+}
+
+.glow-3{
+  bottom:4%;
+  left:30%;
+  background:rgba(190, 170, 255, .14);
+  animation-delay:3s;
+}
+
+@keyframes glowMove{
+  from{
+    transform:translateY(0) scale(1);
+    opacity:.7;
+  }
+  to{
+    transform:translateY(-35px) scale(1.12);
+    opacity:1;
+  }
+}
+
+section,
+.hero,
+.memory-card,
+.cake-shell,
+.letter-box,
+.final-section{
+  position:relative;
+  z-index:1;
+}
