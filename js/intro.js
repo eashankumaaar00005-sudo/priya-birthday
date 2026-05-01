@@ -19,5 +19,9 @@ unlockBtn.addEventListener("click", () => {
 });
 
 finalBtn.addEventListener("click", () => {
-  window.location.href = "surprise.html";
+  document.body.classList.add("page-exit");
+
+  setTimeout(() => {
+    window.location.href = "surprise.html";
+  }, 650);
 });
