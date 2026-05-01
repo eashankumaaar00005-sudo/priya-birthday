@@ -3,127 +3,28 @@ let slideshowStarted = false;
 let slideIndex = 0;
 
 const slides = [
-  { img:"photo1.jpg", text:"Some memories stay forever." },
-  { img:"photo2.jpg", text:"Some smiles become part of the heart." },
-  { img:"photo3.jpg", text:"Some people make life feel warmer." }
+  {
+    img: "./assets/images/photo1.webp",
+    text: "Aapki Khushi Kabhi Kam Na Ho, Aap Jo Chaho Wo Kar Pao."
+  },
+  {
+    img: "./assets/images/photo2.webp",
+    text: "Some smiles become part of the heart."
+  },
+  {
+    img: "./assets/images/photo3.webp",
+    text: "Some people make life feel warmer."
+  }
 ];
 
-const faders = document.querySelectorAll(".fade");
-
-const observer = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add("show");
-    }
-  });
-},{threshold:0.2});
-
-faders.forEach(el=>observer.observe(el));
-
-
-
-function startHearts(){
-  if(heartTimer) return;
-
-  heartTimer = setInterval(()=>{
-    const h = document.createElement("div");
-    h.className = "heart";
-    h.innerHTML = "❤️";
-    h.style.left = Math.random() * 92 + "vw";
-    h.style.fontSize = (14 + Math.random() * 10) + "px";
-
-    const colors = ["#ff7ab7","#ffd0df","#ff4f9a","#ffc0cb"];
-    h.style.color = colors[Math.floor(Math.random()*colors.length)];
-
-    document.body.appendChild(h);
-    setTimeout(()=>h.remove(),5000);
-  },300);
-}
-
-function startSlideshow(){
-  if(slideshowStarted) return;
-  slideshowStarted = true;
-
-  const img = document.getElementById("slideImage");
-  const text = document.getElementById("slideText");
-
-  if(!img || !text){
-    console.log("Slideshow image/text not found");
-    return;
-  }
-
-  setInterval(()=>{
-    slideIndex = (slideIndex + 1) % slides.length;
-
-    img.style.opacity = "0";
-
-    setTimeout(()=>{
-      img.src = slides[slideIndex].img;
-      text.innerText = slides[slideIndex].text;
-      img.style.opacity = "1";
-    },400);
-  },2800);
-}
-
-function showSecret(){
-  const box = document.getElementById("secretBox");
-  if(!box) return;
-
-  box.style.display = "block";
-  box.scrollIntoView({behavior:"smooth", block:"center"});
-}window.addEventListener("load", () => {
-  const music = document.getElementById("music");
-  if (music) {
-    music.volume = 0.45;
-    // Browser may block autoplay until user taps; that's normal.
-    music.play().catch(() => {});
-    document.addEventListener("click", () => music.play().catch(() => {}), { once: true });
-  }
-
-  startHearts();
-  startSlideshow();
-
-  document.querySelectorAll(".fade").forEach(el => {
-    el.classList.add("show");
-  });
-});
-const musicBtn = document.getElementById("musicBtn");
-const music = document.getElementById("music");
-
-if (musicBtn && music) {
-  musicBtn.addEventListener("click", () => {
-    if (music.paused) {
-      music.play();
-      musicBtn.textContent = "Pause Music";
-    } else {
-      music.pause();
-      musicBtn.textContent = "Play Music";
-    }
-  });
-}
-const bgMusic = document.getElementById("music");
-
-let musicStarted = false;
-
-function startMusicOnce() {
-  if (!musicStarted && bgMusic) {
-    bgMusic.play().catch(() => {});
-    musicStarted = true;
-  }
-}
-
-document.addEventListener("click", startMusicOnce);
+/* Fade / Reveal Animation */
 const revealItems = document.querySelectorAll(
-  "section, .memory-card, .letter-box, .final-section, .cake-shell"
+  ".fade, section, .memory-card, .quote-card, .reason, .slideshow, .letter-image-card, .secret, .final, .eom-cake-card"
 );
-
-revealItems.forEach((item) => {
-  item.classList.add("reveal");
-});
 
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
-    if(entry.isIntersecting){
+    if (entry.isIntersecting) {
       entry.target.classList.add("show");
     }
   });
@@ -131,4 +32,90 @@ const revealObserver = new IntersectionObserver((entries) => {
   threshold: 0.16
 });
 
-revealItems.forEach((item) => revealObserver.observe(item));
+revealItems.forEach((item) => {
+  item.classList.add("reveal");
+  revealObserver.observe(item);
+});
+
+/* Hearts */
+function startHearts() {
+  if (heartTimer) return;
+
+  heartTimer = setInterval(() => {
+    const h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = "❤️";
+    h.style.left = Math.random() * 92 + "vw";
+    h.style.fontSize = (14 + Math.random() * 10) + "px";
+
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 5000);
+  }, 450);
+}
+
+/* Slideshow */
+function startSlideshow() {
+  if (slideshowStarted) return;
+  slideshowStarted = true;
+
+  const img = document.getElementById("slideImage");
+  const text = document.getElementById("slideText");
+
+  if (!img || !text) return;
+
+  setInterval(() => {
+    slideIndex = (slideIndex + 1) % slides.length;
+
+    img.style.opacity = "0";
+
+    setTimeout(() => {
+      img.src = slides[slideIndex].img;
+      text.innerText = slides[slideIndex].text;
+      img.style.opacity = "1";
+    }, 400);
+  }, 3000);
+}
+
+/* Secret Box */
+function showSecret() {
+  const box = document.getElementById("secretBox");
+  if (!box) return;
+
+  box.style.display = "block";
+  box.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+/* Music Button */
+const music = document.getElementById("music");
+const musicBtn = document.getElementById("musicToggle");
+
+let isPlaying = false;
+
+if (music && musicBtn) {
+  music.volume = 0.45;
+
+  musicBtn.addEventListener("click", () => {
+    if (!isPlaying) {
+      music.play().then(() => {
+        musicBtn.textContent = "🔊";
+        isPlaying = true;
+      }).catch(() => {
+        musicBtn.textContent = "🔇";
+      });
+    } else {
+      music.pause();
+      musicBtn.textContent = "🔇";
+      isPlaying = false;
+    }
+  });
+}
+
+/* Start */
+window.addEventListener("load", () => {
+  startHearts();
+  startSlideshow();
+
+  document.querySelectorAll(".fade").forEach((el) => {
+    el.classList.add("show");
+  });
+});
