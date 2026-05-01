@@ -3,278 +3,268 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>For Priya 💖</title>
+<title>Evening of Memories - Priya</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nunito:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@300;400;500;600&display=swap');
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html,body{
-  width:100%;
-  min-height:100%;
+html,
+body {
+  width: 100%;
+  min-height: 100%;
 }
 
-body{
-  min-height:100vh;
-  overflow:hidden;
-  font-family:'Nunito',sans-serif;
+body {
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+  color: #fff;
   background:
-    radial-gradient(circle at 50% 8%, rgba(255,255,255,.45), transparent 28%),
-    linear-gradient(180deg,#feecea 0%, #f7c9d6 100%);
-  display:flex;
-  align-items:center;
-  justify-content:center;
+    radial-gradient(circle at 50% 0%, rgba(116, 69, 166, 0.38), transparent 35%),
+    radial-gradient(circle at 20% 18%, rgba(255, 120, 160, 0.16), transparent 30%),
+    linear-gradient(180deg, #12091f 0%, #08030f 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* ===== MOBILE PREMIUM FRAME ===== */
-.hero{
-  width:100%;
-  max-width:430px;
-  min-height:100vh;
-  padding:46px 20px 28px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-  position:relative;
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(rgba(255,255,255,.16) 1px, transparent 1px),
+    radial-gradient(rgba(255,120,170,.12) 1px, transparent 1px);
+  background-size: 52px 52px, 86px 86px;
+  background-position: 0 0, 20px 30px;
+  opacity: .38;
+  pointer-events: none;
 }
 
-.hero::before{
-  content:"";
-  position:absolute;
-  width:260px;
-  height:260px;
-  top:4%;
-  left:50%;
-  transform:translateX(-50%);
-  background:radial-gradient(circle,rgba(255,120,130,.16),transparent 68%);
-  pointer-events:none;
+body::after {
+  content: "";
+  position: fixed;
+  inset: auto 0 0 0;
+  height: 38%;
+  background: linear-gradient(to top, rgba(8,3,15,.95), transparent);
+  pointer-events: none;
 }
 
-.top-text{
-  position:relative;
-  z-index:2;
-  font-size:12px;
-  line-height:1.3;
-  letter-spacing:2px;
-  color:#FF7882;
-  margin-bottom:8px;
+.memory-scene {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 430px;
+  min-height: 100vh;
+  padding: 42px 22px 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.hero-name{
-  position:relative;
-  z-index:2;
-  font-family:'Dancing Script',cursive;
-  font-size:58px;
-  line-height:.95;
-  background:linear-gradient(180deg,#ff9aa2 0%,#ff4d6d 48%,#c9184a 100%);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-  filter:drop-shadow(0 8px 14px rgba(201,24,74,.12));
-  margin-bottom:12px;
+.eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  color: rgba(255, 220, 235, .68);
+  margin-bottom: 8px;
 }
 
-.sub-text{
-  position:relative;
-  z-index:2;
-  font-size:13.5px;
-  line-height:1.5;
-  color:rgba(51,51,51,.72);
-  margin-bottom:18px;
+.hero-name {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(58px, 17vw, 78px);
+  line-height: .98;
+  background: linear-gradient(180deg, #ffe2ea 0%, #ff8aaf 48%, #ff477d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 10px 26px rgba(255, 75, 130, .22));
+  margin-bottom: 10px;
 }
 
-.open-btn{
-  position:relative;
-  z-index:4;
-  border:none;
-  outline:none;
-  padding:12px 28px;
-  border-radius:999px;
-  background:linear-gradient(135deg,#FF7882 0%,#e63b62 55%,#c9184a 100%);
-  color:#fff;
-  font-size:14px;
-  font-weight:700;
-  letter-spacing:.2px;
+.hero-line {
+  width: min(310px, 92%);
+  font-size: 13.5px;
+  line-height: 1.55;
+  font-weight: 300;
+  color: rgba(255, 238, 245, .72);
+  margin-bottom: 18px;
+}
+
+.begin-btn {
+  appearance: none;
+  border: 1px solid rgba(255, 210, 225, .25);
+  background: linear-gradient(135deg, rgba(255, 105, 145, .95), rgba(202, 48, 102, .95));
+  color: #fff;
+  padding: 11px 24px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .3px;
   box-shadow:
-    0 14px 26px rgba(201,24,74,.22),
+    0 14px 34px rgba(255, 73, 128, .23),
     inset 0 1px 0 rgba(255,255,255,.28);
-  cursor:pointer;
-  transition:transform .18s ease, filter .18s ease;
-  margin-bottom:10px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .18s ease, filter .18s ease;
+  margin-bottom: 0;
 }
 
-.open-btn:active{
-  transform:scale(.95);
-  filter:brightness(.95);
+.begin-btn:active {
+  transform: scale(.96);
+  filter: brightness(.92);
 }
 
-/* ===== CAKE AREA ===== */
-.cake-stage{
-  position:relative;
-  z-index:2;
-  width:240px;
-  height:360px;
-  margin-top:-8px;
-  overflow:visible;
+.cake-stage {
+  position: relative;
+  width: 260px;
+  height: 380px;
+  margin-top: -8px;
+  transform: scale(.84);
+  transform-origin: top center;
 }
 
-/* original candle system adapted safely */
-.candle{
-  background:#ffffff;
-  border-radius:10px;
-  position:absolute;
-  top:128px;
-  left:50%;
-  margin-left:-2.5px;
-  width:5px;
-  height:35px;
-  transform:translateY(-300px);
-  backface-visibility:hidden;
-  animation:in 500ms 6s ease-out forwards;
-  z-index:5;
+/* ===== USER'S ORIGINAL CAKE ANIMATION INTEGRATION ===== */
+
+.cake-stage > .cake {
+  background: #ffffff;
+  border-radius: 10px;
+  position: absolute;
+  top: 198px;
+  left: 50%;
+  margin-left: -2.4px;
+  margin-top: -8.33333333px;
+  width: 5px;
+  height: 35px;
+  transform: translateY(-300px);
+  backface-visibility: hidden;
+  animation: in 500ms 6s ease-out forwards;
+  z-index: 4;
 }
 
-.candle::before,
-.candle::after{
-  content:"";
-  position:absolute;
-  left:0;
-  width:100%;
-  height:2.2px;
-  background:rgba(255,0,0,.4);
-}
-.candle::after{top:25%;}
-.candle::before{top:45%;}
-
-.fuego{
-  border-radius:100%;
-  position:absolute;
-  top:-20px;
-  left:50%;
-  margin-left:-2.6px;
-  width:6.7px;
-  height:18px;
-}
-.fuego:nth-child(1){animation:fuego 2s 6.5s infinite;}
-.fuego:nth-child(2){animation:fuego 1.5s 6.5s infinite;}
-.fuego:nth-child(3){animation:fuego 1s 6.5s infinite;}
-.fuego:nth-child(4){animation:fuego .5s 6.5s infinite;}
-.fuego:nth-child(5){animation:fuego .2s 6.5s infinite;}
-
-/* SVG positioning */
-#cake{
-  display:block;
-  position:absolute;
-  width:220px;
-  height:550px;
-  left:50%;
-  top:-115px;
-  transform:translateX(-50%) scale(.78);
-  transform-origin:top center;
-  filter:drop-shadow(0 18px 24px rgba(139,106,96,.16));
+.cake-stage > .cake:after,
+.cake-stage > .cake:before {
+  background: rgba(255, 0, 0, 0.4);
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2.22222222px;
 }
 
-@keyframes fuego{
-  0%,100%{
-    background:rgba(254,248,97,.55);
-    box-shadow:0 0 35px 9px rgba(248,233,209,.22);
-    transform:translateY(0) scale(1);
+.cake-stage > .cake:after {
+  top: 25%;
+  left: 0;
+}
+
+.cake-stage > .cake:before {
+  top: 45%;
+  left: 0;
+}
+
+.fuego {
+  border-radius: 100%;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  margin-left: -2.6px;
+  width: 6.66666667px;
+  height: 18px;
+}
+
+.fuego:nth-child(1) { animation: fuego 2s 6.5s infinite; }
+.fuego:nth-child(2) { animation: fuego 1.5s 6.5s infinite; }
+.fuego:nth-child(3) { animation: fuego 1s 6.5s infinite; }
+.fuego:nth-child(4) { animation: fuego .5s 6.5s infinite; }
+.fuego:nth-child(5) { animation: fuego .2s 6.5s infinite; }
+
+@keyframes fuego {
+  0%, 100% {
+    background: rgba(254, 248, 97, 0.5);
+    box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
+    transform: translateY(0) scale(1);
   }
-  50%{
-    background:rgba(255,50,0,.12);
-    box-shadow:0 0 36px 17px rgba(248,233,209,.22);
-    transform:translateY(-20px) scale(0);
+  50% {
+    background: rgba(255, 50, 0, 0.1);
+    box-shadow: 0 0 40px 20px rgba(248, 233, 209, 0.2);
+    transform: translateY(-20px) scale(0);
   }
 }
 
-@keyframes in{
-  to{transform:translateY(0);}
+@keyframes in {
+  to { transform: translateY(0); }
 }
 
-/* simple open message */
-.message{
-  position:fixed;
-  inset:0;
-  background:rgba(42,10,20,.45);
-  backdrop-filter:blur(6px);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  opacity:0;
-  pointer-events:none;
-  transition:.35s ease;
-  z-index:20;
-  padding:20px;
-}
-.message.active{
-  opacity:1;
-  pointer-events:auto;
-}
-.message-card{
-  width:min(320px,90vw);
-  background:#fff8e4;
-  border-radius:24px;
-  padding:24px 20px;
-  text-align:center;
-  box-shadow:0 24px 50px rgba(0,0,0,.18);
-  transform:translateY(16px) scale(.94);
-  transition:.35s ease;
-}
-.message.active .message-card{
-  transform:translateY(0) scale(1);
-}
-.message-card h2{
-  font-family:'Dancing Script',cursive;
-  font-size:34px;
-  color:#c9184a;
-  margin-bottom:10px;
-}
-.message-card p{
-  font-size:14px;
-  line-height:1.65;
-  color:#333;
-}
-.close-btn{
-  margin-top:18px;
-  padding:9px 18px;
-  border:0;
-  border-radius:999px;
-  background:#FF7882;
-  color:#fff;
-  font-weight:700;
+.cake-stage > svg#cake {
+  display: block;
+  position: absolute;
+  top: -54px;
+  left: 50%;
+  width: 240px;
+  height: 600px;
+  transform: translateX(-50%);
+  margin: 0;
+  overflow: visible;
+  filter:
+    drop-shadow(0 24px 34px rgba(0,0,0,.42))
+    drop-shadow(0 0 28px rgba(255, 112, 160, .12));
 }
 
-@media (max-width:380px){
-  .hero{padding-top:34px;}
-  .hero-name{font-size:52px;}
-  .cake-stage{transform:scale(.92); margin-top:-22px;}
+.memory-note {
+  margin-top: -22px;
+  font-size: 11.5px;
+  color: rgba(255,255,255,.48);
+  letter-spacing: .6px;
+}
+
+@media (max-width: 380px) {
+  .memory-scene {
+    padding-top: 34px;
+  }
+
+  .hero-name {
+    font-size: 58px;
+  }
+
+  .cake-stage {
+    transform: scale(.78);
+    margin-top: -12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
 }
 </style>
 </head>
 
 <body>
-  <main class="hero" id="hero">
-    <p class="top-text">For Someone Very Special 💖</p>
+  <main class="memory-scene">
+    <div class="eyebrow">An Evening of Memories</div>
     <h1 class="hero-name">Priya</h1>
-    <p class="sub-text">A little surprise made just for you ✨</p>
-
-    <button class="open-btn" id="openBtn">Tap to Open 💌</button>
+    <p class="hero-line">Some moments deserve to be felt, not just remembered.</p>
+    <button class="begin-btn" type="button">Begin the Evening ✨</button>
 
     <section class="cake-stage" aria-label="Animated birthday cake">
-      <div class="candle">
+<div class="cake">
         <div class="fuego"></div>
         <div class="fuego"></div>
         <div class="fuego"></div>
         <div class="fuego"></div>
         <div class="fuego"></div>
       </div>
-
       <svg id="cake" version="1.1" x="0px" y="0px" width="200px" height="500px" viewBox="0 0 200 500" enable-background="new 0 0 200 500" xml:space="preserve">
         <path fill="#a88679" d="M173.667-13.94c-49.298,0-102.782,0-147.334,0c-3.999,0-4-16.002,0-16.002
         c44.697,0,96.586,0,147.334,0C177.667-29.942,177.668-13.94,173.667-13.94z">
@@ -424,28 +414,8 @@ body{
         <rect x="10" y="475.571" fill="#fefae9" width="180" height="4" />
       </svg>
     </section>
+
+    <div class="memory-note">A quiet little moment, made only for you.</div>
   </main>
-
-  <div class="message" id="message">
-    <div class="message-card">
-      <h2>For You 💖</h2>
-      <p>You are truly special. I hope this little surprise brings a smile to your face and makes your day feel a little more beautiful.</p>
-      <button class="close-btn" id="closeBtn">Close</button>
-    </div>
-  </div>
-
-<script>
-const openBtn = document.getElementById('openBtn');
-const closeBtn = document.getElementById('closeBtn');
-const message = document.getElementById('message');
-
-openBtn.addEventListener('click', () => {
-  message.classList.add('active');
-});
-
-closeBtn.addEventListener('click', () => {
-  message.classList.remove('active');
-});
-</script>
 </body>
 </html>
