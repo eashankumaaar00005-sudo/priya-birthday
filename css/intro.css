@@ -166,59 +166,198 @@ body{
   50%{ opacity:1; transform:scale(1.2);}
 }
 
-/* ================= CAKE ================= */
+/* ================= PREMIUM CAKE ================= */
 
 .cake-box{
-  margin:30px 0;
+  margin:34px 0 24px;
+  opacity:0;
+  transform:translateY(24px) scale(.92);
+  animation:cakeReveal .9s ease forwards;
+  animation-delay:2.4s;
 }
 
-.cake{
-  width:120px;
-  margin:auto;
+@keyframes cakeReveal{
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
 }
 
-.cake-bottom{
-  height:40px;
-  background:#ff8fab;
-  border-radius:6px;
+.premium-cake{
+  position:relative;
+  width:190px;
+  height:170px;
+  margin:0 auto;
+  animation:cakeFloat 3.5s ease-in-out infinite;
 }
 
-.cake-middle{
-  height:30px;
-  background:#ffb3c6;
-  margin-top:5px;
-  border-radius:6px;
-}
-
-.cake-top{
-  height:20px;
-  background:#ffc2d1;
-  margin-top:5px;
-  border-radius:6px;
+@keyframes cakeFloat{
+  0%,100%{
+    transform:translateY(0);
+  }
+  50%{
+    transform:translateY(-8px);
+  }
 }
 
 .candle{
-  width:8px;
-  height:30px;
-  background:#fff;
-  margin:auto;
-  position:relative;
+  position:absolute;
+  top:0;
+  left:50%;
+  width:12px;
+  height:42px;
+  transform:translateX(-50%);
+  background:repeating-linear-gradient(
+    45deg,
+    #fff 0 6px,
+    #ff6b8a 6px 12px
+  );
+  border-radius:8px;
+  z-index:6;
+  box-shadow:0 0 18px rgba(255,255,255,.25);
 }
 
 .flame{
-  width:10px;
-  height:10px;
-  background:orange;
-  border-radius:50%;
   position:absolute;
-  top:-10px;
-  left:-1px;
-  animation:flicker .3s infinite alternate;
+  top:-20px;
+  left:50%;
+  width:16px;
+  height:22px;
+  transform:translateX(-50%);
+  background:radial-gradient(circle at 50% 70%, #fff3a3 0 20%, #ffb703 35%, #ff6b00 70%);
+  border-radius:50% 50% 45% 45%;
+  animation:flameDance .22s infinite alternate ease-in-out;
+  box-shadow:
+    0 0 14px rgba(255,184,0,.9),
+    0 0 28px rgba(255,107,0,.55);
 }
 
-@keyframes flicker{
-  from{ transform:scale(1);}
-  to{ transform:scale(1.2);}
+@keyframes flameDance{
+  from{
+    transform:translateX(-50%) scale(1) rotate(-3deg);
+  }
+  to{
+    transform:translateX(-50%) scale(1.12) rotate(3deg);
+  }
+}
+
+.cake-layer{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  border-radius:18px 18px 14px 14px;
+  box-shadow:
+    inset 0 4px 8px rgba(255,255,255,.22),
+    inset 0 -6px 12px rgba(87,20,45,.18),
+    0 14px 24px rgba(0,0,0,.28);
+}
+
+.layer-top{
+  top:48px;
+  width:128px;
+  height:38px;
+  background:linear-gradient(180deg,#ffe1ec,#ff9fbd);
+  z-index:5;
+}
+
+.layer-middle{
+  top:82px;
+  width:160px;
+  height:48px;
+  background:linear-gradient(180deg,#ff8fab,#ff4d7d);
+  z-index:4;
+}
+
+.layer-bottom{
+  top:124px;
+  width:190px;
+  height:54px;
+  background:linear-gradient(180deg,#ff6b8a,#d6336c);
+  z-index:3;
+}
+
+.cake-plate{
+  position:absolute;
+  left:50%;
+  bottom:-14px;
+  width:220px;
+  height:24px;
+  transform:translateX(-50%);
+  background:linear-gradient(180deg,#ffffff,#cfcfd6);
+  border-radius:50%;
+  z-index:2;
+  box-shadow:0 14px 24px rgba(0,0,0,.35);
+}
+
+.cream-drip{
+  position:absolute;
+  top:28px;
+  width:16px;
+  background:#ffe8f1;
+  border-radius:0 0 999px 999px;
+  animation:dripDrop .9s ease forwards;
+  transform-origin:top;
+  transform:scaleY(0);
+}
+
+.d1{
+  left:24px;
+  height:30px;
+  animation-delay:3s;
+}
+
+.d2{
+  left:58px;
+  height:22px;
+  animation-delay:3.15s;
+}
+
+.d3{
+  right:28px;
+  height:34px;
+  animation-delay:3.3s;
+}
+
+@keyframes dripDrop{
+  to{
+    transform:scaleY(1);
+  }
+}
+
+.cake-dot{
+  position:absolute;
+  top:18px;
+  width:8px;
+  height:8px;
+  background:#fff4a3;
+  border-radius:50%;
+  box-shadow:0 0 10px rgba(255,244,163,.8);
+  animation:dotGlow 1s infinite alternate;
+}
+
+.dot1{
+  left:34px;
+}
+
+.dot2{
+  left:76px;
+  animation-delay:.3s;
+}
+
+.dot3{
+  right:36px;
+  animation-delay:.6s;
+}
+
+@keyframes dotGlow{
+  from{
+    transform:scale(.9);
+    opacity:.65;
+  }
+  to{
+    transform:scale(1.2);
+    opacity:1;
+  }
 }
 
 /* ================= FINAL BUTTON ================= */
