@@ -91,7 +91,7 @@ const music = document.getElementById("music");
 function startMusic() {
   if (!music) return;
 
-  music.volume = 0.45;
+  music.volume = 0.8;
 
   music.play().catch(() => {
     // fallback: user interaction ka wait
