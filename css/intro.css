@@ -357,8 +357,11 @@ body.page-exit{
 /* birthday content cinematic reveal */
 
 .birthday-content{
-  position:relative;
-  z-index:3;
+  opacity:0;
+  transition:opacity .6s ease;
+}
+.birthday-content.show{
+  opacity:1;
 }
 
 .top-label,
@@ -469,5 +472,29 @@ body.page-exit{
   }
   50%{
     box-shadow:0 0 45px rgba(255,77,125,.9);
+  }
+}
+.cinematic-text{
+  position:absolute;
+  text-align:center;
+  z-index:5;
+}
+
+.cinematic-text p{
+  opacity:0;
+  transform:translateY(20px);
+  font-size:18px;
+  margin:8px 0;
+  animation:fadeLine 1s ease forwards;
+}
+
+.line1{ animation-delay:.3s; }
+.line2{ animation-delay:1.2s; }
+.line3{ animation-delay:2.2s; }
+
+@keyframes fadeLine{
+  to{
+    opacity:1;
+    transform:translateY(0);
   }
 }
