@@ -87,26 +87,26 @@ function showSecret() {
 
 /* Music Button */
 const music = document.getElementById("music");
-const musicBtn = document.getElementById("musicToggle");
 
-if (music && musicBtn) {
+function startMusic() {
+  if (!music) return;
+
   music.volume = 0.45;
 
-  musicBtn.addEventListener("click", async () => {
-    try {
-      if (music.paused) {
-        await music.play();
-        musicBtn.textContent = "🔊";
-      } else {
-        music.pause();
-        musicBtn.textContent = "🔇";
-      }
-    } catch (err) {
-      console.log("Music play failed:", err);
-      musicBtn.textContent = "🔇";
-    }
+  music.play().catch(() => {
+    // fallback: user interaction ka wait
   });
 }
+
+/* Try on load */
+window.addEventListener("load", startMusic);
+
+/* Fallback: first interaction */
+["click", "touchstart", "scroll"].forEach(event => {
+  window.addEventListener(event, () => {
+    startMusic();
+  }, { once: true });
+});
 
 /* Start */
 window.addEventListener("load", () => {
