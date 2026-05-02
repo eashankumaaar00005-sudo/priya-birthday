@@ -25,3 +25,12 @@ mainBtn.addEventListener("click", () => {
     window.location.href = "surprise.html";
   }, 650);
 });
+const openBtn = document.getElementById("openBtn");
+
+openBtn.addEventListener("click", () => {
+  document.body.classList.add("page-exit");
+
+  setTimeout(() => {
+    window.location.href = "surprise.html?music=1";
+  }, 600);
+});
