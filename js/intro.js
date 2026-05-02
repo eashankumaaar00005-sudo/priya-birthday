@@ -1,23 +1,21 @@
 const openBtn = document.getElementById("openBtn");
 const lockScreen = document.getElementById("lockScreen");
 const birthdayScreen = document.getElementById("birthdayScreen");
-const mainBtn = document.getElementById("mainBtn");
+const birthdayContent = document.querySelector(".birthday-content");
 
-if (openBtn && lockScreen && birthdayScreen && mainBtn) {
-  openBtn.addEventListener("click", () => {
-    openBtn.disabled = true;
+openBtn.addEventListener("click", () => {
+  // fade out lock
+  lockScreen.classList.add("hide-lock");
 
-    lockScreen.classList.add("hide-lock");
+  setTimeout(() => {
+    birthdayScreen.classList.add("show");
+  }, 600);
 
-    setTimeout(() => {
-      lockScreen.style.display = "none";
-      birthdayScreen.classList.add("show");
-    }, 650);
-
-    setTimeout(() => {
-      mainBtn.classList.add("show");
-    }, 5200);
-  });
+  // cinematic delay before showing content
+  setTimeout(() => {
+    birthdayContent.classList.add("show");
+  }, 3200); // important timing
+});
 
   mainBtn.addEventListener("click", () => {
     document.body.classList.add("page-exit");
