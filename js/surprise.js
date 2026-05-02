@@ -89,23 +89,21 @@ function showSecret() {
 const music = document.getElementById("music");
 const musicBtn = document.getElementById("musicToggle");
 
-let isPlaying = false;
-
 if (music && musicBtn) {
   music.volume = 0.45;
 
-  musicBtn.addEventListener("click", () => {
-    if (!isPlaying) {
-      music.play().then(() => {
+  musicBtn.addEventListener("click", async () => {
+    try {
+      if (music.paused) {
+        await music.play();
         musicBtn.textContent = "🔊";
-        isPlaying = true;
-      }).catch(() => {
+      } else {
+        music.pause();
         musicBtn.textContent = "🔇";
-      });
-    } else {
-      music.pause();
+      }
+    } catch (err) {
+      console.log("Music play failed:", err);
       musicBtn.textContent = "🔇";
-      isPlaying = false;
     }
   });
 }
