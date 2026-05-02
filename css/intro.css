@@ -176,71 +176,7 @@ body{
 
 /* ================= CAKE ================= */
 
-.cake-wrap{
-  margin:20px 0;
-}
 
-.cake{
-  position:relative;
-  width:150px;
-  margin:auto;
-}
-
-.cake-base{
-  height:50px;
-  background:#ff4d7d;
-  border-radius:10px;
-}
-
-.cake-top{
-  height:35px;
-  background:#ff9fbd;
-  border-radius:10px;
-  margin-bottom:5px;
-}
-
-.cake-plate{
-  height:10px;
-  background:#ccc;
-  border-radius:50%;
-  margin-top:5px;
-}
-
-.cake-cream{
-  position:absolute;
-  width:10px;
-  height:20px;
-  background:#fff;
-  border-radius:10px;
-}
-
-.cream-1{ left:20px; top:30px;}
-.cream-2{ left:60px; top:30px;}
-.cream-3{ right:20px; top:30px;}
-
-.candle{
-  position:absolute;
-  top:-30px;
-  left:50%;
-  transform:translateX(-50%);
-  width:8px;
-  height:30px;
-  background:#fff;
-}
-
-.flame{
-  position:absolute;
-  top:-10px;
-  width:10px;
-  height:10px;
-  background:orange;
-  border-radius:50%;
-  animation:flicker .3s infinite alternate;
-}
-
-@keyframes flicker{
-  to{ transform:scale(1.2);}
-}
 
 /* ================= BUTTON ================= */
 
