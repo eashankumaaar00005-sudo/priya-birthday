@@ -373,13 +373,13 @@ body{
 /* Flame layer */
 .intro-cake-stage .cake{
   opacity:0;
-animation:flameReveal .4s ease forwards;
- animation-delay:2.9s;
+  animation:flameReveal .4s ease forwards;
+  animation-delay:2.9s;
   position:absolute;
   left:50%;
-  top:82px;
+  top:78px;
   width:95px;
-  height:55px;
+  height:70px;
   transform:translateX(-50%);
   z-index:4;
   filter:drop-shadow(0 0 16px rgba(255,77,125,.8));
@@ -494,4 +494,19 @@ body.page-exit{
   to{
     opacity:1;
   }
+}
+ /* Candle stick */
+.intro-cake-stage .cake::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:0;
+  transform:translateX(-50%);
+  width:10px;
+  height:42px;
+  border-radius:6px;
+  background:linear-gradient(180deg,#fff7f7,#ffb6c8);
+  box-shadow:0 0 12px rgba(255,255,255,.35);
+  z-index:-1;
+}
 }
