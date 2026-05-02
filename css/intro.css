@@ -498,3 +498,69 @@ body.page-exit{
     transform:translateY(0);
   }
 }
+/* ================= SVG CAKE INTRO ================= */
+
+.intro-svg-cake-wrap{
+  margin-top:25px;
+}
+
+.intro-cake-card{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* stage container */
+.intro-cake-stage{
+  position:relative;
+  width:220px;
+  height:auto;
+  transform:scale(.85);
+}
+
+/* SVG resize fix */
+.intro-cake-stage svg{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+/* fuego (flames) alignment fix */
+.intro-cake-stage .cake{
+  position:absolute;
+  top:-18px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:6px;
+}
+
+/* flame styling */
+.intro-cake-stage .fuego{
+  width:6px;
+  height:12px;
+  background:radial-gradient(circle, #ffcc80, #ff4d7d);
+  border-radius:50%;
+  animation:flameFlicker .4s infinite alternate;
+}
+
+/* flame animation */
+@keyframes flameFlicker{
+  0%{ transform:scale(1); opacity:.8; }
+  100%{ transform:scale(1.4); opacity:1; }
+}
+
+/* glow effect (IMPORTANT for premium feel) */
+.intro-cake-stage{
+  filter:
+    drop-shadow(0 0 25px rgba(255,77,125,.35))
+    drop-shadow(0 20px 35px rgba(0,0,0,.6));
+  animation:cakeFloatIntro 4s ease-in-out infinite;
+}
+
+/* floating motion */
+@keyframes cakeFloatIntro{
+  0%,100%{ transform:translateY(0) scale(.85); }
+  50%{ transform:translateY(-8px) scale(.85); }
+}
