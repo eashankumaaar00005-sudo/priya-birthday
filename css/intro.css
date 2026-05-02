@@ -374,7 +374,7 @@ body{
 .intro-cake-stage .cake{
   opacity:0;
 animation:flameReveal .4s ease forwards;
-animation-delay:3.35s;
+ animation-delay:2.9s;
   position:absolute;
   left:50%;
   top:82px;
