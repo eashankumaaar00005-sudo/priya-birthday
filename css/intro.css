@@ -500,3 +500,9 @@ body.page-exit{
   0%,100%{ transform:translateY(0) scale(.85); }
   50%{ transform:translateY(-8px) scale(.85); }
 }
+.cinematic-text.hide{
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .5s ease;
+}
+}
