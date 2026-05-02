@@ -59,9 +59,16 @@ body{
 .heart-shape{
   width:100%;
   height:100%;
-  background:#ff4d7d;
+  background:radial-gradient(circle at 30% 30%, #ff9fbd, #ff4d7d);
   clip-path:polygon(50% 90%, 0 40%, 20% 10%, 50% 30%, 80% 10%, 100% 40%);
-  filter:drop-shadow(0 0 15px rgba(255,77,125,.6));
+  filter:
+    drop-shadow(0 0 20px rgba(255,77,125,.7))
+    drop-shadow(0 0 40px rgba(255,77,125,.4));
+  animation:heartPulse 2s ease-in-out infinite;
+}
+@keyframes heartPulse{
+  0%,100%{ transform:scale(1); }
+  50%{ transform:scale(1.08); }
 }
 
 .lock-icon{
@@ -418,5 +425,49 @@ body.page-exit{
   }
   50%{
     box-shadow:0 0 45px rgba(255,77,125,.75);
+  }
+}
+.hero-text{
+  font-size:28px;
+  line-height:1.3;
+}
+
+.hero-text span{
+  font-size:34px;
+  color:#ff9fbd;
+  text-shadow:0 0 18px rgba(255,77,125,.6);
+}
+
+.hero-text small{
+  font-size:18px;
+  font-weight:500;
+  opacity:.8;
+}
+.emotional-line{
+  margin-top:10px;
+  font-size:14px;
+  opacity:.7;
+}
+
+.emotional-line span{
+  color:#ff9fbd;
+  font-weight:600;
+}
+.primary-btn{
+  margin-top:18px;
+  padding:16px 26px;
+  font-size:16px;
+  background:linear-gradient(135deg,#ff4d7d,#ff9fbd);
+  border-radius:999px;
+  box-shadow:0 0 25px rgba(255,77,125,.5);
+  animation:buttonGlow 2s ease-in-out infinite;
+}
+
+@keyframes buttonGlow{
+  0%,100%{
+    box-shadow:0 0 25px rgba(255,77,125,.5);
+  }
+  50%{
+    box-shadow:0 0 45px rgba(255,77,125,.9);
   }
 }
