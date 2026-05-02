@@ -490,28 +490,65 @@ body.page-exit{
   .intro-cake-stage .cake{
     top:84px;
   }
- /* Candle stick */
+/* ===== FINAL CANDLE FIX ===== */
+
 @keyframes flameReveal{
-  to{
-    opacity:1;
-  }
+  to{ opacity:1; }
 }
 
-.intro-cake-stage .cake::before{
-  content:"";
+/* candle body */
+.intro-cake-stage .cake{
+  opacity:0;
+  animation:flameReveal .4s ease forwards;
+  animation-delay:2.9s;
   position:absolute;
   left:50%;
-  bottom:4px;
-  transform:translateX(-50%);
-  width:10px;
+  top:78px;
+  width:6px;
   height:42px;
+  transform:translateX(-50%);
   border-radius:6px;
   background:linear-gradient(180deg,#fff7f7,#ffb6c8);
   box-shadow:0 0 12px rgba(255,255,255,.35);
-  z-index:1;
+  z-index:40;
 }
 
-.intro-cake-stage .fuego{
-  z-index:2;
+/* candle stripes */
+.intro-cake-stage .cake::before,
+.intro-cake-stage .cake::after{
+  content:"";
+  position:absolute;
+  left:0;
+  width:100%;
+  height:2px;
+  background:rgba(255,0,0,0.4);
 }
+
+.intro-cake-stage .cake::before{ top:25%; }
+.intro-cake-stage .cake::after{ top:45%; }
+
+/* flame */
+.intro-cake-stage .fuego{
+  position:absolute;
+  top:-20px;
+  left:50%;
+  margin-left:-2.6px;
+  width:6px;
+  height:18px;
+  border-radius:100%;
+  background:radial-gradient(circle,#fff9b8,#ff5b78);
+  box-shadow:0 0 20px rgba(255,120,120,.7);
+  animation:fuegoAnim 1s infinite;
+  z-index:41;
+}
+
+@keyframes fuegoAnim{
+  0%,100%{
+    transform:translateX(-50%) scale(1);
+    opacity:1;
+  }
+  50%{
+    transform:translateX(-50%) scale(0.6) translateY(-10px);
+    opacity:.6;
+  }
 }
