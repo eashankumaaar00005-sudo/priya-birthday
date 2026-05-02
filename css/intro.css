@@ -490,23 +490,28 @@ body.page-exit{
   .intro-cake-stage .cake{
     top:84px;
   }
-  @keyframes flameReveal{
+ /* Candle stick */
+@keyframes flameReveal{
   to{
     opacity:1;
   }
 }
- /* Candle stick */
+
 .intro-cake-stage .cake::before{
   content:"";
   position:absolute;
   left:50%;
-  bottom:0;
+  bottom:4px;
   transform:translateX(-50%);
   width:10px;
   height:42px;
   border-radius:6px;
   background:linear-gradient(180deg,#fff7f7,#ffb6c8);
   box-shadow:0 0 12px rgba(255,255,255,.35);
-  z-index:-1;
+  z-index:1;
+}
+
+.intro-cake-stage .fuego{
+  z-index:2;
 }
 }
