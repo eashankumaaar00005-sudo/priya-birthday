@@ -424,7 +424,6 @@ body{
   transform:translateX(-50%) translateY(-620px) scale(1.38);
   transform-origin:center top;
   animation:cakeDropIn 2s cubic-bezier(.18,.9,.25,1.15) forwards;
-  animation-delay:2.1s;
 }
 
 @keyframes cakeDropIn{
