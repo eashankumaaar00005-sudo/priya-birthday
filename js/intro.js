@@ -24,10 +24,17 @@ if (openBtn && lockScreen && birthdayScreen && birthdayContent && mainBtn) {
       if (cakeStage) cakeStage.classList.add("zoom");
     }, 3600);
 
-    setTimeout(() => {
-      const candle = document.querySelector(".intro-cake-stage > .cake");
-      if (candle) candle.classList.add("drop");
-    }, 3900);
+   const cremaAnim = document.getElementById("crema");
+
+if (cremaAnim) {
+  cremaAnim.addEventListener("endEvent", () => {
+    const candle = document.querySelector(".intro-cake-stage > .cake");
+    if (candle) candle.classList.add("drop");
+
+    const cakeStage = document.querySelector(".intro-cake-stage");
+    if (cakeStage) cakeStage.classList.add("glow");
+  });
+}
 
     setTimeout(() => {
       const flash = document.getElementById("flash");
