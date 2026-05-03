@@ -4,7 +4,22 @@ const birthdayScreen = document.getElementById("birthdayScreen");
 const birthdayContent = document.querySelector(".birthday-content");
 const cinematicText = document.querySelector(".cinematic-text");
 const mainBtn = document.getElementById("mainBtn");
+const music = document.getElementById("bgMusic");
 
+if (music) {
+  music.volume = 0;
+  music.play().catch(()=>{});
+
+  let vol = 0;
+  const fade = setInterval(() => {
+    if (vol < 0.5) {
+      vol += 0.02;
+      music.volume = vol;
+    } else {
+      clearInterval(fade);
+    }
+  }, 200);
+  
 if (openBtn && lockScreen && birthdayScreen && birthdayContent && mainBtn) {
   openBtn.addEventListener("click", () => {
     lockScreen.classList.add("hide-lock");
