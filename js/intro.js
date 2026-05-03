@@ -18,12 +18,24 @@ if (openBtn && lockScreen && birthdayScreen && birthdayContent && mainBtn) {
       birthdayContent.classList.add("show");
       mainBtn.classList.add("show");
     }, 3600);
+
+    setTimeout(() => {
+      const cakeStage = document.querySelector(".intro-cake-stage");
+      if (cakeStage) cakeStage.classList.add("zoom");
+    }, 3600);
+
+    setTimeout(() => {
+      const candle = document.querySelector(".intro-cake-stage > .cake");
+      if (candle) candle.classList.add("drop");
+    }, 3900);
+
+    setTimeout(() => {
+      const cakeStage = document.querySelector(".intro-cake-stage");
+      if (cakeStage) cakeStage.classList.add("glow");
+    }, 4500);
   });
 }
-setTimeout(() => {
-  const cake = document.querySelector(".intro-cake-stage > .cake");
-  if (cake) cake.classList.add("drop");
-}, 3800);
+
 if (mainBtn) {
   mainBtn.addEventListener("click", () => {
     document.body.classList.add("page-exit");
