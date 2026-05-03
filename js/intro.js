@@ -20,7 +20,10 @@ if (openBtn && lockScreen && birthdayScreen && birthdayContent && mainBtn) {
     }, 3600);
   });
 }
-
+setTimeout(() => {
+  const cake = document.querySelector(".intro-cake-stage > .cake");
+  if (cake) cake.classList.add("drop");
+}, 3800);
 if (mainBtn) {
   mainBtn.addEventListener("click", () => {
     document.body.classList.add("page-exit");
