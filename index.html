@@ -34,7 +34,25 @@
 
     <div class="lock-content">
       <div class="heart-lock">
-        <div class="heart-shape"></div>
+        <div class="heart-shape">
+  <svg viewBox="0 0 100 100" class="heart-svg">
+    <defs>
+      <radialGradient id="heartGrad" cx="50%" cy="40%" r="60%">
+        <stop offset="0%" stop-color="#ff9fbd"/>
+        <stop offset="100%" stop-color="#ff4d7d"/>
+      </radialGradient>
+    </defs>
+
+    <path d="M50 90 
+             C20 65, 5 45, 25 30 
+             C40 18, 50 30, 50 30 
+             C50 30, 60 18, 75 30 
+             C95 45, 80 65, 50 90 Z"
+          fill="url(#heartGrad)" />
+  </svg>
+
+  <div class="lock-icon">🔒</div>
+</div>
         <div class="lock-icon">🔒</div>
       </div>
       <div class="confetti-layer">
