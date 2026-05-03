@@ -410,7 +410,7 @@ body{
 }
 
 .intro-cake-stage > .cake.drop{
-  animation:candleDrop 2.0s cubic-bezier(.18,.9,.25,1.15) forwards;
+  animation:candleDrop 4.0s cubic-bezier(.18,.9,.25,1.15) forwards;
 }
 
 .intro-cake-stage > .cake::before,
