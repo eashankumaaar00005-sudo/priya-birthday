@@ -817,3 +817,23 @@ body::after{
   position:relative;
   z-index:9999;
 }
+/* FIX: invisible birthday content should not block Open The Box button */
+.birthday-content{
+  pointer-events:none !important;
+}
+
+.birthday-content.show{
+  pointer-events:auto !important;
+}
+
+/* keep cinematic text/button above everything until clicked */
+.cinematic-text{
+  z-index:99999 !important;
+  pointer-events:auto !important;
+}
+
+.box-btn{
+  position:relative !important;
+  z-index:100000 !important;
+  pointer-events:auto !important;
+}
