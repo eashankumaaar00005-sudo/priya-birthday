@@ -124,17 +124,30 @@ body{
   transform:translate(-50%,-50%);
   font-size:22px;
 }
+.lock-icon{
+  animation:lockBounce 2s infinite;
+}
+
+@keyframes lockBounce{
+  0%,100%{transform:translate(-50%,-50%)}
+  50%{transform:translate(-50%,-58%)}
+}
 
 .hero-text{
+  font-weight:700;  
   font-size:28px;
   line-height:1.25;
   margin-bottom:12px;
+}
+.hero-text small{
+  font-size:16px;
+  opacity:.65;
 }
 
 .hero-text span{
   font-size:34px;
   color:#ff9fbd;
-  text-shadow:0 0 18px rgba(255,77,125,.6);
+  text-shadow:0 0 8px rgba(255,77,125,.4);
 }
 
 .hero-text small{
@@ -179,8 +192,22 @@ body{
   font-size:16px;
   font-weight:800;
   cursor:pointer;
+
   box-shadow:0 0 25px rgba(255,77,125,.5);
+
+  /* 👇 NEW */
+  transform:translateY(0);
+  transition:all .25s ease;
+
   animation:buttonGlow 2s ease-in-out infinite;
+}
+.primary-btn:hover{
+  transform:translateY(-3px) scale(1.03);
+  box-shadow:0 12px 40px rgba(255,77,125,.7);
+}
+
+.primary-btn:active{
+  transform:translateY(2px) scale(.97);
 }
 
 @keyframes buttonGlow{
@@ -610,4 +637,17 @@ body.page-exit{
   .intro-cake-stage > .cake{
     top:132px !important;
   }
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:radial-gradient(circle at 50% 60%, rgba(255,77,125,.08), transparent 60%);
+  animation:bgPulse 6s ease-in-out infinite;
+  pointer-events:none;
+}
+
+@keyframes bgPulse{
+  0%,100%{opacity:.6;}
+  50%{opacity:1;}
+}
 }
