@@ -52,6 +52,11 @@ setTimeout(() => {
   }
 }, 3900);
     setTimeout(() => {
+  const flash = document.getElementById("flash");
+  if (flash) flash.classList.add("active");
+}, 3900);
+    
+    setTimeout(() => {
       const cakeStage = document.querySelector(".intro-cake-stage");
       if (cakeStage) cakeStage.classList.add("glow");
     }, 4500);
