@@ -898,3 +898,18 @@ body::after{
   70%{ opacity:1; }
   100%{ transform:translateX(130%) rotate(18deg); opacity:0; }
 }
+.lock-screen.hide-lock .lock-icon{
+  animation:unlockPop .55s ease forwards;
+}
+
+@keyframes unlockPop{
+  0%{
+    transform:translate(-50%,-50%) scale(1);
+  }
+  45%{
+    transform:translate(-50%,-72%) scale(1.25) rotate(-8deg);
+  }
+  100%{
+    transform:translate(-50%,-50%) scale(.8);
+    opacity:0;
+  }
