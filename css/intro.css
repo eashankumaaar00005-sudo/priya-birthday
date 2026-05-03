@@ -382,7 +382,7 @@ body{
   height:42px !important;
   margin-left:-3px !important;
   transform:translateY(-160px);
-  animation:candleDrop .9s 3.2s cubic-bezier(.18,.9,.25,1.15) forwards !important;
+  animation:candleDrop .9s 3.8s cubic-bezier(.18,.9,.25,1.15) forwards;
   z-index:80 !important;
   overflow:visible !important;
 }
@@ -413,7 +413,7 @@ body{
     0 0 16px rgba(255,200,90,.9),
     0 0 34px rgba(255,77,125,.8) !important;
   transform-origin:center bottom !important;
-  animation:fuegoLive .35s 4s infinite alternate ease-in-out !important;
+  animation:fuegoLive .35s 4.6s infinite alternate ease-in-out !important;
   z-index:90 !important;
 }
 
@@ -424,11 +424,21 @@ body{
 .intro-cake-stage > .cake .fuego:nth-child(5){animation:fuego .3s 3.4s infinite;}
 
 @keyframes candleDrop{
-  0%{transform:translateY(-160px);opacity:0;}
-  65%{transform:translateY(8px);opacity:1;}
-  82%{transform:translateY(-5px);}
-  100%{transform:translateY(0);opacity:1;}
-}
+  0%{
+    transform:translateY(-200px) scale(.8);
+    opacity:0;
+  }
+  60%{
+    transform:translateY(10px) scale(1.05);
+    opacity:1;
+  }
+  80%{
+    transform:translateY(-6px) scale(.98);
+  }
+  100%{
+    transform:translateY(0) scale(1);
+    opacity:1;
+  }
 
 @keyframes fuego{
   0%,100%{
