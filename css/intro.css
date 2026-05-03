@@ -228,7 +228,7 @@ body{
   color:#ff9fbd;
   font-size:18px;
   opacity:.45;
-  animation:heartFloat 7s linear infinite;
+   animation:heartFloat 7s linear infinite, heartScale 3s ease-in-out infinite;
 }
 
 .heart-particles span:nth-child(1){left:12%;animation-delay:.5s;}
@@ -241,6 +241,10 @@ body{
   0%{transform:translateY(0) scale(.8) rotate(0deg);opacity:0;}
   20%{opacity:.6;}
   100%{transform:translateY(-110vh) scale(1.4) rotate(18deg);opacity:0;}
+}
+@keyframes heartScale{
+  0%,100%{ transform:scale(.9); }
+  50%{ transform:scale(1.2); }
 }
 
 /* BIRTHDAY SCREEN */
@@ -650,4 +654,57 @@ body::after{
   0%,100%{opacity:.6;}
   50%{opacity:1;}
 }
+/* ===== CONFETTI ===== */
+.confetti-layer{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:3;
 }
+
+.confetti-layer span{
+  position:absolute;
+  top:-20px;
+  width:8px;
+  height:14px;
+  border-radius:2px;
+  opacity:.9;
+  animation:confettiFall linear infinite;
+}
+
+/* random positions + colors */
+.confetti-layer span:nth-child(1){left:8%;  background:#ff4d7d; animation-duration:6s; animation-delay:.5s;}
+.confetti-layer span:nth-child(2){left:18%; background:#ffd36a; animation-duration:7s; animation-delay:1.2s;}
+.confetti-layer span:nth-child(3){left:28%; background:#6ad8ff; animation-duration:5.5s; animation-delay:.8s;}
+.confetti-layer span:nth-child(4){left:38%; background:#ff9fbd; animation-duration:6.8s; animation-delay:1.6s;}
+.confetti-layer span:nth-child(5){left:48%; background:#9b5cff; animation-duration:7.2s; animation-delay:.3s;}
+.confetti-layer span:nth-child(6){left:58%; background:#ffd36a; animation-duration:6.2s; animation-delay:1.1s;}
+.confetti-layer span:nth-child(7){left:68%; background:#6ad8ff; animation-duration:5.8s; animation-delay:.6s;}
+.confetti-layer span:nth-child(8){left:78%; background:#ff4d7d; animation-duration:6.5s; animation-delay:1.4s;}
+.confetti-layer span:nth-child(9){left:88%; background:#ff9fbd; animation-duration:7s;  animation-delay:.9s;}
+.confetti-layer span:nth-child(10){left:22%;background:#9b5cff; animation-duration:6.4s; animation-delay:1.7s;}
+.confetti-layer span:nth-child(11){left:62%;background:#ffd36a; animation-duration:5.9s; animation-delay:.2s;}
+.confetti-layer span:nth-child(12){left:82%;background:#6ad8ff; animation-duration:6.7s; animation-delay:1.3s;}
+
+@keyframes confettiFall{
+  0%{ transform:translateY(-10px) rotate(0deg); opacity:0; }
+  10%{ opacity:1; }
+  100%{ transform:translateY(110vh) rotate(360deg); opacity:0; }
+}
+  /* ===== CELEBRATION GLOW ===== */
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at 50% 60%, rgba(255,77,125,.18), transparent 55%),
+    radial-gradient(circle at 50% 60%, rgba(255,210,120,.12), transparent 65%);
+  pointer-events:none;
+  animation:celebrationPulse 5s ease-in-out infinite;
+}
+
+@keyframes celebrationPulse{
+  0%,100%{ opacity:.6; }
+  50%{ opacity:1; }
+}  
