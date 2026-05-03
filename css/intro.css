@@ -372,7 +372,7 @@ body{
   top:0;
   transform:translateX(-50%) translateY(-620px) scale(1.38);
   transform-origin:center top;
-  animation:cakeDropIn 1.4s cubic-bezier(.18,.9,.25,1.15) forwards;
+  animation:cakeDropIn 2.0s cubic-bezier(.18,.9,.25,1.15) forwards;
   animation-delay:2.1s;
 }
 
@@ -398,7 +398,7 @@ body{
   background:#fff !important;
   border-radius:10px !important;
   position:absolute !important;
-  top:135px !important;
+  top:130px !important;
   left:50% !important;
   width:6px !important;
   height:42px !important;
