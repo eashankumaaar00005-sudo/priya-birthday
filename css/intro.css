@@ -375,7 +375,7 @@ body{
   background:#fff !important;
   border-radius:10px !important;
   position:absolute !important;
-  top:138px !important;
+  top:135px !important;
   left:50% !important;
   width:6px !important;
   height:42px !important;
@@ -498,7 +498,7 @@ body.page-exit{
   }
 
   .intro-cake-stage > .cake{
-    top:138px;
+    top:135px;
   }
 }
 @keyframes fuegoLive{
