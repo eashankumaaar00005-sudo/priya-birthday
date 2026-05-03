@@ -5,45 +5,67 @@ const birthdayContent = document.querySelector(".birthday-content");
 const cinematicText = document.querySelector(".cinematic-text");
 const mainBtn = document.getElementById("mainBtn");
 
+const cakeStage = document.querySelector(".intro-cake-stage");
+const candle = document.querySelector(".intro-cake-stage > .cake");
+const cakeSvg = document.querySelector(".intro-cake-stage svg");
+
+function wait(ms){
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function forceReflow(el){
+  if (el) void el.offsetWidth;
+}
+
+async function startCakeSequence(){
+  birthdayContent.classList.add("show");
+
+  // reset animation state
+  if (cakeStage) cakeStage.classList.remove("start", "zoom", "glow");
+  if (candle) candle.classList.remove("drop");
+
+  forceReflow(cakeStage);
+  forceReflow(candle);
+  forceReflow(cakeSvg);
+
+  // start cake only after screen is visible
+  await wait(120);
+
+  if (cakeStage) {
+    cakeStage.classList.add("start");
+    cakeStage.classList.add("zoom");
+  }
+
+  // candle after cake starts
+  await wait(2100);
+
+  if (candle) candle.classList.add("drop");
+
+  await wait(900);
+
+  if (cakeStage) cakeStage.classList.add("glow");
+
+  await wait(700);
+
+  mainBtn.classList.add("show");
+}
+
 if (openBtn && lockScreen && birthdayScreen && birthdayContent && mainBtn) {
-  openBtn.addEventListener("click", () => {
+  openBtn.addEventListener("click", async () => {
     lockScreen.classList.add("hide-lock");
 
-    setTimeout(() => {
-      birthdayScreen.classList.add("show");
-    }, 600);
+    await wait(650);
+    birthdayScreen.classList.add("show");
 
-    // cinematic text timing
-    setTimeout(() => {
-      if (cinematicText) cinematicText.classList.add("hide");
+    // cinematic text duration
+    await wait(3000);
 
-      // wait for cinematic fade-out (.5s), then start cake
-      setTimeout(() => {
-        birthdayContent.classList.add("show");
+    if (cinematicText) cinematicText.classList.add("hide");
 
-        const cakeStage = document.querySelector(".intro-cake-stage");
-        const candle = document.querySelector(".intro-cake-stage > .cake");
+    // wait for fade-out to complete
+    await wait(500);
 
-        if (cakeStage) {
-          cakeStage.classList.add("start");
-          cakeStage.classList.add("zoom");
-        }
-
-        if (candle) {
-          candle.classList.add("drop");
-        }
-
-        setTimeout(() => {
-          if (cakeStage) cakeStage.classList.add("glow");
-        }, 2300);
-
-        setTimeout(() => {
-          mainBtn.classList.add("show");
-        }, 3500);
-
-      }, 500);
-
-    }, 3600);
+    startCakeSequence();
   });
 }
 
