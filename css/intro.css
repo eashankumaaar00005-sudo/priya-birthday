@@ -866,3 +866,32 @@ body::after{
 body::after{
   pointer-events:none !important;
 }
+.heart-shape{
+  position:relative;
+  width:120px;
+  height:120px;
+  margin:0 auto 20px;
+  filter:drop-shadow(0 0 25px rgba(255,77,125,.6));
+  animation:heartFloat 3s ease-in-out infinite;
+}
+
+.heart-svg{
+  width:100%;
+  height:100%;
+  display:block;
+}
+
+/* glow pulse */
+@keyframes heartFloat{
+  0%,100%{ transform:translateY(0) scale(1);}
+  50%{ transform:translateY(-6px) scale(1.05);}
+}
+
+/* lock center fix */
+.lock-icon{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  font-size:22px;
+}
