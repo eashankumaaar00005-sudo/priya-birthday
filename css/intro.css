@@ -423,6 +423,10 @@ body{
   top:0;
   transform:translateX(-50%) translateY(-620px) scale(1.38);
   transform-origin:center top;
+  animation:none;
+}
+
+.intro-cake-stage.start svg{
   animation:cakeDropIn 2s cubic-bezier(.18,.9,.25,1.15) forwards;
 }
 
