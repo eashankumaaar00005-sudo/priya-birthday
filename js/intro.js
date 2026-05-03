@@ -5,6 +5,12 @@ const birthdayContent = document.querySelector(".birthday-content");
 const cinematicText = document.querySelector(".cinematic-text");
 const mainBtn = document.getElementById("mainBtn");
 
+// quick confetti burst
+document.querySelectorAll(".confetti-layer span").forEach((el,i)=>{
+  el.style.animationDuration = (4 + Math.random()*3) + "s";
+  el.style.opacity = 1;
+});
+
 if (openBtn && lockScreen && birthdayScreen && birthdayContent && mainBtn) {
   openBtn.addEventListener("click", () => {
     lockScreen.classList.add("hide-lock");
