@@ -808,3 +808,13 @@ body::after{
 .box-btn:active{
   transform:scale(.96);
 }
+.cinematic-text{
+  pointer-events:auto !important;
+}
+
+.box-btn{
+  pointer-events:auto !important;
+  position:relative;
+  z-index:9999;
+}
+}
