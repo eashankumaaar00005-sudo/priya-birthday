@@ -3,7 +3,6 @@ const lockScreen = document.getElementById("lockScreen");
 const birthdayScreen = document.getElementById("birthdayScreen");
 const birthdayContent = document.querySelector(".birthday-content");
 const cinematicText = document.querySelector(".cinematic-text");
-const boxBtn = document.getElementById("boxBtn");
 const mainBtn = document.getElementById("mainBtn");
 
 const cakeStage = document.querySelector(".intro-cake-stage");
@@ -13,10 +12,7 @@ function wait(ms){
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function forceReflow(el){
-  if (el) void el.offsetWidth;
-}
-
+/* BUTTON 1: UNLOCK */
 if (openBtn && lockScreen && birthdayScreen) {
   openBtn.addEventListener("click", async () => {
     lockScreen.classList.add("hide-lock");
@@ -26,39 +22,42 @@ if (openBtn && lockScreen && birthdayScreen) {
   });
 }
 
+/* BUTTON 2: OPEN THE BOX */
 document.addEventListener("click", async (e) => {
-  if (!e.target.closest("#boxBtn")) return;
-    if (cinematicText) cinematicText.classList.add("hide");
+  const box = e.target.closest("#boxBtn");
+  if (!box) return;
 
-    await wait(500);
+  if (cinematicText) cinematicText.classList.add("hide");
 
-    birthdayContent.classList.add("show");
+  await wait(500);
 
-    if (cakeStage) {
-      cakeStage.classList.remove("start", "zoom", "glow");
-      void cakeStage.offsetWidth;
-      cakeStage.classList.add("start", "zoom");
-    }
+  if (birthdayContent) birthdayContent.classList.add("show");
 
-    if (candle) {
-      candle.classList.remove("drop");
-      void candle.offsetWidth;
-    }
+  if (cakeStage) {
+    cakeStage.classList.remove("start", "zoom", "glow");
+    void cakeStage.offsetWidth;
+    cakeStage.classList.add("start", "zoom");
+  }
 
-    await wait(2200);
+  if (candle) {
+    candle.classList.remove("drop");
+    void candle.offsetWidth;
+  }
 
-    if (candle) candle.classList.add("drop");
+  await wait(2200);
 
-    await wait(900);
+  if (candle) candle.classList.add("drop");
 
-    if (cakeStage) cakeStage.classList.add("glow");
+  await wait(900);
 
-    await wait(1200);
+  if (cakeStage) cakeStage.classList.add("glow");
 
-    if (mainBtn) mainBtn.classList.add("show");
-  });
-}
+  await wait(1200);
 
+  if (mainBtn) mainBtn.classList.add("show");
+});
+
+/* BUTTON 3: OPEN MAIN SURPRISE */
 if (mainBtn) {
   mainBtn.addEventListener("click", () => {
     document.body.classList.add("page-exit");
@@ -67,3 +66,4 @@ if (mainBtn) {
       window.location.href = "surprise.html?music=1";
     }, 650);
   });
+}
