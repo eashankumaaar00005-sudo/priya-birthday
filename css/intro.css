@@ -330,7 +330,7 @@ body{
 .intro-cake-stage{
   position:relative;
   width:240px;
-  height:245px;
+  height:270px;
   margin:0 auto;
   overflow:hidden;
   filter:
@@ -359,14 +359,14 @@ body{
     opacity:0;
   }
   60%{
-    transform:translateX(-50%) translateY(-405px) scale(1.45);
+    transform:translateX(-50%) translateY(-398px) scale(1.45);
     opacity:1;
   }
   78%{
-    transform:translateX(-50%) translateY(-430px) scale(1.45);
+    transform:translateX(-50%) translateY(-424px) scale(1.45);
   }
   100%{
-    transform:translateX(-50%) translateY(-420px) scale(1.45);
+    transform:translateX(-50%) translateY(-412px) scale(1.45);
     opacity:1;
   }
 }
