@@ -26,8 +26,8 @@ if (openBtn && lockScreen && birthdayScreen) {
   });
 }
 
-if (boxBtn && birthdayContent) {
-  boxBtn.addEventListener("click", async () => {
+document.addEventListener("click", async (e) => {
+  if (!e.target.closest("#boxBtn")) return;
     if (cinematicText) cinematicText.classList.add("hide");
 
     await wait(500);
@@ -67,4 +67,3 @@ if (mainBtn) {
       window.location.href = "surprise.html?music=1";
     }, 650);
   });
-}
