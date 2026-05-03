@@ -312,6 +312,7 @@ body{
 
 /* SVG CAKE FINAL */
 .intro-svg-cake-wrap{
+    margin-bottom:28px !important;
   width:100%;
   display:flex;
   justify-content:center;
@@ -446,7 +447,7 @@ body{
 
 /* BUTTON */
 .main-btn{
-  margin-top:22px !important;
+  margin-top:34px !important;
   padding:16px 28px !important;
   border:none !important;
   border-radius:999px !important;
