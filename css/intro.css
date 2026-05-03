@@ -948,3 +948,58 @@ body::after{
     height:220px;
     opacity:0;
   }
+/* CINEMATIC POLISH - lightweight */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:radial-gradient(circle at center,
+    transparent 42%,
+    rgba(0,0,0,.42) 100%);
+  pointer-events:none;
+  z-index:0;
+}
+
+.lock-content,
+.cinematic-text,
+.birthday-content{
+  animation:cinemaFloat 7s ease-in-out infinite;
+}
+
+@keyframes cinemaFloat{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-4px); }
+}
+
+.hero-text,
+.cinematic-text p,
+.birthday-title{
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.12),
+    0 8px 22px rgba(255,77,125,.35);
+}
+
+.primary-btn,
+.box-btn,
+.main-btn{
+  background-size:200% 200% !important;
+  transition:transform .25s ease, box-shadow .25s ease, background-position .6s ease !important;
+}
+
+.primary-btn:hover,
+.box-btn:hover,
+.main-btn:hover{
+  background-position:100% 0 !important;
+}
+.lock-content,
+.cinematic-text,
+.birthday-content{
+  position:relative;
+}
+
+.primary-btn,
+.box-btn,
+.main-btn{
+  position:relative;
+  z-index:1000000;
+}
