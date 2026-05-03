@@ -540,4 +540,22 @@ body.page-exit{
   .intro-cake-stage > .cake{
     top:132px !important;
   }
+.flash{
+  position:fixed;
+  inset:0;
+  background:#fff;
+  opacity:0;
+  pointer-events:none;
+  z-index:999;
+}
+
+.flash.active{
+  animation:flashAnim .5s ease;
+}
+
+@keyframes flashAnim{
+  0%{opacity:0;}
+  30%{opacity:.15;}
+  100%{opacity:0;}
+}
 }
