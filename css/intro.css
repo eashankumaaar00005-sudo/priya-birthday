@@ -312,12 +312,11 @@ body{
 
 /* SVG CAKE FINAL */
 .intro-svg-cake-wrap{
-    margin-bottom:28px !important;
   width:100%;
   display:flex;
   justify-content:center;
   align-items:center;
-  margin:14px 0 18px;
+  margin:14px 0 34px !important;
 }
 
 .intro-cake-card{
@@ -330,16 +329,40 @@ body{
 .intro-cake-stage{
   position:relative;
   width:240px;
-  height:270px;
+  height:290px;
   margin:0 auto;
   overflow:visible !important;
   filter:
     drop-shadow(0 0 24px rgba(255,77,125,.38))
     drop-shadow(0 20px 34px rgba(0,0,0,.65));
   animation:cakeFloatIntro 4s ease-in-out infinite;
+  transition:transform 1.2s cubic-bezier(.2,.8,.2,1);
 }
 
-/* SVG body crop */
+.intro-cake-stage.zoom{
+  transform:scale(1.08);
+}
+
+.intro-cake-stage.glow::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:105px;
+  transform:translateX(-50%);
+  width:150px;
+  height:90px;
+  background:radial-gradient(circle, rgba(255,180,120,.45), transparent 70%);
+  filter:blur(20px);
+  pointer-events:none;
+  z-index:20;
+  opacity:0;
+  animation:lightFade .8s forwards;
+}
+
+@keyframes lightFade{
+  to{opacity:1;}
+}
+
 .intro-cake-stage svg{
   width:200px;
   height:500px;
@@ -347,7 +370,7 @@ body{
   position:absolute;
   left:50%;
   top:0;
-  transform:translateX(-50%) translateY(-620px) scale(1.45);
+  transform:translateX(-50%) translateY(-620px) scale(1.38);
   transform-origin:center top;
   animation:cakeDropIn 1.4s cubic-bezier(.18,.9,.25,1.15) forwards;
   animation-delay:2.1s;
@@ -355,23 +378,22 @@ body{
 
 @keyframes cakeDropIn{
   0%{
-    transform:translateX(-50%) translateY(-620px) scale(1.45);
+    transform:translateX(-50%) translateY(-620px) scale(1.38);
     opacity:0;
   }
   60%{
-    transform:translateX(-50%) translateY(-398px) scale(1.45);
+    transform:translateX(-50%) translateY(-385px) scale(1.38);
     opacity:1;
   }
   78%{
-    transform:translateX(-50%) translateY(-424px) scale(1.45);
+    transform:translateX(-50%) translateY(-410px) scale(1.38);
   }
   100%{
-    transform:translateX(-50%) translateY(-412px) scale(1.45);
+    transform:translateX(-50%) translateY(-395px) scale(1.38);
     opacity:1;
   }
 }
 
-/* REAL WORKING CANDLE + FLAME */
 .intro-cake-stage > .cake{
   background:#fff !important;
   border-radius:10px !important;
@@ -381,11 +403,14 @@ body{
   width:6px !important;
   height:42px !important;
   margin-left:-3px !important;
-  transform:translateY(-160px);
   transform:translateY(-200px);
-opacity:0;
+  opacity:0;
   z-index:80 !important;
   overflow:visible !important;
+}
+
+.intro-cake-stage > .cake.drop{
+  animation:candleDrop .9s cubic-bezier(.18,.9,.25,1.15) forwards;
 }
 
 .intro-cake-stage > .cake::before,
@@ -414,16 +439,14 @@ opacity:0;
     0 0 16px rgba(255,200,90,.9),
     0 0 34px rgba(255,77,125,.8) !important;
   transform-origin:center bottom !important;
-  opacity:0; 
-  alternate ease-in-out !important;
+  opacity:0;
   z-index:90 !important;
 }
 
-.intro-cake-stage > .cake .fuego:nth-child(1){animation:fuego 2s 3.4s infinite;}
-.intro-cake-stage > .cake .fuego:nth-child(2){animation:fuego 1.5s 3.4s infinite;}
-.intro-cake-stage > .cake .fuego:nth-child(3){animation:fuego 1s 3.4s infinite;}
-.intro-cake-stage > .cake .fuego:nth-child(4){animation:fuego .6s 3.4s infinite;}
-.intro-cake-stage > .cake .fuego:nth-child(5){animation:fuego .3s 3.4s infinite;}
+.intro-cake-stage > .cake.drop .fuego{
+  animation:fuegoLive .35s infinite alternate ease-in-out;
+  opacity:1;
+}
 
 @keyframes candleDrop{
   0%{
@@ -441,25 +464,29 @@ opacity:0;
     transform:translateY(0) scale(1);
     opacity:1;
   }
+}
 
-@keyframes fuego{
-  0%,100%{
+@keyframes fuegoLive{
+  from{
+    transform:scaleY(.85) translateY(1px);
+    opacity:.75;
+    filter:brightness(1);
+  }
+  to{
+    transform:scaleY(1.3) translateY(-3px);
     opacity:1;
-    background:rgba(254,248,97,.75);
-    box-shadow:0 0 28px 8px rgba(255,180,120,.35);
-    transform:translateY(0) scale(1);
+    filter:brightness(1.4);
   }
-  50%{
-    opacity:.4;
-    background:rgba(255,70,0,.25);
-    box-shadow:0 0 35px 14px rgba(255,120,120,.25);
-    transform:translateY(-14px) scale(.25);
-  }
+}
+
+@keyframes cakeFloatIntro{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-8px);}
 }
 
 /* BUTTON */
 .main-btn{
-  margin-top:34px !important;
+  margin-top:44px !important;
   padding:16px 28px !important;
   border:none !important;
   border-radius:999px !important;
@@ -503,32 +530,14 @@ body.page-exit{
 
   .intro-cake-stage{
     width:220px;
-    height:230px;
+    height:270px;
   }
 
   .intro-cake-stage svg{
-    transform:translateX(-50%) translateY(-395px) scale(1.38);
+    transform:translateX(-50%) translateY(-395px) scale(1.3);
   }
 
   .intro-cake-stage > .cake{
-    top:135px;
+    top:132px !important;
   }
-}
-@keyframes fuegoLive{
-  from{
-    transform:scaleY(.85) translateY(1px);
-    opacity:.75;
-  }
-  to{
-    transform:scaleY(1.25) translateY(-3px);
-    opacity:1;
-  }
-}
-.intro-cake-stage > .cake.drop{
-  animation:candleDrop .9s cubic-bezier(.18,.9,.25,1.15) forwards;
-}
-.intro-cake-stage > .cake.drop .fuego{
-  animation:fuegoLive .35s infinite alternate ease-in-out;
-  opacity:1;
-}
 }
