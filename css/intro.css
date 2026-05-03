@@ -771,4 +771,36 @@ body::after{
 .main-btn:active{
   transform:scale(.97) !important;
 }
+/* GIFT BOX BUTTON */
+.box-btn{
+  opacity:0;
+  margin-top:24px;
+  padding:15px 28px;
+  border:0;
+  border-radius:999px;
+  color:#fff;
+  font-size:16px;
+  font-weight:800;
+  cursor:pointer;
+  background:linear-gradient(135deg,#ff4d7d,#ffd36a);
+  box-shadow:
+    0 0 25px rgba(255,77,125,.45),
+    0 0 45px rgba(255,210,120,.25);
+  animation:boxBtnReveal .7s ease forwards;
+  animation-delay:3.1s;
+}
+
+@keyframes boxBtnReveal{
+  from{
+    opacity:0;
+    transform:translateY(16px) scale(.92);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+.box-btn:active{
+  transform:scale(.96);
 }
