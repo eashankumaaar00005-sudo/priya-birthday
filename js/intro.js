@@ -34,17 +34,15 @@ if (boxBtn && birthdayContent) {
 
     birthdayContent.classList.add("show");
 
-    if (cakeStage) cakeStage.classList.remove("start", "zoom", "glow");
-    if (candle) candle.classList.remove("drop");
-
-    forceReflow(cakeStage);
-    forceReflow(candle);
-
-    await wait(100);
-
     if (cakeStage) {
-      cakeStage.classList.add("start");
-      cakeStage.classList.add("zoom");
+      cakeStage.classList.remove("start", "zoom", "glow");
+      void cakeStage.offsetWidth;
+      cakeStage.classList.add("start", "zoom");
+    }
+
+    if (candle) {
+      candle.classList.remove("drop");
+      void candle.offsetWidth;
     }
 
     await wait(2200);
