@@ -5,12 +5,6 @@ const birthdayContent = document.querySelector(".birthday-content");
 const cinematicText = document.querySelector(".cinematic-text");
 const mainBtn = document.getElementById("mainBtn");
 
-// quick confetti burst
-document.querySelectorAll(".confetti-layer span").forEach((el,i)=>{
-  el.style.animationDuration = (4 + Math.random()*3) + "s";
-  el.style.opacity = 1;
-});
-
 if (openBtn && lockScreen && birthdayScreen && birthdayContent && mainBtn) {
   openBtn.addEventListener("click", () => {
     lockScreen.classList.add("hide-lock");
@@ -19,48 +13,37 @@ if (openBtn && lockScreen && birthdayScreen && birthdayContent && mainBtn) {
       birthdayScreen.classList.add("show");
     }, 600);
 
+    // cinematic text timing
     setTimeout(() => {
-  if (cinematicText) cinematicText.classList.add("hide");
-  birthdayContent.classList.add("show");
+      if (cinematicText) cinematicText.classList.add("hide");
 
-  const cakeStage = document.querySelector(".intro-cake-stage");
-  const candle = document.querySelector(".intro-cake-stage > .cake");
+      // wait for cinematic fade-out (.5s), then start cake
+      setTimeout(() => {
+        birthdayContent.classList.add("show");
 
-  if (cakeStage) cakeStage.classList.add("start");
-  if (candle) candle.classList.add("drop");
+        const cakeStage = document.querySelector(".intro-cake-stage");
+        const candle = document.querySelector(".intro-cake-stage > .cake");
 
-  setTimeout(() => {
-    mainBtn.classList.add("show");
-  }, 3500);
+        if (cakeStage) {
+          cakeStage.classList.add("start");
+          cakeStage.classList.add("zoom");
+        }
 
-}, 3600);
+        if (candle) {
+          candle.classList.add("drop");
+        }
 
-    setTimeout(() => {
-      const cakeStage = document.querySelector(".intro-cake-stage");
-      if (cakeStage) cakeStage.classList.add("zoom");
+        setTimeout(() => {
+          if (cakeStage) cakeStage.classList.add("glow");
+        }, 2300);
+
+        setTimeout(() => {
+          mainBtn.classList.add("show");
+        }, 3500);
+
+      }, 500);
+
     }, 3600);
-
-   const cremaAnim = document.getElementById("crema");
-
-if (cremaAnim) {
-  cremaAnim.addEventListener("endEvent", () => {
-    const candle = document.querySelector(".intro-cake-stage > .cake");
-    if (candle) candle.classList.add("drop");
-
-    const cakeStage = document.querySelector(".intro-cake-stage");
-    if (cakeStage) cakeStage.classList.add("glow");
-  });
-}
-
-    setTimeout(() => {
-      const flash = document.getElementById("flash");
-      if (flash) flash.classList.add("active");
-    }, 3900);
-
-    setTimeout(() => {
-      const cakeStage = document.querySelector(".intro-cake-stage");
-      if (cakeStage) cakeStage.classList.add("glow");
-    }, 4500);
   });
 }
 
