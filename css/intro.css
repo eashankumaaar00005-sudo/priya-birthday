@@ -382,7 +382,8 @@ body{
   height:42px !important;
   margin-left:-3px !important;
   transform:translateY(-160px);
-  animation:candleDrop .9s 3.8s cubic-bezier(.18,.9,.25,1.15) forwards;
+  transform:translateY(-200px);
+opacity:0;
   z-index:80 !important;
   overflow:visible !important;
 }
@@ -413,7 +414,8 @@ body{
     0 0 16px rgba(255,200,90,.9),
     0 0 34px rgba(255,77,125,.8) !important;
   transform-origin:center bottom !important;
-  animation:fuegoLive .35s 4.6s infinite alternate ease-in-out !important;
+  opacity:0; 
+  alternate ease-in-out !important;
   z-index:90 !important;
 }
 
@@ -521,4 +523,12 @@ body.page-exit{
     transform:scaleY(1.25) translateY(-3px);
     opacity:1;
   }
+}
+.intro-cake-stage > .cake.drop{
+  animation:candleDrop .9s cubic-bezier(.18,.9,.25,1.15) forwards;
+}
+.intro-cake-stage > .cake.drop .fuego{
+  animation:fuegoLive .35s infinite alternate ease-in-out;
+  opacity:1;
+}
 }
