@@ -43,7 +43,14 @@ if (openBtn && lockScreen && birthdayScreen && birthdayContent && mainBtn) {
       const candle = document.querySelector(".intro-cake-stage > .cake");
       if (candle) candle.classList.add("drop");
     }, 3900);
-
+setTimeout(() => {
+  const pop = document.getElementById("popSound");
+  if (pop) {
+    pop.currentTime = 0;
+    pop.volume = 0.6;
+    pop.play().catch(()=>{});
+  }
+}, 3900);
     setTimeout(() => {
       const cakeStage = document.querySelector(".intro-cake-stage");
       if (cakeStage) cakeStage.classList.add("glow");
