@@ -310,7 +310,27 @@ body{
   display:none;
 }
 
-/* SVG CAKE FINAL */
+/* FLASH */
+.flash{
+  position:fixed;
+  inset:0;
+  background:#fff;
+  opacity:0;
+  pointer-events:none;
+  z-index:999;
+}
+
+.flash.active{
+  animation:flashAnim .5s ease;
+}
+
+@keyframes flashAnim{
+  0%{opacity:0;}
+  30%{opacity:.12;}
+  100%{opacity:0;}
+}
+
+/* SVG CAKE */
 .intro-svg-cake-wrap{
   width:100%;
   display:flex;
@@ -372,7 +392,7 @@ body{
   top:0;
   transform:translateX(-50%) translateY(-620px) scale(1.38);
   transform-origin:center top;
-  animation:cakeDropIn 2.0s cubic-bezier(.18,.9,.25,1.15) forwards;
+  animation:cakeDropIn 2s cubic-bezier(.18,.9,.25,1.15) forwards;
   animation-delay:2.1s;
 }
 
@@ -394,6 +414,7 @@ body{
   }
 }
 
+/* CANDLE */
 .intro-cake-stage > .cake{
   background:#fff !important;
   border-radius:10px !important;
@@ -403,49 +424,14 @@ body{
   width:6px !important;
   height:42px !important;
   margin-left:-3px !important;
-  transform:translateY(-200px);
+  transform:translateY(-180px);
   opacity:0;
   z-index:80 !important;
   overflow:visible !important;
 }
 
 .intro-cake-stage > .cake.drop{
-  animation:candleDrop 4.0s cubic-bezier(.18,.9,.25,1.15) forwards;
-}
-
-.intro-cake-stage > .cake::before,
-.intro-cake-stage > .cake::after{
-  content:"";
-  position:absolute;
-  width:100%;
-  height:2px;
-  background:rgba(255,0,0,.45);
-  left:0;
-}
-
-.intro-cake-stage > .cake::before{top:25%;}
-.intro-cake-stage > .cake::after{top:45%;}
-
-.intro-cake-stage > .cake .fuego{
-  position:absolute !important;
-  top:-22px !important;
-  left:50% !important;
-  width:10px !important;
-  height:22px !important;
-  margin-left:-5px !important;
-  border-radius:50% 50% 45% 45% !important;
-  background:radial-gradient(circle at 50% 30%, #fff9b8 0 18%, #ffc15c 35%, #ff5b78 70%) !important;
-  box-shadow:
-    0 0 16px rgba(255,200,90,.9),
-    0 0 34px rgba(255,77,125,.8) !important;
-  transform-origin:center bottom !important;
-  opacity:0;
-  z-index:90 !important;
-}
-
-.intro-cake-stage > .cake.drop .fuego{
-  animation:fuegoLive .35s infinite alternate ease-in-out;
-  opacity:1;
+  animation:candleDrop 1s cubic-bezier(.18,.9,.25,1.15) forwards;
 }
 
 @keyframes candleDrop{
@@ -461,21 +447,108 @@ body{
     transform:translateY(0);
     opacity:1;
   }
-.intro-cake-stage > .cake.drop{
-  transform:translateY(0) !important;
 }
 
-@keyframes fuegoLive{
-  from{
-    transform:scaleY(.85) translateY(1px);
-    opacity:.75;
+.intro-cake-stage > .cake::before,
+.intro-cake-stage > .cake::after{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:2px;
+  background:rgba(255,0,0,.45);
+  left:0;
+}
+
+.intro-cake-stage > .cake::before{top:25%;}
+.intro-cake-stage > .cake::after{top:45%;}
+
+/* REALISTIC FLAME */
+.intro-cake-stage > .cake .fuego{
+  position:absolute;
+  top:-26px;
+  left:50%;
+  width:12px;
+  height:26px;
+  margin-left:-6px;
+  border-radius:50% 50% 45% 45%;
+  background:
+    radial-gradient(circle at 50% 25%, #fff9c4 0%, #ffd54f 25%, #ff8a65 55%, rgba(255,90,120,0.6) 75%, transparent 100%);
+  filter:blur(.4px);
+  box-shadow:
+    0 0 10px rgba(255,200,120,.9),
+    0 0 22px rgba(255,120,80,.6),
+    0 0 36px rgba(255,80,60,.35);
+  transform-origin:center bottom;
+  opacity:0;
+  z-index:90;
+}
+
+.intro-cake-stage > .cake.drop .fuego{
+  opacity:1;
+}
+
+.intro-cake-stage > .cake.drop .fuego:nth-child(1){
+  animation:flameA .32s infinite ease-in-out alternate;
+}
+.intro-cake-stage > .cake.drop .fuego:nth-child(2){
+  animation:flameB .28s infinite ease-in-out alternate;
+}
+.intro-cake-stage > .cake.drop .fuego:nth-child(3){
+  animation:flameC .36s infinite ease-in-out alternate;
+}
+.intro-cake-stage > .cake.drop .fuego:nth-child(4){
+  animation:flameB .24s infinite ease-in-out alternate;
+}
+.intro-cake-stage > .cake.drop .fuego:nth-child(5){
+  animation:flameA .40s infinite ease-in-out alternate;
+}
+
+@keyframes flameA{
+  0%{
+    transform:scaleY(.85) scaleX(.9) translateY(0);
+    opacity:.85;
     filter:brightness(1);
   }
-  to{
-    transform:scaleY(1.3) translateY(-3px);
+  50%{
+    transform:scaleY(1.2) scaleX(1.05) translateY(-2px);
     opacity:1;
-    filter:brightness(1.4);
+    filter:brightness(1.2);
   }
+  100%{
+    transform:scaleY(.9) scaleX(.95) translateY(1px);
+    opacity:.9;
+  }
+}
+
+@keyframes flameB{
+  0%{
+    transform:scaleY(.9) scaleX(1) translateY(0);
+    opacity:.8;
+  }
+  50%{
+    transform:scaleY(1.3) scaleX(.95) translateY(-3px);
+    opacity:1;
+  }
+  100%{
+    transform:scaleY(.85) scaleX(1.05) translateY(1px);
+    opacity:.85;
+  }
+}
+
+@keyframes flameC{
+  0%{
+    transform:scaleY(.8) scaleX(.9) translateY(0);
+    opacity:.75;
+  }
+  50%{
+    transform:scaleY(1.4) scaleX(1.1) translateY(-4px);
+    opacity:1;
+  }
+  100%{
+    transform:scaleY(.9) scaleX(.95) translateY(1px);
+    opacity:.85;
+  }
+}
 
 /* BUTTON */
 .main-btn{
@@ -506,6 +579,7 @@ body{
   margin-top:10px;
 }
 
+/* EXIT */
 body.page-exit{
   animation:pageExit .65s ease forwards;
 }
@@ -518,8 +592,11 @@ body.page-exit{
   }
 }
 
+/* SMALL MOBILE */
 @media(max-width:380px){
-  .birthday-title{font-size:30px;}
+  .birthday-title{
+    font-size:30px;
+  }
 
   .intro-cake-stage{
     width:220px;
@@ -533,22 +610,4 @@ body.page-exit{
   .intro-cake-stage > .cake{
     top:132px !important;
   }
-.flash{
-  position:fixed;
-  inset:0;
-  background:#fff;
-  opacity:0;
-  pointer-events:none;
-  z-index:999;
-}
-
-.flash.active{
-  animation:flashAnim .5s ease;
-}
-
-@keyframes flashAnim{
-  0%{opacity:0;}
-  30%{opacity:.15;}
-  100%{opacity:0;}
-}
 }
