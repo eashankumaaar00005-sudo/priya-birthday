@@ -837,3 +837,32 @@ body::after{
   z-index:100000 !important;
   pointer-events:auto !important;
 }
+/* MOBILE CLICK FIX */
+.birthday-content{
+  pointer-events:none !important;
+}
+
+.birthday-content.show{
+  pointer-events:auto !important;
+}
+
+.cinematic-text{
+  z-index:999999 !important;
+  pointer-events:auto !important;
+}
+
+.box-btn{
+  position:relative !important;
+  z-index:1000000 !important;
+  pointer-events:auto !important;
+  touch-action:manipulation !important;
+  -webkit-tap-highlight-color:transparent;
+}
+
+.confetti-layer,
+.bg-stars,
+.soft-glow,
+.heart-particles,
+body::after{
+  pointer-events:none !important;
+}
