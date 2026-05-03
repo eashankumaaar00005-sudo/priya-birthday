@@ -94,45 +94,6 @@ body{
   padding:20px;
 }
 
-.heart-lock{
-  position:relative;
-  width:86px;
-  height:86px;
-  margin:0 auto 22px;
-}
-
-.heart-shape{
-  width:100%;
-  height:100%;
-  background:radial-gradient(circle at 30% 30%, #ff9fbd, #ff4d7d);
-  clip-path:polygon(50% 90%,0 40%,20% 10%,50% 30%,80% 10%,100% 40%);
-  filter:
-    drop-shadow(0 0 20px rgba(255,77,125,.7))
-    drop-shadow(0 0 40px rgba(255,77,125,.4));
-  animation:heartPulse 2s ease-in-out infinite;
-}
-
-@keyframes heartPulse{
-  0%,100%{transform:scale(1);}
-  50%{transform:scale(1.08);}
-}
-
-.lock-icon{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  font-size:22px;
-}
-.lock-icon{
-  animation:lockBounce 2s infinite;
-}
-
-@keyframes lockBounce{
-  0%,100%{transform:translate(-50%,-50%)}
-  50%{transform:translate(-50%,-58%)}
-}
-
 .hero-text{
   font-weight:700;  
   font-size:28px;
@@ -866,13 +827,30 @@ body::after{
 body::after{
   pointer-events:none !important;
 }
+
+.heart-svg{
+  width:100%;
+  height:100%;
+  display:block;
+}
+.heart-lock{
+  position:relative;
+  width:124px;
+  height:124px;
+  margin:0 auto 18px;
+}
+
 .heart-shape{
   position:relative;
-  width:120px;
-  height:120px;
-  margin:0 auto 20px;
-  filter:drop-shadow(0 0 25px rgba(255,77,125,.6));
-  animation:heartFloat 3s ease-in-out infinite;
+  width:124px;
+  height:124px;
+  margin:0 auto;
+  background:none !important;
+  clip-path:none !important;
+  filter:
+    drop-shadow(0 0 18px rgba(255,77,125,.55))
+    drop-shadow(0 0 38px rgba(255,77,125,.28));
+  animation:premiumHeartFloat 3s ease-in-out infinite;
 }
 
 .heart-svg{
@@ -881,17 +859,21 @@ body::after{
   display:block;
 }
 
-/* glow pulse */
-@keyframes heartFloat{
-  0%,100%{ transform:translateY(0) scale(1);}
-  50%{ transform:translateY(-6px) scale(1.05);}
-}
-
-/* lock center fix */
 .lock-icon{
   position:absolute;
-  top:50%;
+  top:48%;
   left:50%;
   transform:translate(-50%,-50%);
-  font-size:22px;
+  font-size:24px;
+  z-index:5;
+  animation:lockBounce 2s infinite;
+}
+
+@keyframes premiumHeartFloat{
+  0%,100%{ transform:translateY(0) scale(1); }
+  50%{ transform:translateY(-6px) scale(1.04); }
+}
+@keyframes lockBounce{
+  0%,100%{transform:translate(-50%,-50%)}
+  50%{transform:translate(-50%,-58%)}
 }
