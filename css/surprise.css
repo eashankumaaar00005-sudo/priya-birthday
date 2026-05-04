@@ -965,23 +965,43 @@ h1{
     font-size:16px;
     padding:24px;
   }
-  /* ===== PREMIUM PAGE SPARKLES ===== */
+@media(max-width:700px){
+  body{
+    overflow-x:hidden;
+    overflow-y:auto !important;
+  }
+
+  .page,
+  .wrap,
+  .screen,
+  .section{
+    opacity:1 !important;
+    visibility:visible !important;
+  }
+
+  .hidden{
+    display:block !important;
+  }
+}
+
+/* ===== PREMIUM PAGE SPARKLES ===== */
 .page-sparkles{
   position:fixed;
   inset:0;
   pointer-events:none;
   z-index:999;
+  overflow:hidden;
 }
 
 .page-sparkles span{
   position:absolute;
-  width:4px;
-  height:4px;
+  width:6px;
+  height:6px;
   border-radius:50%;
-  background:#ffd6e8;
+  background:#fff;
   box-shadow:
-    0 0 8px rgba(255,214,232,.9),
-    0 0 18px rgba(255,90,160,.45);
+    0 0 8px rgba(255,255,255,.95),
+    0 0 20px rgba(255,90,160,.65);
   opacity:0;
   animation:sparkleFloat 7s linear infinite;
 }
@@ -998,20 +1018,10 @@ h1{
 .page-sparkles span:nth-child(10){left:32%; top:88%; animation-delay:.9s;}
 
 @keyframes sparkleFloat{
-  0%{
-    opacity:0;
-    transform:translateY(20px) scale(.4);
-  }
-  20%{
-    opacity:.8;
-  }
-  60%{
-    opacity:.45;
-  }
-  100%{
-    opacity:0;
-    transform:translateY(-80px) scale(1.2);
-  }
+  0%{opacity:0; transform:translateY(20px) scale(.4);}
+  20%{opacity:.8;}
+  60%{opacity:.45;}
+  100%{opacity:0; transform:translateY(-80px) scale(1.2);}
 }
 
 /* ===== MINI CRACKERS ===== */
@@ -1020,8 +1030,7 @@ h1{
   inset:0;
   pointer-events:none;
   z-index:998;
-  background:#fff;
-opacity:1;
+  overflow:hidden;
 }
 
 .mini-crackers span{
@@ -1045,38 +1054,7 @@ opacity:1;
 .mini-crackers span:nth-child(4){right:12%; top:76%; animation-delay:7s;}
 
 @keyframes crackerPop{
-  0%,75%,100%{
-    opacity:0;
-    transform:scale(.2);
-    filter:blur(2px);
-  }
-  82%{
-    opacity:1;
-    transform:scale(1);
-    filter:blur(0);
-  }
-  90%{
-    opacity:0;
-    transform:scale(1.5);
-    filter:blur(1px);
-  }
-  @media(max-width:700px){
-  body{
-    overflow-x:hidden;
-    overflow-y:auto !important;
-  }
-
-  .page,
-  .wrap,
-  .screen,
-  .section{
-    opacity:1 !important;
-    visibility:visible !important;
-  }
-
-  .hidden{
-    display:block !important;
-  }
+  0%,75%,100%{opacity:0; transform:scale(.2); filter:blur(2px);}
+  82%{opacity:1; transform:scale(1); filter:blur(0);}
+  90%{opacity:0; transform:scale(1.5); filter:blur(1px);}
 }
-}
-
