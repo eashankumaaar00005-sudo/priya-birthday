@@ -627,18 +627,18 @@ body{
 
 /* CANDLE */
 .intro-cake-stage > .cake{
-  position:absolute;
-  top:150px;
-  left:50%;
-  width:6px;
-  height:42px;
-  margin-left:-3px;
-  background:#fff;
-  border-radius:10px;
+  background:#fff !important;
+  border-radius:10px !important;
+  position:absolute !important;
+  top:128px !important;
+  left:50% !important;
+  width:6px !important;
+  height:42px !important;
+  margin-left:-3px !important;
   transform:translateY(-180px);
   opacity:0;
-  z-index:80;
-  overflow:visible;
+  z-index:80 !important;
+  overflow:visible !important;
 }
 
 .intro-cake-stage > .cake.drop{
@@ -971,7 +971,7 @@ body::after{
   }
 
   .intro-cake-stage > .cake{
-    top:130px;
+    top:132px !important;
   }
 
   .main-btn{
@@ -1010,8 +1010,8 @@ body::after{
     height:228px;
   }
 
-  .intro-cake-stage > .cake{
-    top:130px;
+ .intro-cake-stage > .cake{
+    top:132px !important;
   }
 
   .main-btn{
