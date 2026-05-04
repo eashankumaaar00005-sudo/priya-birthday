@@ -117,3 +117,10 @@ window.addEventListener("load", () => {
     el.classList.add("show");
   });
 });
+const letterBox = document.getElementById("letterBox");
+
+if(letterBox){
+  letterBox.addEventListener("click", () => {
+    letterBox.classList.toggle("open");
+  });
+}
