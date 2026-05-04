@@ -19,9 +19,8 @@ const slides = [
 
 /* Fade / Reveal Animation */
 const revealItems = document.querySelectorAll(
-  ".fade, section, .memory-card, .quote-card, .reason, .slideshow, .letter-image-card, .secret, .final, .eom-cake-card"
+  "section, .memory-card, .quote-card, .reason, .slideshow, .letter-image-card, .final"
 );
-
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -110,10 +109,12 @@ window.addEventListener("load", startMusic);
 
 /* Start */
 window.addEventListener("load", () => {
+  document.body.classList.add("loaded");
+
   startHearts();
   startSlideshow();
 
-  document.querySelectorAll(".fade").forEach((el) => {
+  document.querySelectorAll(".fade, .reveal, section").forEach((el) => {
     el.classList.add("show");
   });
 });
