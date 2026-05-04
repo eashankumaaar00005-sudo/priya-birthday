@@ -1003,3 +1003,28 @@ body::before{
   position:relative;
   z-index:1000000;
 }
+.cinematic-text.hide .line1{
+  animation:fadeOutLine .4s forwards;
+}
+
+.cinematic-text.hide .line2{
+  animation:fadeOutLine .4s .15s forwards;
+}
+
+.cinematic-text.hide .line3{
+  animation:fadeOutLine .4s .3s forwards;
+}
+
+@keyframes fadeOutLine{
+  to{
+    opacity:0;
+    transform:translateY(-10px);
+  }
+.intro-cake-stage.start{
+  animation:cakeAnticipation .35s ease;
+}
+
+@keyframes cakeAnticipation{
+  0%{ transform:scale(.95); }
+  100%{ transform:scale(1); }
+}
