@@ -831,12 +831,72 @@ h1{
   font-size:clamp(1.4rem, 5vw, 2rem);
   font-weight:600;
 }
+/* ===== LETTER SECTION ===== */
+
+.eom-letter-section{
+  padding:70px 18px;
+  text-align:center;
+}
+
+.eom-letter-intro{
+  margin-top:10px;
+  font-size:15px;
+  line-height:1.5;
+  opacity:.7;
+}
+
+/* BOX */
+.eom-letter-box{
+  position:relative;
+  width:min(420px,92vw);
+  height:260px;
+  margin:36px auto 0;
+  cursor:pointer;
+  perspective:1200px;
+}
+
+/* FRONT */
+.eom-letter-cover{
+  position:absolute;
+  inset:0;
+  border-radius:26px;
+  background:linear-gradient(145deg,#ff4d7d,#ff9fbd);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  z-index:2;
+
+  box-shadow:
+    0 30px 80px rgba(255,77,125,.25),
+    inset 0 2px 10px rgba(255,255,255,.2);
+
+  transition:transform .9s cubic-bezier(.2,.8,.2,1),
+             opacity .6s ease;
+}
+
+.eom-letter-cover span{
+  font-size:36px;
+}
+
+.eom-letter-cover h3{
+  margin-top:8px;
+  font-size:20px;
+}
+
+.eom-letter-cover p{
+  margin-top:6px;
+  font-size:13px;
+  opacity:.85;
+}
+
+/* PAPER (PREMIUM) */
 .eom-letter-paper{
   position:absolute;
   inset:0;
   border-radius:26px;
 
-  /* REAL PAPER COLOR */
   background:
     radial-gradient(circle at 30% 20%, rgba(255,255,255,.6), transparent 60%),
     linear-gradient(145deg,#fff8f0,#f5e8dc);
@@ -855,7 +915,6 @@ h1{
   opacity:0;
   transform:translateY(28px) scale(.94);
 
-  /* DEPTH */
   box-shadow:
     0 30px 90px rgba(0,0,0,.25),
     inset 0 1px 0 rgba(255,255,255,.7),
@@ -863,6 +922,8 @@ h1{
 
   transition:all .9s cubic-bezier(.2,.8,.2,1);
 }
+
+/* PAPER TEXTURE */
 .eom-letter-paper::after{
   content:"";
   position:absolute;
@@ -874,10 +935,34 @@ h1{
 
   opacity:.25;
   mix-blend-mode:multiply;
-  pointer-events:none;
 }
+
+/* TEXT */
 .eom-letter-paper p{
   color:#2b0f18;
   text-shadow:0 1px 0 rgba(0,0,0,.04);
   letter-spacing:.2px;
+}
+
+/* OPEN ANIMATION */
+.eom-letter-box.open .eom-letter-cover{
+  transform:rotateX(78deg) translateY(-40px);
+  opacity:0;
+}
+
+.eom-letter-box.open .eom-letter-paper{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  .eom-letter-box{
+    height:230px;
+  }
+
+  .eom-letter-paper{
+    font-size:16px;
+    padding:24px;
+  }
 }
