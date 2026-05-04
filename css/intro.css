@@ -630,7 +630,7 @@ body{
   background:#fff !important;
   border-radius:10px !important;
   position:absolute !important;
-  top:96px !important;
+  top:130px !important;
   left:50% !important;
   width:6px !important;
   height:42px !important;
@@ -1011,7 +1011,7 @@ body::after{
   }
 
  .intro-cake-stage > .cake{
-    top:132px !important;
+    top:130px !important;
   }
 
   .main-btn{
