@@ -966,17 +966,6 @@ body::before{
   z-index:0;
 }
 
-.lock-content,
-.cinematic-text,
-.birthday-content{
-  animation:cinemaFloat 7s ease-in-out infinite;
-}
-
-@keyframes cinemaFloat{
-  0%,100%{ transform:translateY(0); }
-  50%{ transform:translateY(-4px); }
-}
-
 .hero-text,
 .cinematic-text p,
 .birthday-title{
@@ -1035,9 +1024,6 @@ body::before{
   0%{ transform:scale(.95); }
   100%{ transform:scale(1); }
 }
-.intro-cake-stage{
-  transform:scale(1.08);
-}
 
 .intro-cake-stage::after{
   content:"";
@@ -1075,7 +1061,8 @@ body::before{
   width:100vw !important;
   height:190px !important;
   pointer-events:none !important;
-  z-index:999999 !important;
+  z-index:1 !important;
+  opacity:.6;
   overflow:visible !important;
 }
 
@@ -1239,4 +1226,37 @@ body::before{
   .main-btn{
     margin-top:24px !important;
   }
+  .lock-content,
+.cinematic-text,
+.birthday-content{
+  position:relative;
+  z-index:10 !important;
+}
+  @media (max-width:700px){
+
+  .premium-lights{
+    height:90px !important;
+    opacity:.5 !important;
+  }
+
+  .light-wire{
+    height:55px !important;
+  }
+
+  .bulb{
+    width:8px !important;
+    height:8px !important;
+  }
+
+  .b8,
+  .b9,
+  .b10{
+    display:none !important;
+  }
+
+  .birthday-content{
+    padding-top:90px !important;
+  }
+
+}
 }
