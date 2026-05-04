@@ -630,7 +630,7 @@ body{
   background:#fff !important;
   border-radius:10px !important;
   position:absolute !important;
-  top:128px !important;
+  top:96px !important;
   left:50% !important;
   width:6px !important;
   height:42px !important;
@@ -647,8 +647,8 @@ body{
 
 @keyframes candleDrop{
   0%{transform:translateY(-180px); opacity:0;}
-  70%{transform:translateY(4px); opacity:1;}
-  100%{transform:translateY(0); opacity:1;}
+  70%{transform:translateY(-18px); opacity:1;}
+  100%{transform:translateY(-22px); opacity:1;}
 }
 
 .intro-cake-stage > .cake::before,
@@ -666,7 +666,7 @@ body{
 
 .intro-cake-stage > .cake .fuego{
   position:absolute;
-  top:-26px;
+  top:96px;
   left:50%;
   width:12px;
   height:26px;
@@ -971,7 +971,7 @@ body::after{
   }
 
   .intro-cake-stage > .cake{
-    top:132px !important;
+    top:96px !important;
   }
 
   .main-btn{
