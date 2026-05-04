@@ -476,6 +476,10 @@ body{
   transform-origin:center bottom;
   opacity:0;
   z-index:90;
+   filter:
+    brightness(1.2)
+    drop-shadow(0 0 12px rgba(255,200,120,.9))
+    drop-shadow(0 0 25px rgba(255,120,80,.6));
 }
 
 .intro-cake-stage > .cake.drop .fuego{
@@ -547,7 +551,7 @@ body{
 
 /* BUTTON */
 .main-btn{
-  margin-top:44px !important;
+  margin-top:60px !important;
   padding:16px 28px !important;
   border:none !important;
   border-radius:999px !important;
@@ -1027,5 +1031,38 @@ body::before{
 @keyframes cakeAnticipation{
   0%{ transform:scale(.95); }
   100%{ transform:scale(1); }
+}
+.intro-cake-stage{
+  transform:scale(1.08);
+}
+
+.intro-cake-stage::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:120px;
+  transform:translateX(-50%);
+  width:180px;
+  height:120px;
+  background:radial-gradient(circle, rgba(255,140,100,.35), transparent 70%);
+  filter:blur(18px);
+  z-index:5;
+  pointer-events:none;
+}
+.birthday-title span{
+  color:#ff9fbd;
+  text-shadow:
+    0 0 12px rgba(255,120,150,.6),
+    0 0 28px rgba(255,80,120,.4);
+}
+.main-btn{
+  letter-spacing:.4px;
+  box-shadow:
+    0 0 25px rgba(255,77,125,.5),
+    inset 0 2px 8px rgba(255,255,255,.2);
+}
+
+.main-btn:active{
+  transform:scale(.95);
 }
 }
