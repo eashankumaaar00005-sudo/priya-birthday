@@ -52,7 +52,7 @@ document.addEventListener("click", async (e) => {
 
   if (cakeStage) cakeStage.classList.add("glow");
 
-  await wait(1200);
+  await wait(1500);
 
   if (mainBtn) mainBtn.classList.add("show");
 });
