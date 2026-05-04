@@ -14,12 +14,12 @@ function wait(ms){
 
 /* BUTTON 1: UNLOCK */
 if (openBtn && lockScreen && birthdayScreen) {
-  openBtn.addEventListener("click", async () => {
-    lockScreen.classList.add("hide-lock");
+ openBtn.addEventListener("click", async () => {
+  lockScreen.classList.add("hide-lock");
 
-    await wait(650);
-    birthdayScreen.classList.add("show");
-  });
+  await wait(750);
+  birthdayScreen.classList.add("show");
+});
 }
 
 /* BUTTON 2: OPEN THE BOX */
