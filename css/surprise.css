@@ -898,7 +898,7 @@ h1{
   inset:0;
   border-radius:26px;
   background:#fff7ee;
-  color:#3b202b;
+  color:#4a1f2c;
   padding:30px 26px;
 
   display:flex;
@@ -916,6 +916,10 @@ h1{
     0 30px 90px rgba(255,200,220,.18);
 
   transition:all .9s cubic-bezier(.2,.8,.2,1);
+}
+.eom-letter-paper p{
+  color:#2b0f18;
+  text-shadow:0 1px 0 rgba(0,0,0,.05);
 }
 
 /* OPEN STATE */
