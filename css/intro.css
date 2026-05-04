@@ -917,6 +917,7 @@ body::after{
     transform:translate(-50%,-50%) scale(.8);
     opacity:0;
   }
+}
 /* HEART BURST */
 .heart-lock::after{
   content:"";
@@ -952,6 +953,7 @@ body::after{
     height:220px;
     opacity:0;
   }
+}
 /* CINEMATIC POLISH - lightweight */
 body::before{
   content:"";
@@ -1024,6 +1026,7 @@ body::before{
     opacity:0;
     transform:translateY(-10px);
   }
+}
 .intro-cake-stage.start{
   animation:cakeAnticipation .35s ease;
 }
