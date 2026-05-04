@@ -628,7 +628,7 @@ body{
 /* CANDLE */
 .intro-cake-stage > .cake{
   position:absolute;
-  top:140px;
+  top:108px;
   left:50%;
   width:6px;
   height:42px;
@@ -918,6 +918,7 @@ body::after{
     transform:translateY(0) scale(1);
     filter:blur(0);
   }
+}
   .birthday-content{
     max-width:100vw;
     min-height:100vh;
@@ -970,7 +971,7 @@ body::after{
   }
 
   .intro-cake-stage > .cake{
-    top:124px;
+    top:94px;
   }
 
   .main-btn{
@@ -1010,7 +1011,7 @@ body::after{
   }
 
   .intro-cake-stage > .cake{
-    top:122px;
+    top:92px;
   }
 
   .main-btn{
