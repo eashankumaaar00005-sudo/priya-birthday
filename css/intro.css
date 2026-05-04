@@ -628,7 +628,7 @@ body{
 /* CANDLE */
 .intro-cake-stage > .cake{
   position:absolute;
-  top:108px;
+  top:128px;
   left:50%;
   width:6px;
   height:42px;
@@ -971,7 +971,7 @@ body::after{
   }
 
   .intro-cake-stage > .cake{
-    top:94px;
+    top:128px;
   }
 
   .main-btn{
@@ -1011,7 +1011,7 @@ body::after{
   }
 
   .intro-cake-stage > .cake{
-    top:92px;
+    top:128px;
   }
 
   .main-btn{
